@@ -5,6 +5,12 @@
 //  Created by Stella Ortiz on 11/10/22.
 //
 
+/*
+ TODO:
+ - add handling for user pronoun and show pronoun
+   - make sure to add support in SettingsValidator
+ */
+
 import Foundation
 
 //return bool for failure or pass, then error message as string

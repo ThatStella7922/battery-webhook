@@ -13,9 +13,11 @@ struct SettingsView: View {
     @State private var webhookurl: String = ""
     @State private var userpfpurl: String = ""
     @State private var usrname: String = ""
+    @State private var usrpronoun: String = ""
     @State private var sendDeviceName = true
     @State private var sendDeviceModel = true
     @State private var showpfp = true
+    @State private var showpronoun = true
     
     // grab some user defaults
     let defaults = UserDefaults.standard
@@ -46,13 +48,22 @@ struct SettingsView: View {
                     }
                     
                     
-                    Section(header: Text("Identity"), footer: Text("Enter a display name to be shown and choose if you want to show the specified avatar image next to your display name (Requires specifying an 'Avatar Image URL' above)")) {
+                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).")) {
                         TextField(text: $usrname) {
                             Text("Display Name")
                         }.disableAutocorrection(true)
                         
+                        TextField(text: $usrpronoun) {
+                            Text("Pronoun (his/her/their/etc)")
+                        }.disableAutocorrection(true)
+                            .autocapitalization(.none)
+                        
                         Toggle(isOn: $showpfp) {
                             Text("Show specified avatar image")
+                        }
+                        
+                        Toggle(isOn: $showpronoun) {
+                            Text("Show specified pronoun")
                         }
                         
                     }
@@ -82,8 +93,8 @@ struct SettingsView: View {
                 usrname = defaults.string(forKey: "UsrName")!
             }
             
-            if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
-                showpfp = defaults.bool(forKey: "ShowPfp")
+            if UserDefaults.standard.object(forKey: "UsrPronoun") != nil {
+                usrpronoun = defaults.string(forKey: "UsrPronoun")!
             }
             
             if UserDefaults.standard.object(forKey: "SendDeviceName") != nil {
@@ -93,6 +104,14 @@ struct SettingsView: View {
             if UserDefaults.standard.object(forKey: "SendDeviceModel") != nil {
                 sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
             }
+            
+            if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
+                showpfp = defaults.bool(forKey: "ShowPfp")
+            }
+            
+            if UserDefaults.standard.object(forKey: "ShowPronoun") != nil {
+                showpronoun = defaults.bool(forKey: "ShowPronoun")
+            }
             // these if statements read the settings from defaults
         }
         
@@ -100,9 +119,11 @@ struct SettingsView: View {
             defaults.set(webhookurl, forKey: "WebhookURL")
             defaults.set(userpfpurl, forKey: "UserpfpUrl")
             defaults.set(usrname, forKey: "UsrName")
-            defaults.set(showpfp, forKey: "ShowPfp")
+            defaults.set(usrpronoun, forKey: "UsrPronoun")
             defaults.set(sendDeviceName, forKey: "SendDeviceName")
             defaults.set(sendDeviceModel, forKey: "SendDeviceModel")
+            defaults.set(showpfp, forKey: "ShowPfp")
+            defaults.set(showpronoun, forKey: "ShowPronoun")
         }
         
         .navigationTitle("Settings")

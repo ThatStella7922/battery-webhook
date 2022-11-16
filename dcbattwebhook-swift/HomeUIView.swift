@@ -37,6 +37,7 @@ struct HomeUIView: View {
                         }
                         else {
                             var ResultsVar = http()
+                            SaveCurrentDate()
                             //print(ResultsVar.self)
                             //error = ErrorInfo(id: 1, title: "HTTP Error:", description: "error: " + ResultsVar.errMsg)
                             //print("button fired with no errors")

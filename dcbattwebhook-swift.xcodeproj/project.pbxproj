@@ -17,6 +17,7 @@
 		556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
 		55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */; };
 		55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
+		55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
 		55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
 		55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBatteryInfo.swift; sourceTree = "<group>"; };
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		55E7AEA929253E8F002E6869 /* DefaultsUsed.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DefaultsUsed.md; sourceTree = "<group>"; };
+		55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
 		55ED8937291F628700CB170C /* SettingsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +71,7 @@
 			children = (
 				550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
+				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
 				550348C9291D7FB9006551B0 /* ContentView.swift */,
 				550348DC291DA3BC006551B0 /* HomeUIView.swift */,
 				55ED8937291F628700CB170C /* SettingsValidator.swift */,
@@ -75,6 +79,7 @@
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
+				55E7AEA929253E8F002E6869 /* DefaultsUsed.md */,
 				550348CB291D7FB9006551B0 /* Assets.xcassets */,
 				550348CD291D7FB9006551B0 /* dcbattwebhook_swift.entitlements */,
 				550348CE291D7FB9006551B0 /* Preview Content */,
@@ -162,6 +167,7 @@
 			files = (
 				550348D7291D84E1006551B0 /* SettingsView.swift in Sources */,
 				55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */,
+				55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */,
 				55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */,
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */,
@@ -321,7 +327,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -362,7 +368,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

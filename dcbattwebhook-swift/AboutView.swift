@@ -47,6 +47,23 @@ struct AboutView: View {
                         Text("Device Model: " + getDeviceModel())
                         Text("Device Name: " + getDeviceUserDisplayName())
                         Text("OS Version: " + getOSVersion())
+                        Text("Saved Date: " + GetCurrentDateFormatted())
+                        Text("Time Passed Since Saved Date: " + String(describing: GetTimeSinceSavedDate(simplify: true).Time) + " " + GetTimeSinceSavedDate(simplify: true).TimeUnit)
+                        
+                        // save current date button
+                        Button {
+                            SaveCurrentDate()
+                        } label: {
+                            Label("Save Current Date", systemImage: "square.and.arrow.down")
+                        }
+                        
+                        // delete all settings button
+                        Button {
+                            ResetAllSettings()
+                        } label: {
+                            Label("Reset settings", systemImage: "trash")
+                        }
+                        
                     }
                 }
             }

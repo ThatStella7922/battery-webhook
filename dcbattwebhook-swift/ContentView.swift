@@ -31,7 +31,11 @@ struct ContentView: View {
                         .foregroundColor(.accentColor)
                     Text(prodName)
                 }
-                
+            }
+        }.onAppear() {
+            if UserDefaults.standard.object(forKey: "SavedDate") == nil {
+                print("no date saved, saving!")
+                SaveCurrentDate()
             }
         }
     }
