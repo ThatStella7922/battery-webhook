@@ -9,6 +9,9 @@
  TODO:
  - add handling for user pronoun and show pronoun
    - make sure to add support in SettingsValidator
+ - redo selection logic
+ - add support for displaying the time since last plugged in (use GetTimeSinceSavedDate with simplify true)
+ - split message constructing into MessageBuilder.swift
  */
 
 import Foundation
@@ -44,9 +47,11 @@ func http() -> (err: Bool, errMsg: String) {
     var userwebhookurl = ""
     var userpfpurl = ""
     var usrname = ""
-    var showpfp = true
+    var usrpronoun = ""
     var sendDeviceName = true
     var sendDeviceModel = true
+    var showpfp = true
+    var showpronoun = true
     var workingVar = ""
     var footerBlock: MsgFooter
     var authorBlock: MsgAuthor
@@ -80,8 +85,8 @@ func http() -> (err: Bool, errMsg: String) {
         usrname = defaults.string(forKey: "UsrName")!
     }
     
-    if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
-        showpfp = defaults.bool(forKey: "ShowPfp")
+    if UserDefaults.standard.object(forKey: "UsrPronoun") != nil {
+        usrpronoun = defaults.string(forKey: "UsrPronoun")!
     }
     
     if UserDefaults.standard.object(forKey: "SendDeviceName") != nil {
@@ -90,6 +95,14 @@ func http() -> (err: Bool, errMsg: String) {
     
     if UserDefaults.standard.object(forKey: "SendDeviceModel") != nil {
         sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
+    }
+    
+    if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
+        showpfp = defaults.bool(forKey: "ShowPfp")
+    }
+    
+    if UserDefaults.standard.object(forKey: "ShowPronoun") != nil {
+        showpronoun = defaults.bool(forKey: "ShowPronoun")
     }
 
     // set these so we can work on them

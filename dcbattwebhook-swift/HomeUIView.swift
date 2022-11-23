@@ -30,7 +30,7 @@ struct HomeUIView: View {
                 */
                 Section(header: Text("Webhook")){
                     Button {
-                        let isSettingsValid = ValidateSettings()
+                        let isSettingsValid = ValidateSettingsOld()
                         
                         if (isSettingsValid.err == true) {
                             errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg)

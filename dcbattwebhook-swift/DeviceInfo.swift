@@ -139,4 +139,5 @@ func getBatteryLevel() -> Int {
     UIDevice.current.isBatteryMonitoringEnabled = true
     //print("BATTERY : \(UIDevice.current.batteryLevel)")
     return Int(UIDevice.current.batteryLevel * 100)
+    //returns a value from 0 to 100
 }
