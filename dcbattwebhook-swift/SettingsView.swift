@@ -77,6 +77,11 @@ struct SettingsView: View {
                             Text("Send Device Model")
                         }
                     }
+                    if (isiOSPre16() == false) {
+                        Section(header: Text("iOS/iPadOS 16 Notice")) {
+                            Text("On iOS/iPadOS 16 and later, Apple no longer lets developers get the device's name (set in Settings > General > About > Name), which is why your device's name isn't being read. Sorry :(")
+                        }
+                    }
                 }
             }
         }
