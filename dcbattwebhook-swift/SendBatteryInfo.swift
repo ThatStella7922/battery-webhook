@@ -5,71 +5,16 @@
 //  Created by Stella Ortiz on 11/10/22.
 //
 
-/*
- TODO:
- - add handling for user pronoun and show pronoun
-   - make sure to add support in SettingsValidator
- - redo selection logic
- - add support for displaying the time since last plugged in (use GetTimeSinceSavedDate with simplify true)
- - split message constructing into MessageBuilder.swift
- */
-
 import Foundation
 
 //return bool for failure or pass, then error message as string
 func http() -> (err: Bool, errMsg: String) {
     
-    //Struct for the json contents
-    struct MsgAuthor: Codable {
-        var name: String?
-        var icon_url: String?
-    }
-
-    struct MsgEmbed: Codable {
-        var author: MsgAuthor?
-        var footer: MsgFooter?
-        var title: String?
-        var description: String?
-        var color: Int?
-    }
-    
-    struct MsgFooter: Codable {
-        var text: String?
-        var icon_url: String?
-    }
-
-    struct MessageObj: Codable {
-        var embeds: [MsgEmbed]?
-        var contents: String?
-    }
-    
-    //print("button fired")
     var userwebhookurl = ""
-    var userpfpurl = ""
-    var usrname = ""
-    var usrpronoun = ""
-    var sendDeviceName = true
-    var sendDeviceModel = true
-    var showpfp = true
-    var showpronoun = true
-    var workingVar = ""
-    var footerBlock: MsgFooter
-    var authorBlock: MsgAuthor
-    var embedBlock: MsgEmbed
-    var fullmessageBlock: MessageObj
-    var embedColor = 0
     
     // for returning
     var returnErr = false
     var returnErrMsg = ""
-    
-    // color red or e872e2 depending on if we are <=20% battery
-    if (getBatteryLevel() <= 20) {
-        embedColor = 16711680
-    }
-    else {
-        embedColor = 15233762
-    }
     
     // get our info
     let defaults = UserDefaults.standard
@@ -77,120 +22,16 @@ func http() -> (err: Bool, errMsg: String) {
         userwebhookurl = defaults.string(forKey: "WebhookURL")!
     }
     
-    if UserDefaults.standard.object(forKey: "UserpfpUrl") != nil {
-        userpfpurl = defaults.string(forKey: "UserpfpUrl")!
-    }
-    
-    if UserDefaults.standard.object(forKey: "UsrName") != nil {
-        usrname = defaults.string(forKey: "UsrName")!
-    }
-    
-    if UserDefaults.standard.object(forKey: "UsrPronoun") != nil {
-        usrpronoun = defaults.string(forKey: "UsrPronoun")!
-    }
-    
-    if UserDefaults.standard.object(forKey: "SendDeviceName") != nil {
-        sendDeviceName = defaults.bool(forKey: "SendDeviceName")
-    }
-    
-    if UserDefaults.standard.object(forKey: "SendDeviceModel") != nil {
-        sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
-    }
-    
-    if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
-        showpfp = defaults.bool(forKey: "ShowPfp")
-    }
-    
-    if UserDefaults.standard.object(forKey: "ShowPronoun") != nil {
-        showpronoun = defaults.bool(forKey: "ShowPronoun")
-    }
-
-    // set these so we can work on them
-    authorBlock = MsgAuthor()
-    footerBlock = MsgFooter()
-    embedBlock = MsgEmbed()
-    fullmessageBlock = MessageObj()
-    
-    // shit ass logic to send a certain embed depending on user settings
-    // see comments inside ifs
-    if ((sendDeviceModel == true) && (sendDeviceName == true) && (showpfp == true)) {
-        // if deviceModel, deviceName, and pfp are to be sent
-        workingVar = (getDeviceUserDisplayName() + " (" + getDeviceModel() + ") has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        var msgFooterText = ("Sent from " + prodName + " v" + String(describing: version))
-        
-        footerBlock = MsgFooter(text: msgFooterText)
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, footer: footerBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == false) && (sendDeviceName == true) && (showpfp == true)) {
-        // if device name and pfp are to be sent - do NOT send model
-        workingVar = (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == true) && (sendDeviceName == false) && (showpfp == true)) {
-        // if device model and pfp are to be sent - do NOT send device name
-        workingVar = (getDeviceModel() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == false) && (sendDeviceName == false) && (showpfp == true)) {
-        // if only pfp is to be sent - do NOT send device model or device name
-        workingVar = ("Device has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == true) && (sendDeviceName == true) && (showpfp == false)) {
-        // if deviceModel and deviceName are to be sent - do NOT send pfp
-        workingVar = (getDeviceUserDisplayName() + " (" + getDeviceModel() + ") has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == false) && (sendDeviceName == true) && (showpfp == false)) {
-        // if device name is to be sent - do NOT send model or pfp
-        workingVar = (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == true) && (sendDeviceName == false) && (showpfp == false)) {
-        // if device model is to be sent - do NOT send device name or pfp
-        workingVar = (getDeviceModel() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
-    else if ((sendDeviceModel == false) && (sendDeviceName == false) && (showpfp == false)) {
-        // if no info is to be sent - do NOT send device model device name or pfp
-        workingVar = ("Device has " + String(describing: getBatteryLevel()) + "% battery remaining")
-        userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-        
-        authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
-        embedBlock = MsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-        fullmessageBlock = MessageObj(embeds: [embedBlock], contents: "")
-    }
+    let fullmessageBlock = ConstructEmbed()
+    // this is how we grab the json to throw into the json encoder below, just by calling constructembed
     
     // prep json data
     let jsonEncoder = JSONEncoder()
     let jsonData = try! jsonEncoder.encode(fullmessageBlock)
     
     // if i need to print the encoded json to the console for inspecting later
-    //let jsonString = String(data: jsonData, encoding: .utf8)
-    //print("broken ahh json: " + jsonString!)
+    let jsonString = String(data: jsonData, encoding: .utf8)
+    print("broken ahh json: " + jsonString!)
     
     // our actual post
     let webhookURL = URL(string: userwebhookurl)! // grab the url from user settings
@@ -214,7 +55,7 @@ func http() -> (err: Bool, errMsg: String) {
         }
     }
     
-    //print("posted (or attempted to). if error occurred then it will be below:")
+    print("posted (or attempted to). if error occurred then it will be below:")
     task.resume()
     
     // i need to figure out how to get the updated returnErr bool and returnErrMsg out of the `task` because right now

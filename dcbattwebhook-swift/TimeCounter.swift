@@ -116,3 +116,8 @@ func GetCurrentDateFormatted() -> String {
     
     return currentDateFormatted
 }
+
+func GetTimeSinceSavedDateAsFmtedStr() -> String {
+    return String(describing: GetTimeSinceSavedDate(simplify: true).Time) + " " + GetTimeSinceSavedDate(simplify: true).TimeUnit
+    // returns something along the lines of "2 minutes" or "4 hours" or "1 day"
+}

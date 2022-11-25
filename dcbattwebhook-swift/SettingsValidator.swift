@@ -5,13 +5,6 @@
 //  Created by Stella Ortiz on 11/11/22.
 //
 
-/*
- TODO:
- - add handling for user pronoun and show pronoun settings
-   - saving and loading these is already implemented everywhere else
- - if not lazy then a refactor of the logic
- */
-
 import Foundation
 
 private var webhookurl: String = ""
