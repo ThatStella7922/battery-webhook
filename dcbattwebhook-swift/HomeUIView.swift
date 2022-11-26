@@ -36,7 +36,7 @@ struct HomeUIView: View {
                             errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg)
                         }
                         else {
-                            var ResultsVar = http()
+                            var ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
                             SaveCurrentDate()
                             //print(ResultsVar.self)
                             //error = ErrorInfo(id: 1, title: "HTTP Error:", description: "error: " + ResultsVar.errMsg)

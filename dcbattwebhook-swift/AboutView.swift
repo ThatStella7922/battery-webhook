@@ -16,7 +16,7 @@ struct AboutView: View {
                     Section(header: Text("Info"), footer: Text("Battery Webhook, intended for use with Discord webhooks.")) {
                         Text(prodName).font(.title)
                         Text("By ThatStella7922")
-                        Text("Version: " + String(version))
+                        Text("Version: " + version)
                     }
                     
                     

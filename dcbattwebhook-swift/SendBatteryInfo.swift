@@ -8,7 +8,7 @@
 import Foundation
 
 //return bool for failure or pass, then error message as string
-func http() -> (err: Bool, errMsg: String) {
+func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> (err: Bool, errMsg: String) {
     
     var userwebhookurl = ""
     
@@ -22,7 +22,7 @@ func http() -> (err: Bool, errMsg: String) {
         userwebhookurl = defaults.string(forKey: "WebhookURL")!
     }
     
-    let fullmessageBlock = ConstructEmbed()
+    let fullmessageBlock = ConstructEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
     // this is how we grab the json to throw into the json encoder below, just by calling constructembed
     
     // prep json data

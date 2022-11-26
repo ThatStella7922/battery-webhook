@@ -8,7 +8,7 @@
 import SwiftUI
 
 public let prodName = "Battery Webhook"
-public let version = 1.0
+public let version = "1.0b25"
 
 @main
 struct dcbattwebhook_swiftApp: App {
