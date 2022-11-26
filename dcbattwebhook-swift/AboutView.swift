@@ -61,7 +61,7 @@ struct AboutView: View {
                         Button {
                             ResetAllSettings()
                         } label: {
-                            Label("Reset settings", systemImage: "trash")
+                            Label("Reset all settings", systemImage: "trash")
                         }
                         
                     }

@@ -33,7 +33,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.")) {
+                    Section(header: Text("URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG for your avatar image.")) {
                         TextField(text: $webhookurl) {
                             Text("Discord Webhook URL")
                                 
@@ -48,7 +48,7 @@ struct SettingsView: View {
                     }
                     
                     
-                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).")) {
+                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYour pronoun will be used primarily in automated sending of battery info (see Automation Settings)")) {
                         TextField(text: $usrname) {
                             Text("Display Name")
                         }.disableAutocorrection(true)

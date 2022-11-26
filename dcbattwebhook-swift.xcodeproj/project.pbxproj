@@ -19,6 +19,7 @@
 		55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
 		55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
+		55DE492929328BEB00DC68C3 /* AutomationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */; };
 		55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
 		55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
 		55B4E8E92931742300492C77 /* EmbedStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStructs.swift; sourceTree = "<group>"; };
+		55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationSettingsView.swift; sourceTree = "<group>"; };
 		55E7AEA929253E8F002E6869 /* DefaultsUsed.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DefaultsUsed.md; sourceTree = "<group>"; };
 		55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
 		55ED8937291F628700CB170C /* SettingsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValidator.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				55B4E8E729316C0600492C77 /* MessageBuilder.swift */,
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
+				55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
 				55E7AEA929253E8F002E6869 /* DefaultsUsed.md */,
@@ -178,6 +181,7 @@
 				55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */,
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */,
+				55DE492929328BEB00DC68C3 /* AutomationSettingsView.swift in Sources */,
 				550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */,
 				550348CA291D7FB9006551B0 /* ContentView.swift in Sources */,
 				556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */,
