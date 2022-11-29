@@ -65,7 +65,7 @@ struct ContentView: View {
                 // if any of the automations are enabled
                 UIDevice.current.isBatteryMonitoringEnabled = true
                 
-                //finish adding shit here, maybe notificationcenter or something idk
+                //finish adding shit here, use notificationcenter to catch events or some shit idk
             }
         }
     }

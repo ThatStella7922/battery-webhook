@@ -63,10 +63,10 @@ func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
                                 return (monthsBetweenDates.month ?? 0, "months")
                             }
                         }
-                        if (weeksBetweenDates.weekOfYear == 1) {
-                            return (weeksBetweenDates.weekOfYear ?? 0, "week")
+                        if (weeksBetweenDates.weekOfMonth == 1) {
+                            return (weeksBetweenDates.weekOfMonth ?? 0, "week")
                         } else {
-                            return (weeksBetweenDates.weekOfYear ?? 0, "weeks")
+                            return (weeksBetweenDates.weekOfMonth ?? 0, "weeks")
                         }
                     }
                     if (daysBetweenDates.day == 1) {
@@ -120,4 +120,73 @@ func GetCurrentDateFormatted() -> String {
 func GetTimeSinceSavedDateAsFmtedStr() -> String {
     return String(describing: GetTimeSinceSavedDate(simplify: true).Time) + " " + GetTimeSinceSavedDate(simplify: true).TimeUnit
     // returns something along the lines of "2 minutes" or "4 hours" or "1 day"
+}
+
+func isPepperoniDay() -> Bool {
+    
+    /*
+     prof mode or something idk
+     ok real talk, this function will return TRUE if it is the first day of april (april 1) on any year.
+     
+     :ccccccccccccccccccccccccccccccccccc::::::::::::::::::::::::::::::::::::::::::::;:::::::::::::::::::::::::::::::::::::::
+     :ccccccccccccccccccccccccccccccccccc::::::::::::::::::::::::::::::::::::::::::::;:::::::::::::::::::::::::::::;:::::::;;
+     :ccccccccccccccccccccccccccccccccccc:::::::::::;,;::::::::::::::::::::::::::::::;::::::::::::::::::::::::;;::;;;::::;;;;
+     :ccccccccccccccccccccccccccccccccccc::::c::::::. ':cc:::::c:::cc:::::::::::::::;;:::::::::::::::;.'::::;;;;;;;;;;;;;;;;;
+     :cccccccccccccccccc;;:,',::,',;cc;;:::::;,:c::c. ';'',:c:c:;,''',::c:,;;'',;:::;,''',;::;,''',;;. .',;;;;;;;;;;;;;;;;;;;
+     cllllllllllllllllll' ';,...,;'.'l;.'cll,.,lllll' .,;,..:l:..',,,..;l;..,,,..;l:..,,,..;:..,,,;c:. .',:ccccccccccccccc:::
+     dxdxxxxxxxxxxxxxxxx,.ckkc.,xkd..ox;.:xl.;xkkkkk;.:kkk;.cx,.ckkkko..dl.,xkkc.,x; .:::,.;o,.,:cdxx: ,ddddddddddddddddddooo
+     dxxxxxxxxxxxxxxxxxx,.ckkc.,xkd'.okx,.;.'dkkkkkk;.:kkk;.cx,.lOkkkd..dl.,xkkc.,x: ,ooooodxdl:;.'lx: ,xxddddddddddddddddddd
+     dxxxxxxxxxxxxxxxxxx,.ckkc.,xkd'.dkkd' 'dkkkkkkk:.:kkk;.cko'';:::''lkl.,xkkc.,xd;.,::;:od:;c:''lxl..;:oxddddddddddddddddd
+     dxxxxxxxxxxxxxxxxkxocdkkdcokkxolxkkx,.okkkkkkkkdcdkkkdldkkxocc::lxkkdcokkkdcokkxoc::coxdl:::cdxxxl::cdxdxddddddddddddddd
+     dxxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkc,lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxkkkxxxxxxxxxxxxxxxxxxxdxxdddddddddddddd
+     dxxxxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxxxxxxxxxxxxxxxxxxxxxxddddddddddddddd
+     dxxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxkkxxxxxxxxxxxxxxxxxxxxxddddddddddddd
+     dxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxxkkkxc:dkkkkkkkkkkkkkkkxxxxxxxxxxxxxxxxxxxxddddddddddddd
+     dxxxxxxxxxkkxkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkOOkOkkkkkkOkOkkkOk;;xOkxc:dkkkkkkkkkkkkkkkkkkxxxxxxxxxxxxxxxxxxdddddddddddd
+     dxxxxxxxxxkkkkkkkkkkkkkkkkkkl:l:,lxo::::lxkko:;;;cxkkxl:;::lxd:..;cdkl:xkxo:;;;cdkxl:c:;;;oxxxxxxxxxxxxxxxxxdddddddddddd
+     dxxxxxxxxxkkkkkkkkkkkkkkkkkk; 'clo:.;ooc.,xklcodc.;kx,.:ooloxxc..loxx'.ok;.;ooc'.ox, ,loc..okxxxxxxxxxxxxxxxxddddddddddd
+     dxxxxxxxxkkkkkkkkkkkkkkkkkkk,.ckOd..:ccc;;dkdlcc:..xl.;kkkkkkOd.'xkkx,.do.,xkkkc.,x,.ckxx,.ckxxxxxxxxxxxxxxxxxdddddddddd
+     dxxxxxxxkkkkkkkkkkkkkkkkkkkk,.lOkx'.lkkkxxkl.,odl.'xo.'dOOkxxkd.'xOkx'.dd..okkx;.:x,.ckxx,.ckxxxxxxxxxxxxxxxxxxddddddddd
+     dxxxxxxkkkkkkkkkkkkkkkkkkkkk:.lOkkd;,;:;;lko,,:cc',xOo,,;:;cdkx;.,:dx;'dOo;,;;;,cxk:.lkkx;.lkxxxxxxxxxxxxxxxxxxddddddddd
+     dxxxxxxxkkkkkkkkkkkkkkkkkkkkxdkkkkkkxdodkkOkkdodkxxkkOkxddxkOkOkdodkkxdkkkkxdodkkkkxdxkkkxdxkxkxxxxxxxxxxxxxxxxxdddddddd
+     dxxxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkOkkkkkOkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxkkxxxxxxxxxxxxxxxxxdddddddd
+     dxxxxxxxkxkkkkkkkkkkkkkkkkkkkkkkkkkkkkOOkkOOOOkkkkOOkkkkkkOkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxxkxxxxxxxxxxxxxxxxxxdddddddd
+     dxxxxxxxxooodddddddxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkxxxxxxxxxxddxxddddddddddddddd
+     dxxxxxxxxl:c::cccccccllloooooddddddddddddddoooodooooodoooddddddddddddddddddddoodoooooooooooollllllllllcllccccccodddddddd
+     dxxxxxxkdl::::::::::ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc::::::::::::coddddddd
+     dxxxxxxxdc:::::::::::::cc:ccccccccccccccccccccccccccccccccccccccc:::::::::ccccccc::ccc::::::::cc::::::::::::::::lddddddd
+     dxxxxxxxdc:::::::::::::::::::::::cccccccccccccc:cccccccccc::c:,''......''',;::c:::::::::::::::::::::::::::::::::codddddd
+     dxxxxxxxoc:::::::::::::::::::::::cc::::::::ccc::cccc:c::::;,,'...        ....',;;:::::::::::::::::::::::::;::::;:loddddd
+     dxxxxxxxoc::::::::::::::::::::::::::::::::::::::ccc:::;,......                 ..,::::::::::::::::::;::::;:::;;;:loddddd
+     dxxxxxxxl::::::::::::::::::::::::::::::::::::::::::::;'..       ...              .,:::::::::::::::;;;;;;;:;;;;;;:coodddd
+     dxxxxxxdl:::::::::::::::::::::::::::::::::::::::::::;,.   ...',,;;;,,,'''...     .';:::::::::::::;;;;::;;;;;;;;;:clodddd
+     dxxxxxxdc:::::::::::::::::::::::::::::::::::::::::;'.. ..,;cccccccccc::::::;,..   ..,;:::::::::::;;;:::;;;;;;;;;:clodddd
+     dxxxxxxoc:::::::::::::::::::::::::::::::::::::::;,.. ..;cccccccccccccc::::::::;,..  .';;::;;::::;;;;::;;;;;;;;;;:clodddd
+     dxxxxxxl::::::::::::::::::::::::::::::::::::::;:;.  .':cccccccccccccccc:::::::::;'.  .,;;:;;:;;;;;;:::;;;;;;;;;;:clodddd
+     dxxxxxdl:::;::::::::::::::::::::::::::::::::::;;;'  ':cc::;;;;;;:cclccc:;,,,,,;;;;'. .,,;;;;;;;;;;;:::;;;;;;;;;;:clooddd
+     dxxxxxdc:;;;;;:::::::::::::::::::::::::::::;;;;;:,..;c:,,;:;;;;,;;cccc:,,,;;,,,',;:' ..';;;;;;;;;;;;::;;;;;;;;;;:clooddd
+     dxxxxxoc;::::::::::::::::::::::::::::::::::;;;;,.. .;:;,:olc::;;;:c:;:c::;;,''''',;'   .',;;;;;;;;;;;:;;;;;;;;;;:clooddd
+     dxxxxxdc::::::::::::::::::::::::;;::;;;;;;;;;;,.   .;cc;;cc:::c::::::;::c:,''...,;,'.  ..,;;;;:;;;;;;:;;;;;;;;;;:clooddd
+     dxxxxxoc::::::;;:::::::::::::::;;;;:;;;;;;;;::,.. .;ccccccclcllc:::::;,;:::::;;;;;;,.  .,;::;;;;,;;;;:;;;;;;;;;;:clooddd
+     dxxxxxl:::::::::::::::;;;;::::;;;;;;;;;;;;;;cl:,. ':::cccccccc::;,',,'.',;::::::;;;,'.  ;cc:;;;;;;;;;;;;;;;;;;;;:clooooo
+     dxxxdoc::::::::::::::;;;;::;;;::;;;;;;;;;;;;llc;..,:::cccccccc::;''','.',;:cc::::;;;,.  ;c::,,,,;;;;;;;;;;;;;;;;:clloooo
+     dxddoc:::::::;;;;:::::::::;;;;:::;;;;;;;;;;;loc;..,;::::cccc:::;,,,,,,''';::cc:::;;,'.  ;ll:'',,;;;;;;;;;;;;;;;;:clloooo
+     dxdoc::;;;;;;;;::::::;;;;;;;;;;;;;;;;;;;;;;;cddc...,;:::ccc:;;;;;;;;,,;;,,,,;::;;,,'..  :do;.'',;;;;;;;;;;;;;;;;:ccloooo
+     dddl::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:oxl....',;:::;;,;;,,,,,',,,,,;;,,;,,''... .:dl,..',;;;;;;;;;;;;;;;;::cloooo
+     ddoc:;;;;:;;;;;;;;,;;;;;;;;;;:::;;;;;;;;;;;;;ldo'....',;;;;,,,;;;,'...'',,;,,,,''....  .:c:...',,;;;;;;;,,;;;;;;;:cloooo
+     odl::;;;;;;;;;;;;;;;;;,,,,,,;;;;;;;;;;;;;;;;;:ll;....''',,'''',,,,'''..'''''..''..     .......',,;;;;;;,,,,;;,,,;:cllooo
+     ooc:;;;;;;;;;;;;;;;;;;;;;;;,,,,,,,;;;;;;;;;;;;;:,....''''.......''',,''............    .   ...',,,,,;;,,,,,,,,,,;:cllooo
+     oo:;;;;;;;;;;;;;;;;;;;;;,,;,;;;;;,,,,,;;;;;,,;,'...................'''......  ....       ....'',,,,,,,,,,,,,,,,,;:cllooo
+     ol:;;;;;;;;;;;;;;;;;,,,,,,,,',,,,;,,,,,,,,,,,,,''...........  ..........      .....     ......'',,,,,,,,,,,,,,,,;:cclooo
+     lc;;;;;;;;;;;;;;,;,,,,,,,,,,,,,'',''',,,,,'',''''.................        .........      .....''''',,,,,,,,,,,,,;:cclloo
+     c:;;;;,,,,,,,,,,,,,,,;;;;;;;;,'.'''''''''..............''''''.......................        ......''''''''''',,,;::clllo
+     l:,,,,;;;,,,,,'''''',,,,,,,'............            ....'''''''',,,,'''''''........            .....         ....';:clll
+     ol;,,,,,,,,,'''''..........                           ...''''''','''''''''.......                                  ...,:
+     lc,'''...........                                        ....................
+     ;:........                          .   .             ..
+     ........                           ..  .,'.  .'.   .  .'.           ...
+                                      ...  .;;.  .:;..'...  ..        ....','.    ..  ...    .  ..'..   ..
+                                     ...   .::. .;:. .:,    .,.   ..       .''.        '.         ..'.  .
+                                            .    .    ..     */
+    return false
 }
