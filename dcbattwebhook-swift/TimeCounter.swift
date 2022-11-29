@@ -57,25 +57,25 @@ func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
                         // if more than 7 days have passed:
                         if (weeksBetweenDates.weekOfMonth! > 4) {
                             // if more than 4 weeks have passed:
-                            if (monthsBetweenDates.minute == 1) {
+                            if (monthsBetweenDates.month == 1) {
                                 return (monthsBetweenDates.month ?? 0, "month")
                             } else {
                                 return (monthsBetweenDates.month ?? 0, "months")
                             }
                         }
-                        if (weeksBetweenDates.minute == 1) {
+                        if (weeksBetweenDates.weekOfYear == 1) {
                             return (weeksBetweenDates.weekOfYear ?? 0, "week")
                         } else {
                             return (weeksBetweenDates.weekOfYear ?? 0, "weeks")
                         }
                     }
-                    if (daysBetweenDates.minute == 1) {
+                    if (daysBetweenDates.day == 1) {
                         return (daysBetweenDates.day ?? 0, "day")
                     } else {
                         return (daysBetweenDates.day ?? 0, "days")
                     }
                 }
-                if (hoursBetweenDates.minute == 1) {
+                if (hoursBetweenDates.hour == 1) {
                     return (hoursBetweenDates.hour ?? 0, "hour")
                 } else {
                     return (hoursBetweenDates.hour ?? 0, "hours")
