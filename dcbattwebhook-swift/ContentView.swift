@@ -22,9 +22,9 @@ struct ContentView: View {
                     NavigationLink{SettingsView()} label: {
                         Label("Settings", systemImage: "gearshape")
                     }
-                    NavigationLink{AutomationSettingsView()} label: {
+                    /*NavigationLink{AutomationSettingsView()} label: {
                         Label("Automation Settings", systemImage: "gearshape.2")
-                    }
+                    }*/
                     NavigationLink{AboutView()} label: {
                         Label("About", systemImage: "person.circle")
                     }
@@ -40,9 +40,9 @@ struct ContentView: View {
                 }
             }
         }.onAppear() {
-            var sendOnPluggedIn = false
+            /*var sendOnPluggedIn = false
             var sendOnUnplugged = false
-            var sendOnHitFullCharge = false
+            var sendOnHitFullCharge = false*/
             
             if UserDefaults.standard.object(forKey: "SavedDate") == nil {
                 //print("no date saved, saving!")
@@ -50,7 +50,7 @@ struct ContentView: View {
             }
             //save the current date if one is not already saved
             
-            if UserDefaults.standard.object(forKey: "SendOnPluggedIn") != nil {
+            /*if UserDefaults.standard.object(forKey: "SendOnPluggedIn") != nil {
                 sendOnPluggedIn = defaults.bool(forKey: "SendOnPluggedIn")
             }
             if UserDefaults.standard.object(forKey: "SendOnUnplugged") != nil {
@@ -66,7 +66,7 @@ struct ContentView: View {
                 UIDevice.current.isBatteryMonitoringEnabled = true
                 
                 //finish adding shit here, use notificationcenter to catch events or some shit idk
-            }
+            }*/
         }
     }
 }
