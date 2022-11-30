@@ -17,6 +17,8 @@
   - Bool, stores the user's preference on sending their device name
 - SendDeviceModel 
   - Bool, stores the user's preference on sending their device model
+- SelectedServiceType
+ - String, stores the user's preference on which service (discord, telegram, etc) they want to use. Must be selected from a predefined list. See serviceTypes array in WebhookSettingsView.swift
 
 ## Automation Settings
 - SendOnPluggedIn

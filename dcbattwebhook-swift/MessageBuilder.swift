@@ -8,7 +8,7 @@
 import Foundation
 
 // three paramters: did the device just get plugged in, did the device just get unplugged, did the device just hit 100% charge. all in that order
-func ConstructEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> MessageObj {
+func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> MessageObj {
     // empty variables to store user variables into
     var userwebhookurl = ""
     var userpfpurl = ""
@@ -113,79 +113,3 @@ func ConstructEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnpl
     fullmessageBlock = MessageObj(embeds: [embedBlock])
     return fullmessageBlock
 }
-
-
-/*
- // shit ass logic to send a certain embed depending on user settings
- // see comments inside ifs
- if ((sendDeviceModel == true) && (sendDeviceName == true) && (showpfp == true)) {
-     // if deviceModel, deviceName, and pfp are to be sent
-     workingVar = (getDeviceUserDisplayName() + " (" + getDeviceModel() + ") has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     var msgFooterText = ("Sent from " + prodName + " v" + String(describing: version))
-     
-     footerBlock = OldMsgFooter(text: msgFooterText)
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, footer: footerBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == false) && (sendDeviceName == true) && (showpfp == true)) {
-     // if device name and pfp are to be sent - do NOT send model
-     workingVar = (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == true) && (sendDeviceName == false) && (showpfp == true)) {
-     // if device model and pfp are to be sent - do NOT send device name
-     workingVar = (getDeviceModel() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == false) && (sendDeviceName == false) && (showpfp == true)) {
-     // if only pfp is to be sent - do NOT send device model or device name
-     workingVar = ("Device has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == true) && (sendDeviceName == true) && (showpfp == false)) {
-     // if deviceModel and deviceName are to be sent - do NOT send pfp
-     workingVar = (getDeviceUserDisplayName() + " (" + getDeviceModel() + ") has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == false) && (sendDeviceName == true) && (showpfp == false)) {
-     // if device name is to be sent - do NOT send model or pfp
-     workingVar = (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == true) && (sendDeviceName == false) && (showpfp == false)) {
-     // if device model is to be sent - do NOT send device name or pfp
-     workingVar = (getDeviceModel() + " has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- else if ((sendDeviceModel == false) && (sendDeviceName == false) && (showpfp == false)) {
-     // if no info is to be sent - do NOT send device model device name or pfp
-     workingVar = ("Device has " + String(describing: getBatteryLevel()) + "% battery remaining")
-     userpfpurl = "https://cdn.discordapp.com/embed/avatars/0.png"
-     
-     authorBlock = OldMsgAuthor(name: usrname, icon_url: userpfpurl)
-     embedBlock = OldMsgEmbed(author: authorBlock, title: "Device Battery", description: workingVar, color: embedColor)
-     fullmessageBlock = OldMessageObj(embeds: [embedBlock], contents: "")
- }
- */

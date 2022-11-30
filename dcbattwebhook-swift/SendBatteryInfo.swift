@@ -11,6 +11,8 @@ import Foundation
 func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> (err: Bool, errMsg: String) {
     
     var userwebhookurl = ""
+    var selectedServiceType = ""
+    var fullmessageBlock = MessageObj()
     
     // for returning
     var returnErr = false
@@ -22,7 +24,18 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
         userwebhookurl = defaults.string(forKey: "WebhookURL")!
     }
     
-    let fullmessageBlock = ConstructEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+    if UserDefaults.standard.object(forKey: "SelectedServiceType") != nil {
+        selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
+    }
+    
+    switch(selectedServiceType) {
+    case "Discord":
+        fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+        
+    default:
+        fullmessageBlock = MessageObj(contents: "brokey")
+        //todo: better validate this
+    }
     // this is how we grab the json to throw into the json encoder below, just by calling constructembed
     
     // prep json data

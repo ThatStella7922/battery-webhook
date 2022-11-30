@@ -15,6 +15,7 @@
 		550348D9291D9EB7006551B0 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D8291D9EB7006551B0 /* DeviceInfo.swift */; };
 		550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348DC291DA3BC006551B0 /* HomeUIView.swift */; };
 		556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
+		557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
 		55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */; };
 		55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
@@ -35,6 +36,7 @@
 		550348D8291D9EB7006551B0 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		550348DC291DA3BC006551B0 /* HomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIView.swift; sourceTree = "<group>"; };
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
+		557299C82936D5DF00D7523D /* WebhookSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSettingsView.swift; sourceTree = "<group>"; };
 		55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBatteryInfo.swift; sourceTree = "<group>"; };
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
 				55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */,
+				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
 				55E7AEA929253E8F002E6869 /* DefaultsUsed.md */,
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */,
+				557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */,
 				550348D7291D84E1006551B0 /* SettingsView.swift in Sources */,
 				55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */,
 				55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */,

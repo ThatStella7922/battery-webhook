@@ -9,9 +9,7 @@ import SwiftUI
 import Foundation
 
 struct SettingsView: View {
-    
-    @State private var webhookurl: String = ""
-    @State private var userpfpurl: String = ""
+
     @State private var usrname: String = ""
     @State private var usrpronoun: String = ""
     @State private var sendDeviceName = true
@@ -33,20 +31,11 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG for your avatar image.")) {
-                        TextField(text: $webhookurl) {
-                            Text("Discord Webhook URL")
-                                
-                                
-                        }.keyboardType(.URL)
-                            .disableAutocorrection(true)
-                        
-                        TextField(text: $userpfpurl) {
-                            Text("Avatar Image URL (optional)")
-                        }.keyboardType(.URL)
-                            .disableAutocorrection(true)
+                    Section(header: Text("Webhook"), footer: Text("Specify the webhook URL and type of service to push to.")) {
+                        NavigationLink{WebhookSettingsView()} label: {
+                            Label("Webhook Settings", systemImage: "link")
+                        }
                     }
-                    
                     
                     Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYour pronoun will be used primarily in automated sending of battery info (see Automation Settings)")) {
                         TextField(text: $usrname) {
@@ -77,6 +66,7 @@ struct SettingsView: View {
                             Text("Send Device Model")
                         }
                     }
+                    
                     if (isiOSPre16() == false) {
                         Section(header: Text("iOS/iPadOS 16 Notice")) {
                             Text("On iOS/iPadOS 16 and later, Apple no longer lets developers get the device's name (set in Settings > General > About > Name), which is why your device's name isn't being read. Sorry :(")
@@ -86,14 +76,6 @@ struct SettingsView: View {
             }
         }
         .onAppear() {
-            if UserDefaults.standard.object(forKey: "WebhookURL") != nil {
-                webhookurl = defaults.string(forKey: "WebhookURL")!
-            }
-            
-            if UserDefaults.standard.object(forKey: "UserpfpUrl") != nil {
-                userpfpurl = defaults.string(forKey: "UserpfpUrl")!
-            }
-            
             if UserDefaults.standard.object(forKey: "UsrName") != nil {
                 usrname = defaults.string(forKey: "UsrName")!
             }
@@ -121,8 +103,6 @@ struct SettingsView: View {
         }
         
         .onDisappear {
-            defaults.set(webhookurl, forKey: "WebhookURL")
-            defaults.set(userpfpurl, forKey: "UserpfpUrl")
             defaults.set(usrname, forKey: "UsrName")
             defaults.set(usrpronoun, forKey: "UsrPronoun")
             defaults.set(sendDeviceName, forKey: "SendDeviceName")
