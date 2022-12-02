@@ -86,7 +86,7 @@ public extension UIDevice {
             switch identifier {
             case "AppleTV5,3": return "Apple TV 4"
             case "AppleTV6,2": return "Apple TV 4K"
-            case "i386", "x86_64": return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
+            case "i386", "x86_64", "arm64": return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
             default: return identifier
             }
     
@@ -136,8 +136,14 @@ func getDeviceModel() -> String {
 }
 
 func getBatteryLevel() -> Int {
+    
+    //terrible place to put this
+    #if os(tvOS)
+    return 0
+    
+    #else
     UIDevice.current.isBatteryMonitoringEnabled = true
-    //print("BATTERY : \(UIDevice.current.batteryLevel)")
     return Int(UIDevice.current.batteryLevel * 100)
     //returns a value from 0 to 100
+    #endif
 }
