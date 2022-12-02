@@ -105,11 +105,11 @@ func GetCurrentDateFormatted() -> String {
         currentDate = defaults.object(forKey: "SavedDate") as! Date
     }
     
-    var formatter = DateFormatter()
+    let formatter = DateFormatter()
     formatter.timeStyle = .medium
     formatter.dateStyle = .long
     
-    var formatteddate = formatter.string(from: currentDate as Date)
+    let formatteddate = formatter.string(from: currentDate as Date)
     
     
     currentDateFormatted = formatteddate
