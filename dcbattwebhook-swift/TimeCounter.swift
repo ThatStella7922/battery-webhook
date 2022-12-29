@@ -39,7 +39,7 @@ func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
     }
     
     let monthsBetweenDates = userCalendar.dateComponents([.month], from: savedDate, to: currentDate)
-    let weeksBetweenDates = userCalendar.dateComponents([.weekOfMonth], from: savedDate, to: currentDate)
+    let weeksBetweenDates = userCalendar.dateComponents([.weekOfYear], from: savedDate, to: currentDate)
     let daysBetweenDates = userCalendar.dateComponents([.day], from: savedDate, to: currentDate)
     let hoursBetweenDates = userCalendar.dateComponents([.hour], from: savedDate, to: currentDate)
     let minutesBetweenDates = userCalendar.dateComponents([.minute], from: savedDate, to: currentDate)
@@ -55,7 +55,7 @@ func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
                     // if more than 24hr have passed
                     if (daysBetweenDates.day! > 7) {
                         // if more than 7 days have passed:
-                        if (weeksBetweenDates.weekOfMonth! > 4) {
+                        if (weeksBetweenDates.weekOfYear! > 4) {
                             // if more than 4 weeks have passed:
                             if (monthsBetweenDates.month == 1) {
                                 return (monthsBetweenDates.month ?? 0, "month")
@@ -63,10 +63,10 @@ func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
                                 return (monthsBetweenDates.month ?? 0, "months")
                             }
                         }
-                        if (weeksBetweenDates.weekOfMonth == 1) {
-                            return (weeksBetweenDates.weekOfMonth ?? 0, "week")
+                        if (weeksBetweenDates.weekOfYear == 1) {
+                            return (weeksBetweenDates.weekOfYear ?? 0, "week")
                         } else {
-                            return (weeksBetweenDates.weekOfMonth ?? 0, "weeks")
+                            return (weeksBetweenDates.weekOfYear ?? 0, "weeks")
                         }
                     }
                     if (daysBetweenDates.day == 1) {
