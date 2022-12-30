@@ -98,14 +98,43 @@ public extension UIDevice {
 
 }
 
-func getDeviceUserDisplayName() -> String {
+/// Return the user-set name of the device as a string, as reported by the system API. **Using on iOS 16 and later results in a generic device name being returned (such as iPhone)**
+func getSystemReportedDeviceUserDisplayName() -> String {
     return UIDevice.current.name
 }
 
+/**
+ Return the user-set name of the device as a string (ex. `Crystal` if the device is named Crystal)
+ 
+ Pulls from the UsrDeviceName setting, the user can change it in Settings in the app.
+ 
+ If this value doesn't exist for whatever reason, this function will fall back to returning what is reported by the system API subject to the same limitations as `getSystemReportedDeviceUserDisplayName()`
+ */
+func getDeviceUserDisplayName() -> String {
+    var usrDeviceName = getSystemReportedDeviceUserDisplayName()
+    if let usrdevicename = UserDefaults.standard.string(forKey: "UsrDeviceName") {
+        usrDeviceName = usrdevicename
+    }
+    
+    // make sure it cant be empty lol
+    if usrDeviceName == "" {
+        usrDeviceName = getSystemReportedDeviceUserDisplayName()
+    }
+    
+    return usrDeviceName
+}
+
+/**
+ Returns the current OS version as a string (ex. `"16.0.1"`)
+ 
+ See `getOSVersionAsDbl()` if you want a number returned instead.
+ 
+ */
 func getOSVersion() -> String {
     return UIDevice.current.systemVersion
 }
 
+/// Returns the current OS version as a double.
 func getOSVersionAsDbl() -> Double {
     let OSVerString = UIDevice.current.systemVersion
     let myDouble = Double(OSVerString) ?? 0.00
@@ -113,6 +142,9 @@ func getOSVersionAsDbl() -> Double {
     return myDouble
 }
 
+/**
+ Returns `true` if the device is running any version of iOS prior to `16.0`
+ */
 func isiOSPre16() -> Bool {
     if (getOSVersionAsDbl() < 16.0) {
         return true
@@ -125,6 +157,7 @@ func isiOSPre16() -> Bool {
     }
 }
 
+/// Returns the device name as a string (ex. `iPad Pro (12.9-inch) (2nd generation)`)
 func getDeviceModel() -> String {
     #if targetEnvironment(macCatalyst)
     return "Mac - Stella is lazy and this is Catalyst"
@@ -135,6 +168,11 @@ func getDeviceModel() -> String {
     #endif
 }
 
+/**
+ Returns the current battery level as an integer from `0` to `100`
+ 
+ - Warning: Returns `0` if running on tvOS (those shits have no battery)
+ */
 func getBatteryLevel() -> Int {
     
     //terrible place to put this

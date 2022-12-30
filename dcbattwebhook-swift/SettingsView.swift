@@ -10,12 +10,13 @@ import Foundation
 
 struct SettingsView: View {
 
-    @State private var usrname: String = ""
-    @State private var usrpronoun: String = ""
+    @State private var usrName: String = ""
+    @State private var usrPronoun: String = ""
+    @State private var usrDeviceName: String = getSystemReportedDeviceUserDisplayName()
     @State private var sendDeviceName = true
     @State private var sendDeviceModel = true
-    @State private var showpfp = true
-    @State private var showpronoun = true
+    @State private var showPfp = true
+    @State private var showPronoun = true
     
     // grab some user defaults
     let defaults = UserDefaults.standard
@@ -37,27 +38,31 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYour pronoun will be used primarily in automated sending of battery info (see Automation Settings)")) {
-                        TextField(text: $usrname) {
+                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the device name to be shown. \nYour pronoun will be used primarily in automated sending of battery info (see Automation Settings)")) {
+                        TextField(text: $usrName) {
                             Text("Display Name")
                         }.disableAutocorrection(true)
                         
-                        TextField(text: $usrpronoun) {
+                        TextField(text: $usrPronoun) {
                             Text("Pronoun (his/her/their/etc)")
                         }.disableAutocorrection(true)
                             .autocapitalization(.none)
                         
-                        Toggle(isOn: $showpfp) {
+                        TextField(text: $usrDeviceName) {
+                            Text("Device Name")
+                        }.disableAutocorrection(true)
+                        
+                        Toggle(isOn: $showPfp) {
                             Text("Show specified avatar image")
                         }
                         
-                        Toggle(isOn: $showpronoun) {
+                        Toggle(isOn: $showPronoun) {
                             Text("Show specified pronoun")
                         }
                         
                     }
                     
-                    Section(header: Text("Privacy"), footer: Text("You can disable sending your device's name (\"" + getDeviceUserDisplayName() + "\") and/or model (" + getDeviceModel() + "), if you want to.")) {
+                    Section(header: Text("Privacy"), footer: Text("You can choose if you want to specify your device's name (\"" + getDeviceUserDisplayName() + "\") and/or model (" + getDeviceModel() + ")")) {
                         Toggle(isOn: $sendDeviceName) {
                             Text("Send Device Name")
                         }
@@ -76,39 +81,42 @@ struct SettingsView: View {
             }
         }
         .onAppear() {
-            if UserDefaults.standard.object(forKey: "UsrName") != nil {
-                usrname = defaults.string(forKey: "UsrName")!
+            if let usrname = defaults.string(forKey: "UsrName") {
+                usrName = usrname
             }
             
-            if UserDefaults.standard.object(forKey: "UsrPronoun") != nil {
-                usrpronoun = defaults.string(forKey: "UsrPronoun")!
+            if let usrpronoun = defaults.string(forKey: "UsrPronoun") {
+                usrPronoun = usrpronoun
             }
             
-            if UserDefaults.standard.object(forKey: "SendDeviceName") != nil {
-                sendDeviceName = defaults.bool(forKey: "SendDeviceName")
+            sendDeviceName = defaults.bool(forKey: "SendDeviceName")
+            
+            sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
+            
+            showPfp = defaults.bool(forKey: "ShowPfp")
+            
+            showPronoun = defaults.bool(forKey: "ShowPronoun")
+            
+            // clear the UsrDeviceName default if its empty
+            if defaults.string(forKey: "UsrDeviceName") == "" {
+                defaults.removeObject(forKey: "UsrDeviceName")
             }
             
-            if UserDefaults.standard.object(forKey: "SendDeviceModel") != nil {
-                sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
+            if let usrdevicename = defaults.string(forKey: "UsrDeviceName") {
+                usrDeviceName = usrdevicename
             }
             
-            if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
-                showpfp = defaults.bool(forKey: "ShowPfp")
-            }
-            
-            if UserDefaults.standard.object(forKey: "ShowPronoun") != nil {
-                showpronoun = defaults.bool(forKey: "ShowPronoun")
-            }
             // these if statements read the settings from defaults
         }
         
         .onDisappear {
-            defaults.set(usrname, forKey: "UsrName")
-            defaults.set(usrpronoun, forKey: "UsrPronoun")
+            defaults.set(usrName, forKey: "UsrName")
+            defaults.set(usrPronoun, forKey: "UsrPronoun")
+            defaults.set(usrDeviceName, forKey: "UsrDeviceName")
             defaults.set(sendDeviceName, forKey: "SendDeviceName")
             defaults.set(sendDeviceModel, forKey: "SendDeviceModel")
-            defaults.set(showpfp, forKey: "ShowPfp")
-            defaults.set(showpronoun, forKey: "ShowPronoun")
+            defaults.set(showPfp, forKey: "ShowPfp")
+            defaults.set(showPronoun, forKey: "ShowPronoun")
         }
         
         .navigationTitle("Settings")

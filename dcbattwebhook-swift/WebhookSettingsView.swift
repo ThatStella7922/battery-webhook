@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WebhookSettingsView: View {
-    var serviceTypes = ["Discord", "Telegram", "Some shit", "Some other shit"]
+    var serviceTypes = ["Discord"]
     @State private var selectedServiceType = "Discord"
     
     @State private var webhookurl: String = ""
@@ -31,7 +31,7 @@ struct WebhookSettingsView: View {
                     
                     switch(selectedServiceType) {
                     case "Discord":
-                        Section(header: Text("Discord URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG for your avatar image.")) {
+                        Section(header: Text("Discord URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG/GIF for your avatar image.")) {
                             
                             TextField(text: $webhookurl) {
                                 Text("Discord Webhook URL")

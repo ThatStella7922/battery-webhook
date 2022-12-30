@@ -9,6 +9,8 @@
   - String, contains the user set display name
 - UsrPronoun
   - String, contains the user set pronoun
+- UsrDeviceName
+  - String, contains the user set device name (for ios 16 not allowing this)
 - ShowPfp
   - Bool, stores the user's preference on showing their pfp
 - ShowPronoun

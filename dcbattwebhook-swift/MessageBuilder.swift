@@ -81,7 +81,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     footerBlock = MsgFooter(text: "Sent via Battery Webhook" + version + " (in heavy development)")
     
     // also set our timeField right here because I think this will just be reusable over and over
-    timeField = MsgField(name: "Time since last info:", value: GetTimeSinceSavedDateAsFmtedStr(), inline: true)
+    timeField = MsgField(name: "Time since last update:", value: GetTimeSinceSavedDateAsFmtedStr(), inline: true)
     
     
     // ok here we get some logic

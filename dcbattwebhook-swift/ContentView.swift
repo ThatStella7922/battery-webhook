@@ -40,33 +40,12 @@ struct ContentView: View {
                 }
             }
         }.onAppear() {
-            /*var sendOnPluggedIn = false
-            var sendOnUnplugged = false
-            var sendOnHitFullCharge = false*/
-            
-            if UserDefaults.standard.object(forKey: "SavedDate") == nil {
-                //print("no date saved, saving!")
+            //save the current date if one is not already saved
+            if defaults.object(forKey: "SavedDate") == nil {
                 SaveCurrentDate()
             }
-            //save the current date if one is not already saved
             
-            /*if UserDefaults.standard.object(forKey: "SendOnPluggedIn") != nil {
-                sendOnPluggedIn = defaults.bool(forKey: "SendOnPluggedIn")
-            }
-            if UserDefaults.standard.object(forKey: "SendOnUnplugged") != nil {
-                sendOnUnplugged = defaults.bool(forKey: "SendOnUnplugged")
-            }
-            if UserDefaults.standard.object(forKey: "SendOnHitFullCharge") != nil {
-                sendOnHitFullCharge = defaults.bool(forKey: "SendOnHitFullCharge")
-            }
-            // these if statements read the settings from defaults
-            
-            if ((sendOnPluggedIn == true) || (sendOnUnplugged == true) || (sendOnHitFullCharge == true)) {
-                // if any of the automations are enabled
-                UIDevice.current.isBatteryMonitoringEnabled = true
-                
-                //finish adding shit here, use notificationcenter to catch events or some shit idk
-            }*/
+            //automations will be shortcuts based :fr:
         }
     }
 }

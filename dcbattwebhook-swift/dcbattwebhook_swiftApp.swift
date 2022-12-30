@@ -10,9 +10,9 @@ import SwiftUI
 public let prodName = "Battery Webhook"
 
 #if os(tvOS)
-public let version = "1.0b27 on tvOS"
+public let version = "1.0b32 on tvOS"
 #else
-public let version = "1.0b27"
+public let version = "1.0b32"
 #endif
 
 @main
