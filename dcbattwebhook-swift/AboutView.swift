@@ -48,7 +48,7 @@ struct AboutView: View {
                         Text("Device Name: " + getDeviceUserDisplayName())
                         Text("OS Version: " + getOSVersion())
                         Text("Saved Date: " + GetCurrentDateFormatted())
-                        Text("Time Passed Since Saved Date: " + String(describing: GetTimeSinceSavedDate(simplify: true).Time) + " " + GetTimeSinceSavedDate(simplify: true).TimeUnit)
+                        Text("Time Passed Since Saved Date: " + GetTimeSinceSavedDateAsFmtedStr())
                         
                         // save current date button
                         Button {

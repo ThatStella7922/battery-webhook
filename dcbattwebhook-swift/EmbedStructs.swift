@@ -22,7 +22,6 @@ struct MsgEmbed: Codable {
     var fields: [MsgField]?
 }
 
-//todo: use message fields to get all our values in here :)
 struct MsgField: Codable {
     var name: String
     var value: String

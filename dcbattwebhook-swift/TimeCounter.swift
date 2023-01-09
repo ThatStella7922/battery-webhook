@@ -9,15 +9,25 @@ import Foundation
 
 private let defaults = UserDefaults.standard
 
+/**
+ This function sets currentDate (in UserDefaults) to the date and time right now ('right now' being the exact time the function was called)
+ 
+ Will replace any previously saved value in UserDefaults.
+ 
+ */
 func SaveCurrentDate() -> Void {
-    // sets currentDate to the date right now ('right now' being the exact time the function was called)
     let currentDate = Date()
-    
-    // save to key
     defaults.set(currentDate, forKey: "SavedDate")
 }
 
-func GetTimeSinceSavedDate() -> Double {
+/**
+ Returns the time passed since the saved date as a double.
+ 
+ When using, keep in mind that this compares against the reference date of January 1, 2001 at 00:00:00 UTC.
+ 
+ This function will not return a pretty printed value, like '5 days' or '13 seconds'
+ */
+func GetRawTimeSinceSavedDate() -> Double {
     let currentDate = Date()
     var savedDate = Date(timeIntervalSinceReferenceDate: 0)
     if UserDefaults.standard.object(forKey: "SavedDate") != nil {
@@ -29,7 +39,40 @@ func GetTimeSinceSavedDate() -> Double {
     return dateDifference
 }
 
-func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
+/**
+ Gets the time passed since the saved date, in a simplified, low precision manner.
+ 
+ Note that the documentation for this function isn't fully shown if you use the quick help popover.
+ 
+ Access `.Time` (int) for the amount of time (eg. `3`)
+ 
+ Access `.TimeUnit` (string) for the unit of time associated with `.Time` (eg. `minutes`)
+ 
+ **If you do not need to access these as seperate objects, see GetTimeSinceSavedDateAsFmtedStr()**
+ 
+ # Usage
+ ```
+ Text("Time Passed Since Saved Date: " + String(describing: GetTimeSinceSavedDate().Time) + " " + GetTimeSinceSavedDate().TimeUnit)
+ ```
+ 
+ Assuming that a week has passed since the saved date, that code produces the following:
+ 
+ **Time Passd Since Saved Date: 1 week**
+ 
+ # Note
+ The function will report the largest singular unit of time, continuing up to months. See the following as a nonexhaustive example:
+ ```
+ Real time passed (minutes)  Function result
+ 30 seconds                  30 seconds
+ 1 minute 45s                1 minute
+ 100 minutes 30s             1 hour
+ 1380 minutes                23 hours
+ 1440 minutes                1 day
+ 8640 minutes                6 days
+ 10080 minutes               1 week
+ ```
+ */
+func GetTimeSinceSavedDate() -> (Time: Int, TimeUnit: String) {
     
     let userCalendar = Calendar.current
     let currentDate = Date()
@@ -45,60 +88,62 @@ func GetTimeSinceSavedDate(simplify: Bool) -> (Time: Int, TimeUnit: String) {
     let minutesBetweenDates = userCalendar.dateComponents([.minute], from: savedDate, to: currentDate)
     let secondsBetweenDates = userCalendar.dateComponents([.second], from: savedDate, to: currentDate)
     
-    if (simplify == true) {
-        // if simplification is enabled
-        if (secondsBetweenDates.second! > 60) {
-            // if more than 60 seconds have passed
-            if (minutesBetweenDates.minute! > 60) {
-                // if more than 60 minutes have passed
-                if (hoursBetweenDates.hour! > 24) {
-                    // if more than 24hr have passed
-                    if (daysBetweenDates.day! > 7) {
-                        // if more than 7 days have passed:
-                        if (weeksBetweenDates.weekOfYear! > 4) {
-                            // if more than 4 weeks have passed:
-                            if (monthsBetweenDates.month == 1) {
-                                return (monthsBetweenDates.month ?? 0, "month")
-                            } else {
-                                return (monthsBetweenDates.month ?? 0, "months")
-                            }
-                        }
-                        if (weeksBetweenDates.weekOfYear == 1) {
-                            return (weeksBetweenDates.weekOfYear ?? 0, "week")
+    // if simplification is enabled
+    if (secondsBetweenDates.second! > 60) {
+        // if more than 60 seconds have passed
+        if (minutesBetweenDates.minute! > 60) {
+            // if more than 60 minutes have passed
+            if (hoursBetweenDates.hour! > 24) {
+                // if more than 24hr have passed
+                if (daysBetweenDates.day! > 7) {
+                    // if more than 7 days have passed:
+                    if (weeksBetweenDates.weekOfYear! > 4) {
+                        // if more than 4 weeks have passed:
+                        if (monthsBetweenDates.month == 1) {
+                            return (monthsBetweenDates.month ?? 0, "month")
                         } else {
-                            return (weeksBetweenDates.weekOfYear ?? 0, "weeks")
+                            return (monthsBetweenDates.month ?? 0, "months")
                         }
                     }
-                    if (daysBetweenDates.day == 1) {
-                        return (daysBetweenDates.day ?? 0, "day")
+                    if (weeksBetweenDates.weekOfYear == 1) {
+                        return (weeksBetweenDates.weekOfYear ?? 0, "week")
                     } else {
-                        return (daysBetweenDates.day ?? 0, "days")
+                        return (weeksBetweenDates.weekOfYear ?? 0, "weeks")
                     }
                 }
-                if (hoursBetweenDates.hour == 1) {
-                    return (hoursBetweenDates.hour ?? 0, "hour")
+                if (daysBetweenDates.day == 1) {
+                    return (daysBetweenDates.day ?? 0, "day")
                 } else {
-                    return (hoursBetweenDates.hour ?? 0, "hours")
+                    return (daysBetweenDates.day ?? 0, "days")
                 }
             }
-            if (minutesBetweenDates.minute == 1) {
-                return (minutesBetweenDates.minute ?? 0, "minute")
+            if (hoursBetweenDates.hour == 1) {
+                return (hoursBetweenDates.hour ?? 0, "hour")
             } else {
-                return (minutesBetweenDates.minute ?? 0, "minutes")
+                return (hoursBetweenDates.hour ?? 0, "hours")
             }
         }
-        if (secondsBetweenDates.second == 1) {
-            return (secondsBetweenDates.second ?? 0, "second")
+        if (minutesBetweenDates.minute == 1) {
+            return (minutesBetweenDates.minute ?? 0, "minute")
         } else {
-            return (secondsBetweenDates.second ?? 0, "seconds")
+            return (minutesBetweenDates.minute ?? 0, "minutes")
         }
+    }
+    if (secondsBetweenDates.second == 1) {
+        return (secondsBetweenDates.second ?? 0, "second")
+    } else {
+        return (secondsBetweenDates.second ?? 0, "seconds")
     }
 
     return (0, "error")
 }
 
+/**
+ Returns a formatted, pretty printed date as a string.
+ 
+ - Returns: The specific format of the date will depend on the localization settings of the user's device, however, in my configuration (US region, Gregorian calendar), this a date formatted like the following: 'December 29, 2022 at 11:09:20 PM'.
+ */
 func GetCurrentDateFormatted() -> String {
-    
     var currentDate = Date(timeIntervalSinceReferenceDate: 0)
     var currentDateFormatted = ""
     if UserDefaults.standard.object(forKey: "SavedDate") != nil {
@@ -117,16 +162,24 @@ func GetCurrentDateFormatted() -> String {
     return currentDateFormatted
 }
 
+/**
+ This function behaves like GetTimeSinceSavedDate(), but returns just one string (You do not need to access the date and unit elements seperately)
+ 
+ The function will return strings such as the following:
+ - `4 minutes`
+ - `1 hour`
+ */
 func GetTimeSinceSavedDateAsFmtedStr() -> String {
-    return String(describing: GetTimeSinceSavedDate(simplify: true).Time) + " " + GetTimeSinceSavedDate(simplify: true).TimeUnit
+    return String(describing: GetTimeSinceSavedDate().Time) + " " + GetTimeSinceSavedDate().TimeUnit
     // returns something along the lines of "2 minutes" or "4 hours" or "1 day"
 }
 
 func isPepperoniDay() -> Bool {
-    
+    // TODO: add expected behaviour for this functionality
     /*
      prof mode or something idk
      ok real talk, this function will return TRUE if it is the first day of april (april 1) on any year.
+     This will tie in with supporting logic to make "100% remaining" turn into "100 pepperonis remaining".
      
      :ccccccccccccccccccccccccccccccccccc::::::::::::::::::::::::::::::::::::::::::::;:::::::::::::::::::::::::::::::::::::::
      :ccccccccccccccccccccccccccccccccccc::::::::::::::::::::::::::::::::::::::::::::;:::::::::::::::::::::::::::::;:::::::;;

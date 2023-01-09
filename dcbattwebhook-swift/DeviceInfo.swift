@@ -104,7 +104,7 @@ func getSystemReportedDeviceUserDisplayName() -> String {
 }
 
 /**
- Return the user-set name of the device as a string (ex. `Crystal` if the device is named Crystal)
+ Return the user-set name of the device as a string (ex. Crystal if the device is named Crystal.
  
  Pulls from the UsrDeviceName setting, the user can change it in Settings in the app.
  
@@ -125,7 +125,7 @@ func getDeviceUserDisplayName() -> String {
 }
 
 /**
- Returns the current OS version as a string (ex. `"16.0.1"`)
+ Returns the current OS version as a string (ex. `16.0.1`)
  
  See `getOSVersionAsDbl()` if you want a number returned instead.
  
