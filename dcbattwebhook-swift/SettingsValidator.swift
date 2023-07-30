@@ -62,8 +62,8 @@ func ValidateSettings() -> (err: Bool, errMsg: String) {
             returnErrMsg = "You haven't specified a Discord webhook URL. \nPlease fix this in Settings."
             returnErr = true
         }
-        else if ((!webhookUrl.isEmpty) && (!usrName.isEmpty)) {
-            // if the webhook url is empty but username isn't
+        else if ((!webhookUrl.isEmpty) && (usrName.isEmpty)) {
+            // if the username is empty but webhook url isn't
             returnErrMsg = "You haven't specified a display name. \nPlease fix this in Settings."
             returnErr = true
         }

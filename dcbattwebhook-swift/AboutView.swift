@@ -21,19 +21,14 @@ struct AboutView: View {
                     
                     
                     Section(header: Text("ThatStella7922's Links"), footer: Text("hell yes!")) {
-                        Link("Website", destination: URL(string: "https://thatsniceguy.com")!)
+                        Link("Website", destination: URL(string: "https://thatstel.la")!)
                         Link("Twitter", destination: URL(string: "https://twitter.com/ThatStella7922")!)
                         Link("Reddit", destination: URL(string: "https://www.reddit.com/user/ThatStella7922")!)
                         Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
-                        Link("my oomfie ellie's twitter", destination: URL(string: "https://twitter.com/crystall1nedev")!)
-                        
-                        /*HStack {
-                            Text("Agree to our")
-                            Link("terms of Service", destination: URL(string: "https://www.example.com/TOS.html")!)
-                        }*/
+                        Link("my wife Eva's twitter", destination: URL(string: "https://twitter.com/crystall1nedev")!)
                     }
                     
-                    Section(header: Text("user reviews"), footer: Text("Ellie's honest reaction to this amazing and definitely not poorly written app :s2badass:")) {
+                    Section(header: Text("user reviews"), footer: Text("Eva's honest reaction to this amazing and definitely not poorly written + unnecessary app :s2badass:")) {
                         Image("sirishortcut")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -61,7 +56,7 @@ struct AboutView: View {
                         Button {
                             ResetAllSettings()
                         } label: {
-                            Label("Reset all settings", systemImage: "trash")
+                            Label("Reset All Settings", systemImage: "trash")
                         }
                         
                     }

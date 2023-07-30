@@ -80,7 +80,7 @@ public extension UIDevice {
             case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11":return "iPad Pro (12.9-inch) (5th generation)"
             case "iPad14,5", "iPad14,6":                          return "iPad Pro (12.9-inch) (6th generation)"
             case "i386", "x86_64", "arm64":                       return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "iOS"))"
-            default:                                              return identifier
+            default:                                              return "Unknown: \(identifier)"
             }
             #elseif os(tvOS)
             switch identifier {

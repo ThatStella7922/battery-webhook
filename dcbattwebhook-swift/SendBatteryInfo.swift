@@ -54,6 +54,7 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     request.httpBody = jsonData // add the prepped json data as the body
     
     // no idea what this shit does but it works rofl
+    // update 07/30/2023 I might know what this does but i need time to mess with it
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         guard let data = data, error == nil else {
             print(error?.localizedDescription ?? "No data")
