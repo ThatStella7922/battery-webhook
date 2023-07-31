@@ -25,8 +25,9 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     var footerBlock = MsgFooter()
     var authorBlock = MsgAuthor()
     var embedBlock = MsgEmbed()
-    var msgField1 = MsgField(name: "Default name", value: "Default value", inline: true)
-    var timeField = MsgField(name: "Time since last info:", value: "Default value", inline: true)
+    var batteryField = MsgField(name: "Unknown Device", value: "Unknown battery state", inline: true)
+    var timeField = MsgField(name: "Time since last info:", value: "Unknown", inline: true)
+    var advertField = MsgField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + version, inline: false)
     var fullmessageBlock = MessageObj()
     var embedColor = 0
     
@@ -77,8 +78,10 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     // set our author block right here because this also doesn't change
     authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
     
-    // set our footer right here as I don't expect to be needing to change it
-    footerBlock = MsgFooter(text: "Sent via Battery Webhook" + version + " (in heavy development)")
+    /*
+    Footer removed in favor of a third field in the embed doing the advert, and it supports linking back to the GitHub!
+    See advertField on line 30!
+    */
     
     // also set our timeField right here because I think this will just be reusable over and over
     timeField = MsgField(name: "Time since last update:", value: GetTimeSinceSavedDateAsFmtedStr(), inline: true)
@@ -89,25 +92,24 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
         // if we are NOT charging, did NOT get plugged in, did NOT get unplugged, did NOT hit full charge
         if ((sendDeviceName == true) && (sendDeviceModel == true)) {
             // if sending device name and model is ENABLED
-            msgField1 = MsgField(name: getDeviceModel(), value: (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = MsgField(name: getDeviceModel(), value: (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
         if ((sendDeviceName == false) && (sendDeviceModel == false)) {
             // if sending device name and model is DISABLED
-            msgField1 = MsgField(name: "Device", value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = MsgField(name: "Device", value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
         if ((sendDeviceName == true) && (sendDeviceModel == false)) {
             // if sending device name is ENABLED but sending model is DISABLED
-            msgField1 = MsgField(name: getDeviceUserDisplayName(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = MsgField(name: getDeviceUserDisplayName(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
         if ((sendDeviceName == false) && (sendDeviceModel == true)) {
             // if sending device name is DISABLED but sending model is ENABLED
-            msgField1 = MsgField(name: getDeviceModel(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = MsgField(name: getDeviceModel(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
     }
     
-    
     // build our embed here, the fields are set above
-    embedBlock = MsgEmbed(author: authorBlock, footer: footerBlock, title: "🔋 Device Battery", color: embedColor, fields: [msgField1, timeField])
+    embedBlock = MsgEmbed(author: authorBlock, title: "🔋 Device Battery", color: embedColor, fields: [batteryField, timeField, advertField])
     
     // final full message block to be returned
     fullmessageBlock = MessageObj(embeds: [embedBlock])

@@ -44,9 +44,10 @@ struct SettingsView: View {
                         }.disableAutocorrection(true)
                         
                         TextField(text: $usrPronoun) {
-                            Text("Pronoun (his/her/their/etc)")
+                            Text("Pronoun (her/his/their/etc)")
                         }.disableAutocorrection(true)
                             .autocapitalization(.none)
+                            .disabled(true)
                         
                         TextField(text: $usrDeviceName) {
                             Text("Device Name")
@@ -58,7 +59,7 @@ struct SettingsView: View {
                         
                         Toggle(isOn: $showPronoun) {
                             Text("Show specified pronoun")
-                        }
+                        }.disabled(true)
                         
                     }
                     
@@ -74,7 +75,7 @@ struct SettingsView: View {
                     
                     if (isiOSPre16() == false) {
                         Section(header: Text("iOS/iPadOS 16 Notice")) {
-                            Text("On iOS/iPadOS 16 and later, Apple no longer lets developers get the device's name (set in Settings > General > About > Name), which is why your device's name isn't being read. Sorry :(")
+                            Text("On iOS/iPadOS 16 and later, Apple no longer lets developers get the device's name (set in Settings > General > About > Name), so you need to manually set it above.")
                         }
                     }
                 }

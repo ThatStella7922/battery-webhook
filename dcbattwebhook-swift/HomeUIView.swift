@@ -11,6 +11,7 @@ import Foundation
 struct ErrorAlertStruct: Identifiable {
     var id: String { msg }
     let msg: String
+    let title: String
 }
 
 struct HomeUIView: View {
@@ -24,21 +25,26 @@ struct HomeUIView: View {
                         let isSettingsValid = ValidateSettings()
                         
                         if (isSettingsValid.err == true) {
-                            errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg)
+                            errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg, title: "Error")
                         }
                         else {
-                            _ = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+                            let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
                             SaveCurrentDate()
-                            //print(ResultsVar.self)
-                            //error = ErrorInfo(id: 1, title: "HTTP Error:", description: "error: " + ResultsVar.errMsg)
-                            //print("button fired with no errors")
+                            if (ResultsVar.err) {
+                                // See L#58 in SendBatteryInfo.swift, this will never trigger unless that is improved
+                                errAlert = ErrorAlertStruct(msg: ResultsVar.errMsg, title: "HTTP Error")
+                            }
+                            else {
+                                errAlert = ErrorAlertStruct(msg: "The battery info was sent.", title: "Success")
+                            }
+
                         }
                     } label: {
-                        Label("Send Battery Info", systemImage: "paperplane")
+                        Label("Send Battery Info Now", systemImage: "paperplane")
                     }
                 }
                 .alert(item: $errAlert) { error in
-                    Alert(title: Text("Error"), message: Text(error.msg), dismissButton: .default(Text("OK"))
+                    Alert(title: Text(error.title), message: Text(error.msg), dismissButton: .default(Text("OK"))
                     )
                 }
                 //preview section
