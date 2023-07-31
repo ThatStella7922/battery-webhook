@@ -2,7 +2,7 @@
 //  AboutView.swift
 //  dcbattwebhook-swift
 //
-//  Created by Stella Ortiz on 11/10/22.
+//  Created by Stella Luna on 11/10/22.
 //
 
 import SwiftUI
@@ -13,37 +13,39 @@ struct AboutView: View {
             VStack {
 
                 Form {
-                    Section(header: Text("Info"), footer: Text("Battery Webhook, intended for use with Discord webhooks.")) {
+                    Section(header: Text("Info"), footer: Text("Battery Webhook - send your battery info to popular services using webhooks!")) {
                         Text(prodName).font(.title)
-                        Text("By ThatStella7922")
-                        Text("Version: " + version)
+                        Text("Version " + version + " - by ThatStella7922")
                     }
                     
                     
-                    Section(header: Text("ThatStella7922's Links"), footer: Text("hell yes!")) {
+                    Section(header: Text("ThatStella7922's Links")) {
                         Link("Website", destination: URL(string: "https://thatstel.la")!)
                         Link("Twitter", destination: URL(string: "https://twitter.com/ThatStella7922")!)
-                        Link("Reddit", destination: URL(string: "https://www.reddit.com/user/ThatStella7922")!)
                         Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
-                        Link("my wife Eva's twitter", destination: URL(string: "https://twitter.com/crystall1nedev")!)
                     }
                     
-                    Section(header: Text("user reviews"), footer: Text("Eva's honest reaction to this amazing and definitely not poorly written + unnecessary app :s2badass:")) {
+                    Section(header: Text("Battery Webhook Source Code"), footer: Text("Contributions, issue creation, finding reaons to yell at me, etc. All on the project's GitHub repository.")) {
+                        Link("View Source on GitHub", destination: URL(string: "https://github.com/ThatStella7922/dcbattwebhook-swift")!)
+                    }
+                    
+                    Section(header: Text("Fruity"), footer: Text("Eva's initial reaction to this amazing and definitely not poorly written + unnecessary app :s2badass:")) {
                         Image("sirishortcut")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: 400)
+                        Link("my wife Eva's website", destination: URL(string: "https://crystall1ne.dev")!)
                     }
                     
                     //DEBUG SECTION
                     //Comment it out for non debug builds
-                    Section(header: Text("Debug"), footer: Text("Some info to tell if underlying functions work before sending. This section will not be present on release versions.")) {
+                    Section(header: Text("Debug Information"), footer: Text("Shows info about the current environment to see if underlying functions work before pushing any info to a webhook. This section uses the same functions as the webhook data constructors.")) {
                         Text("Battery Level: " + String(getBatteryLevel()) + "%")
                         Text("Device Model: " + getDeviceModel())
                         Text("Device Name: " + getDeviceUserDisplayName())
                         Text("OS Version: " + getOSVersion())
                         Text("Saved Date: " + GetCurrentDateFormatted())
-                        Text("Time Passed Since Saved Date: " + GetTimeSinceSavedDateAsFmtedStr())
+                        Text("Time Since Saved Date: " + GetTimeSinceSavedDateAsFmtedStr())
                         
                         // save current date button
                         Button {

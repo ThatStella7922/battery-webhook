@@ -2,7 +2,7 @@
 //  HomeUI.swift
 //  dcbattwebhook-swift
 //
-//  Created by Stella Ortiz on 11/10/22.
+//  Created by Stella Luna on 11/10/22.
 //
 
 import SwiftUI
@@ -15,19 +15,10 @@ struct ErrorAlertStruct: Identifiable {
 
 struct HomeUIView: View {
     @State private var errAlert: ErrorAlertStruct?
-    @State var showingSettings = false
     
     var body: some View {
         VStack {
-            Form{
-                /*HStack {
-                    Image(systemName: "house.fill")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("Home")
-                }
-                Yea idk if i actually want this here
-                */
+            Form {
                 Section(header: Text("Webhook")){
                     Button {
                         let isSettingsValid = ValidateSettings()
@@ -52,7 +43,7 @@ struct HomeUIView: View {
                 }
                 //preview section
                 Section(header: Text("Preview")){
-                    Text("preview coming later when i am not lazy!")
+                    Text("not right now")
                 }
             }
         }
