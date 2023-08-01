@@ -194,6 +194,8 @@ func getOSVersionAsDbl() -> Double {
 
 /**
  Returns `true` if the device is running any version of iOS prior to `16.0`
+ 
+ - Warning: Returns `true` when running on visionOS and fix is TODO
  */
 func isiOSPre16() -> Bool {
     if (getOSVersionAsDbl() < 16.0) {
