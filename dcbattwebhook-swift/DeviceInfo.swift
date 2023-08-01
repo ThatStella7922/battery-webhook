@@ -22,23 +22,32 @@ public extension UIDevice {
         #if os(macOS) || targetEnvironment(macCatalyst)
         #if arch(x86_64)
         
-        // Not tested through the App Sandbox. Cope
+        // it works in rosetta
 
+        // If this doesn't work we can use cachedSerial from the defaults instead
+        // but this seems to work
+        // Partially stolen from https://stackoverflow.com/a/57820994
         var serialNumber: String? {
             let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+            if (service == 0) { return nil }
+            defer { IOObjectRelease(service) }
             return IORegistryEntryCreateCFProperty(service, "IOPlatformSerialNumber" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String
         }
 
         var modelName: String? {
             guard let serial = serialNumber,
-                let plist = try? PropertyList.load(from: .init(fileURLWithPath: "\(NSHomeDirectory())/Library/Preferences/com.apple.SystemProfiler.plist")),
+                let defaults = UserDefaults.init(suiteName: "com.apple.SystemProfiler"),
                 let regionCode = Locale.current.regionCode,
-                let names = plist["CPU Names"] as? [String: String],
+                let names = defaults.object(forKey: "CPU Names") as? [String: String],
                 !names.isEmpty else {
                     return nil
             }
             for language in Locale.preferredLanguages {
-                let key = "\(serial.suffix(4))-\(language)_\(regionCode)"
+                var key = "\(serial.suffix(4))-\(language)_\(regionCode)"
+                if let entry = names[key] {
+                    return entry
+                }
+                key = "\(serial.suffix(3))-\(language)_\(regionCode)"
                 if let entry = names[key] {
                     return entry
                 }
