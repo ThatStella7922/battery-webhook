@@ -5,10 +5,10 @@
 //  Created by Dhinak G on 8/1/23.
 //
 
-import Foundation
 #if os(iOS) || os(watchOS)
+
+import Foundation
 import WatchConnectivity
-#endif
 
 private let defaults = UserDefaults.standard
 
@@ -62,3 +62,5 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     }
     #endif
 }
+
+#endif

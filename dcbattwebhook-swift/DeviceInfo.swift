@@ -78,7 +78,13 @@ public struct DeviceInfo {
         #endif
         
         func mapToDevice(identifier: String) -> String { // swiftlint:disable:this cyclomatic_complexity
-            #if os(iOS)
+            #if os(xrOS)
+            switch identifier {
+            case "RealityDevice14,1":      return "Apple Vision Pro"
+            case "i386", "x86_64", "arm64":return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "visionOS"))"
+            default: return identifier
+            }
+            #elseif os(iOS)
             switch identifier {
             case "iPod9,1":                                       return "iPod touch (7th generation)"
             case "iPhone8,1":                                     return "iPhone 6s"
@@ -172,7 +178,7 @@ public struct DeviceInfo {
             case "Watch6,10", "Watch6,12": return "Apple Watch SE (2nd generation) 40mm"
             case "Watch6,11", "Watch6,13": return "Apple Watch SE (2nd generation) 44mm"
             case "Watch6,18":              return "Apple Watch Ultra"            
-            case "i386", "x86_64", "arm64":return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
+            case "i386", "x86_64", "arm64":return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "watchOS"))"
             default: return identifier
             }
             #else

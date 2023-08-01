@@ -20,8 +20,7 @@ public let version = "1.0b36"
 
 @main
 struct dcbattwebhook_swiftApp: App {
-    
-    
+    #if os(iOS) || os(watchOS)
     private lazy var sessionDelegator: SessionDelegator = {
         return SessionDelegator()
     }()
@@ -33,6 +32,7 @@ struct dcbattwebhook_swiftApp: App {
             session.activate()
         }
     }
+    #endif
     
     var body: some Scene {
         WindowGroup {

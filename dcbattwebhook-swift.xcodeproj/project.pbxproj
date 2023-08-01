@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5120A3B72A78EC3A000B05B3 /* dcbattwebhook-swift-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5120A3B72A78EC3A000B05B3 /* dcbattwebhook-swift-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5120A3BC2A78EC92000B05B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550348CB291D7FB9006551B0 /* Assets.xcassets */; };
 		5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */; };
 		5173E4172A78EE980076663F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
@@ -68,7 +68,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5120A3A42A78EBDC000B05B3 /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/iOSSupport/System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
 		5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dcbattwebhook-swift-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5173E4242A78F1520076663F /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
 		5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "dcbattwebhook-swift-watch.entitlements"; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 		5120A3A32A78EBDC000B05B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5120A3A42A78EBDC000B05B3 /* CarPlay.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -320,6 +318,7 @@
 /* Begin PBXTargetDependency section */
 		5120A3B62A78EC3A000B05B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 5120A3A92A78EC39000B05B3 /* dcbattwebhook-swift-watch */;
 			targetProxy = 5120A3B52A78EC3A000B05B3 /* PBXContainerItemProxy */;
 		};
@@ -357,7 +356,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -393,7 +392,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -522,10 +521,6 @@
 				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SDKROOT)/System/iOSSupport/System/Library/Frameworks",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dcbattwebhook-swift/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
@@ -555,7 +550,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
@@ -576,10 +571,6 @@
 				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SDKROOT)/System/iOSSupport/System/Library/Frameworks",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dcbattwebhook-swift/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
@@ -608,7 +599,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
