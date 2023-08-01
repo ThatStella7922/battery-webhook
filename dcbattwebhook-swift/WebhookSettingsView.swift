@@ -69,12 +69,6 @@ struct WebhookSettingsView: View {
             if defaults.object(forKey: "WebhookURL") != nil {
                 webhookurl = defaults.string(forKey: "WebhookURL")!
             }
-
-            #if os(watchOS)
-            if webhookurl.isEmpty && defaults.object(forKey: "WebhookURLFromPhone") != nil {
-                webhookurl = defaults.string(forKey: "WebhookURLFromPhone")!
-            }
-            #endif
             
             if defaults.object(forKey: "UserpfpUrl") != nil {
                 userpfpurl = defaults.string(forKey: "UserpfpUrl")!
@@ -97,7 +91,9 @@ struct WebhookSettingsView: View {
                 }
                 do {
                     try session.updateApplicationContext([
-                        "WebhookURL": webhookurl
+                        "WebhookURL": webhookurl,
+                        "UserpfpUrl": userpfpurl,
+                        "SelectedServiceType": selectedServiceType
                     ])
                 } catch {
                     print("Unexpected error: \(error).")

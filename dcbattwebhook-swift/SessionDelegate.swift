@@ -42,7 +42,9 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     // Did receive an app context.
     //
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
-        defaults.set(applicationContext["WebhookURL"], forKey:"WebhookURLFromPhone")
+        for (key, value) in applicationContext {
+            defaults.set(value, forKey: key)
+        }
     }
     
     // Did receive a message, and the peer doesn't need a response.

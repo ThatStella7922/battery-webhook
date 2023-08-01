@@ -70,7 +70,6 @@
 /* Begin PBXFileReference section */
 		5120A3A42A78EBDC000B05B3 /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/iOSSupport/System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
 		5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dcbattwebhook-swift-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5173E4152A78EE850076663F /* dcbattwebhook-swift-watch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dcbattwebhook-swift-watch-Info.plist"; sourceTree = "<group>"; };
 		5173E4242A78F1520076663F /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
 		5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "dcbattwebhook-swift-watch.entitlements"; sourceTree = "<group>"; };
 		550348C4291D7FB9006551B0 /* dcbattwebhook-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dcbattwebhook-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +154,6 @@
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
 				5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */,
 				55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */,
-				5173E4152A78EE850076663F /* dcbattwebhook-swift-watch-Info.plist */,
 				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
@@ -342,11 +340,11 @@
 				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dcbattwebhookdcbattwebhook-swift-watch-Info.plist";
+				INFOPLIST_FILE = "dcbattwebhook-swift/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "dcbattwebhook-swift-watch";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.dhinakg.thatstel.la.dcbattwebhook-swift";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,11 +375,11 @@
 				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dcbattwebhookdcbattwebhook-swift-watch-Info.plist";
+				INFOPLIST_FILE = "dcbattwebhook-swift/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "dcbattwebhook-swift-watch";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.dhinakg.thatstel.la.dcbattwebhook-swift";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
