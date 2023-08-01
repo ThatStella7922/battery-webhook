@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5191FA032A77845D00463CF3 /* dcbattwebhook-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dcbattwebhook-swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		550348C4291D7FB9006551B0 /* dcbattwebhook-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dcbattwebhook-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dcbattwebhook_swiftApp.swift; sourceTree = "<group>"; };
 		550348C9291D7FB9006551B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 				550348CB291D7FB9006551B0 /* Assets.xcassets */,
 				550348CD291D7FB9006551B0 /* dcbattwebhook_swift.entitlements */,
 				550348CE291D7FB9006551B0 /* Preview Content */,
+				5191FA032A77845D00463CF3 /* dcbattwebhook-swift-Bridging-Header.h */,
 			);
 			path = "dcbattwebhook-swift";
 			sourceTree = "<group>";
@@ -348,6 +350,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "dcbattwebhook-swift/dcbattwebhook-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
@@ -394,6 +397,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "dcbattwebhook-swift/dcbattwebhook-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
