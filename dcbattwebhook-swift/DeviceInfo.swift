@@ -18,7 +18,57 @@ public extension UIDevice {
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
+        
+        #if os(macOS) || targetEnvironment(macCatalyst)
+        #if arch(x86_64)
+        
+        // it works in rosetta
 
+        // If this doesn't work we can use cachedSerial from the defaults instead
+        // but this seems to work
+        // Partially stolen from https://stackoverflow.com/a/57820994
+        var serialNumber: String? {
+            let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+            if (service == 0) { return nil }
+            defer { IOObjectRelease(service) }
+            return IORegistryEntryCreateCFProperty(service, "IOPlatformSerialNumber" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String
+        }
+
+        var modelName: String? {
+            guard let serial = serialNumber,
+                let defaults = UserDefaults.init(suiteName: "com.apple.SystemProfiler"),
+                let regionCode = Locale.current.regionCode,
+                let names = defaults.object(forKey: "CPU Names") as? [String: String],
+                !names.isEmpty else {
+                    return nil
+            }
+            for language in Locale.preferredLanguages {
+                var key = "\(serial.suffix(4))-\(language)_\(regionCode)"
+                if let entry = names[key] {
+                    return entry
+                }
+                key = "\(serial.suffix(3))-\(language)_\(regionCode)"
+                if let entry = names[key] {
+                    return entry
+                }
+            }
+            return nil
+        }
+
+        return modelName ?? "Unknown: \(identifier)"
+
+        
+        #else
+        let entry = IORegistryEntryFromPath(kIOMainPortDefault,"IOService:/AppleARMPE/product")
+        defer { IOObjectRelease(entry) }
+        let deviceName = IORegistryEntryCreateCFProperty(entry, "product-name" as CFString, kCFAllocatorDefault, 0)
+        if (deviceName == nil) {
+            return "Unknown: \(identifier)"
+        }
+        return String(decoding: deviceName!.takeUnretainedValue() as! Data, as: UTF8.self)
+        #endif
+        #endif
+        
         func mapToDevice(identifier: String) -> String { // swiftlint:disable:this cyclomatic_complexity
             #if os(iOS)
             switch identifier {
@@ -159,13 +209,7 @@ func isiOSPre16() -> Bool {
 
 /// Returns the device name as a string (ex. `iPad Pro (12.9-inch) (2nd generation)`)
 func getDeviceModel() -> String {
-    #if targetEnvironment(macCatalyst)
-    return "Mac - Stella is lazy and this is Catalyst"
-    
-    #else
     return UIDevice.modelName
-    
-    #endif
 }
 
 /**

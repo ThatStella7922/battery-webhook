@@ -47,7 +47,7 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     print("broken ahh json: " + jsonString!)
     
     // our actual post
-    let webhookURL = URL(string: userwebhookurl)! // grab the url from user settings
+    let webhookURL = URL(string: userwebhookurl.trimmingCharacters(in: .whitespacesAndNewlines))! // grab the url from user settings
     var request = URLRequest(url: webhookURL) // create a urlrequest object with the grabbed url as the url
     request.httpMethod = "POST" // make it a POST
     request.addValue("application/json", forHTTPHeaderField: "content-type") // make sure its json
