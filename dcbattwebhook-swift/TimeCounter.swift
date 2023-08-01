@@ -30,7 +30,7 @@ func SaveCurrentDate() -> Void {
 func GetRawTimeSinceSavedDate() -> Double {
     let currentDate = Date()
     var savedDate = Date(timeIntervalSinceReferenceDate: 0)
-    if UserDefaults.standard.object(forKey: "SavedDate") != nil {
+    if defaults.object(forKey: "SavedDate") != nil {
         savedDate = defaults.object(forKey: "SavedDate") as! Date
     }
     
@@ -77,7 +77,7 @@ func GetTimeSinceSavedDate() -> (Time: Int, TimeUnit: String) {
     let userCalendar = Calendar.current
     let currentDate = Date()
     var savedDate = Date(timeIntervalSinceReferenceDate: 0)
-    if UserDefaults.standard.object(forKey: "SavedDate") != nil {
+    if defaults.object(forKey: "SavedDate") != nil {
         savedDate = defaults.object(forKey: "SavedDate") as! Date
     }
     
@@ -146,7 +146,7 @@ func GetTimeSinceSavedDate() -> (Time: Int, TimeUnit: String) {
 func GetCurrentDateFormatted() -> String {
     var currentDate = Date(timeIntervalSinceReferenceDate: 0)
     var currentDateFormatted = ""
-    if UserDefaults.standard.object(forKey: "SavedDate") != nil {
+    if defaults.object(forKey: "SavedDate") != nil {
         currentDate = defaults.object(forKey: "SavedDate") as! Date
     }
     

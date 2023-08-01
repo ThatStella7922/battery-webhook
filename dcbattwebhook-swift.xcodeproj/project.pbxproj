@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5120A3B72A78EC3A000B05B3 /* dcbattwebhook-swift-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5120A3BC2A78EC92000B05B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550348CB291D7FB9006551B0 /* Assets.xcassets */; };
+		5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */; };
+		5173E4172A78EE980076663F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
+		5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
+		5173E4192A78EE980076663F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C9291D7FB9006551B0 /* ContentView.swift */; };
+		5173E41A2A78EE980076663F /* HomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348DC291DA3BC006551B0 /* HomeUIView.swift */; };
+		5173E41B2A78EE980076663F /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
+		5173E41C2A78EE980076663F /* SendBatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */; };
+		5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
+		5173E41E2A78EE980076663F /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
+		5173E41F2A78EE980076663F /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
+		5173E4202A78EE980076663F /* AutomationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */; };
+		5173E4212A78EE980076663F /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
+		5173E4222A78EE980076663F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D6291D84E1006551B0 /* SettingsView.swift */; };
+		5173E4232A78EE980076663F /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D8291D9EB7006551B0 /* DeviceInfo.swift */; };
+		5173E4252A78F1520076663F /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173E4242A78F1520076663F /* SessionDelegate.swift */; };
+		5173E4262A78F1520076663F /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173E4242A78F1520076663F /* SessionDelegate.swift */; };
 		550348C8291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */; };
 		550348CA291D7FB9006551B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C9291D7FB9006551B0 /* ContentView.swift */; };
 		550348CC291D7FB9006551B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550348CB291D7FB9006551B0 /* Assets.xcassets */; };
@@ -25,8 +43,36 @@
 		55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5120A3B52A78EC3A000B05B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550348BC291D7FB9006551B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5120A3A92A78EC39000B05B3;
+			remoteInfo = "dcbattwebhook-swift-watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5120A3BB2A78EC3A000B05B3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5120A3B72A78EC3A000B05B3 /* dcbattwebhook-swift-watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5191FA032A77845D00463CF3 /* dcbattwebhook-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dcbattwebhook-swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		5120A3A42A78EBDC000B05B3 /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/iOSSupport/System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
+		5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dcbattwebhook-swift-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5173E4152A78EE850076663F /* dcbattwebhook-swift-watch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dcbattwebhook-swift-watch-Info.plist"; sourceTree = "<group>"; };
+		5173E4242A78F1520076663F /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
+		5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "dcbattwebhook-swift-watch.entitlements"; sourceTree = "<group>"; };
 		550348C4291D7FB9006551B0 /* dcbattwebhook-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dcbattwebhook-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dcbattwebhook_swiftApp.swift; sourceTree = "<group>"; };
 		550348C9291D7FB9006551B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +96,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5120A3A72A78EC39000B05B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		550348C1291D7FB9006551B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -60,11 +113,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5120A3A32A78EBDC000B05B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5120A3A42A78EBDC000B05B3 /* CarPlay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		550348BB291D7FB9006551B0 = {
 			isa = PBXGroup;
 			children = (
 				550348C6291D7FB9006551B0 /* dcbattwebhook-swift */,
 				550348C5291D7FB9006551B0 /* Products */,
+				5120A3A32A78EBDC000B05B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				550348C4291D7FB9006551B0 /* dcbattwebhook-swift.app */,
+				5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +153,9 @@
 				55B4E8E729316C0600492C77 /* MessageBuilder.swift */,
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
+				5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */,
 				55DE492829328BEB00DC68C3 /* AutomationSettingsView.swift */,
+				5173E4152A78EE850076663F /* dcbattwebhook-swift-watch-Info.plist */,
 				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
@@ -98,7 +163,7 @@
 				550348CB291D7FB9006551B0 /* Assets.xcassets */,
 				550348CD291D7FB9006551B0 /* dcbattwebhook_swift.entitlements */,
 				550348CE291D7FB9006551B0 /* Preview Content */,
-				5191FA032A77845D00463CF3 /* dcbattwebhook-swift-Bridging-Header.h */,
+				5173E4242A78F1520076663F /* SessionDelegate.swift */,
 			);
 			path = "dcbattwebhook-swift";
 			sourceTree = "<group>";
@@ -114,6 +179,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5120A3A92A78EC39000B05B3 /* dcbattwebhook-swift-watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5120A3B82A78EC3A000B05B3 /* Build configuration list for PBXNativeTarget "dcbattwebhook-swift-watch" */;
+			buildPhases = (
+				5120A3A62A78EC39000B05B3 /* Sources */,
+				5120A3A72A78EC39000B05B3 /* Frameworks */,
+				5120A3A82A78EC39000B05B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "dcbattwebhook-swift-watch";
+			productName = "dcbattwebhook-swift-watch Watch App";
+			productReference = 5120A3AA2A78EC39000B05B3 /* dcbattwebhook-swift-watch.app */;
+			productType = "com.apple.product-type.application";
+		};
 		550348C3291D7FB9006551B0 /* dcbattwebhook-swift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 550348D3291D7FB9006551B0 /* Build configuration list for PBXNativeTarget "dcbattwebhook-swift" */;
@@ -121,10 +203,12 @@
 				550348C0291D7FB9006551B0 /* Sources */,
 				550348C1291D7FB9006551B0 /* Frameworks */,
 				550348C2291D7FB9006551B0 /* Resources */,
+				5120A3BB2A78EC3A000B05B3 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5120A3B62A78EC3A000B05B3 /* PBXTargetDependency */,
 			);
 			name = "dcbattwebhook-swift";
 			productName = "dcbattwebhook-swift";
@@ -138,11 +222,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					5120A3A92A78EC39000B05B3 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					550348C3291D7FB9006551B0 = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -155,16 +243,24 @@
 				Base,
 			);
 			mainGroup = 550348BB291D7FB9006551B0;
-			productRefGroup = 550348C5291D7FB9006551B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				550348C3291D7FB9006551B0 /* dcbattwebhook-swift */,
+				5120A3A92A78EC39000B05B3 /* dcbattwebhook-swift-watch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5120A3A82A78EC39000B05B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5120A3BC2A78EC92000B05B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		550348C2291D7FB9006551B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,6 +273,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5120A3A62A78EC39000B05B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */,
+				5173E4172A78EE980076663F /* AboutView.swift in Sources */,
+				5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */,
+				5173E4192A78EE980076663F /* ContentView.swift in Sources */,
+				5173E41A2A78EE980076663F /* HomeUIView.swift in Sources */,
+				5173E41B2A78EE980076663F /* SettingsValidator.swift in Sources */,
+				5173E4262A78F1520076663F /* SessionDelegate.swift in Sources */,
+				5173E41C2A78EE980076663F /* SendBatteryInfo.swift in Sources */,
+				5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */,
+				5173E41E2A78EE980076663F /* EmbedStructs.swift in Sources */,
+				5173E41F2A78EE980076663F /* TimeCounter.swift in Sources */,
+				5173E4202A78EE980076663F /* AutomationSettingsView.swift in Sources */,
+				5173E4212A78EE980076663F /* WebhookSettingsView.swift in Sources */,
+				5173E4222A78EE980076663F /* SettingsView.swift in Sources */,
+				5173E4232A78EE980076663F /* DeviceInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		550348C0291D7FB9006551B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +305,7 @@
 				55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */,
 				55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */,
 				55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */,
+				5173E4252A78F1520076663F /* SessionDelegate.swift in Sources */,
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */,
 				55DE492929328BEB00DC68C3 /* AutomationSettingsView.swift in Sources */,
@@ -200,7 +319,86 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5120A3B62A78EC3A000B05B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5120A3A92A78EC39000B05B3 /* dcbattwebhook-swift-watch */;
+			targetProxy = 5120A3B52A78EC3A000B05B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5120A3B92A78EC3A000B05B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
+				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "dcbattwebhookdcbattwebhook-swift-watch-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "dcbattwebhook-swift-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.dhinakg.thatstel.la.dcbattwebhook-swift";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dhinakg.thatstel.la.dcbattwebhook-swift.watch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		5120A3BA2A78EC3A000B05B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
+				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "dcbattwebhookdcbattwebhook-swift-watch-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "dcbattwebhook-swift-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.dhinakg.thatstel.la.dcbattwebhook-swift";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dhinakg.thatstel.la.dcbattwebhook-swift.watch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		550348D1291D7FB9006551B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,17 +511,23 @@
 		550348D4291D7FB9006551B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = 89294PAZ2F;
+				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/System/iOSSupport/System/Library/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dcbattwebhook-swift/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
@@ -342,16 +546,16 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.dcbattwebhook-swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dhinakg.thatstel.la.dcbattwebhook-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "dcbattwebhook-swift/dcbattwebhook-swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
@@ -361,17 +565,23 @@
 		550348D5291D7FB9006551B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = 89294PAZ2F;
+				DEVELOPMENT_TEAM = YW9DB3Q4MQ;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/System/iOSSupport/System/Library/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dcbattwebhook-swift/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
@@ -390,16 +600,15 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.dcbattwebhook-swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dhinakg.thatstel.la.dcbattwebhook-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "dcbattwebhook-swift/dcbattwebhook-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
@@ -409,6 +618,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5120A3B82A78EC3A000B05B3 /* Build configuration list for PBXNativeTarget "dcbattwebhook-swift-watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5120A3B92A78EC3A000B05B3 /* Debug */,
+				5120A3BA2A78EC3A000B05B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		550348BF291D7FB9006551B0 /* Build configuration list for PBXProject "dcbattwebhook-swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

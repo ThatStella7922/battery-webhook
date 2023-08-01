@@ -6,9 +6,17 @@
 //
 
 import Foundation
+#if os(watchOS)
+import WatchKit
+#endif
+#if !os(macOS)
 import UIKit
+#else
+import IOKit
+import IOKit.ps
+#endif
 
-public extension UIDevice {
+public struct DeviceInfo {
 
     static let modelName: String = {
         var systemInfo = utsname()
@@ -139,7 +147,36 @@ public extension UIDevice {
             case "i386", "x86_64", "arm64": return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
             default: return identifier
             }
-    
+            #elseif os(watchOS)
+            switch identifier {
+            case "Watch1,1":               return "Apple Watch (1st generation) 38mm"
+            case "Watch1,2":               return "Apple Watch (1st generation) 42mm"
+            case "Watch2,6":               return "Apple Watch Series 1 38mm"
+            case "Watch2,7":               return "Apple Watch Series 1 42mm"
+            case "Watch2,3":               return "Apple Watch Series 2 38mm"
+            case "Watch2,4":               return "Apple Watch Series 2 42mm"
+            case "Watch3,1", "Watch3,3":   return "Apple Watch Series 3 38mm"
+            case "Watch3,2", "Watch3,4":   return "Apple Watch Series 3 42mm"
+            case "Watch4,1", "Watch4,3":   return "Apple Watch Series 4 40mm"
+            case "Watch4,2", "Watch4,4":   return "Apple Watch Series 4 44mm"
+            case "Watch5,1", "Watch5,3":   return "Apple Watch Series 5 40mm"
+            case "Watch5,2", "Watch5,4":   return "Apple Watch Series 5 44mm"
+            case "Watch6,1", "Watch6,3":   return "Apple Watch Series 6 40mm"
+            case "Watch6,2", "Watch6,4":   return "Apple Watch Series 6 44mm"
+            case "Watch5,9", "Watch5,11":  return "Apple Watch SE 40mm"
+            case "Watch5,10", "Watch5,12": return "Apple Watch SE 44mm"
+            case "Watch6,6", "Watch6,8":   return "Apple Watch Series 7 41mm"
+            case "Watch6,7", "Watch6,9":   return "Apple Watch Series 7 45mm"
+            case "Watch6,14", "Watch6,16": return "Apple Watch Series 8 41mm"
+            case "Watch6,15", "Watch6,17": return "Apple Watch Series 8 45mm"
+            case "Watch6,10", "Watch6,12": return "Apple Watch SE (2nd generation) 40mm"
+            case "Watch6,11", "Watch6,13": return "Apple Watch SE (2nd generation) 44mm"
+            case "Watch6,18":              return "Apple Watch Ultra"            
+            case "i386", "x86_64", "arm64":return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
+            default: return identifier
+            }
+            #else
+            return identifier
             #endif
         }
 
@@ -150,7 +187,13 @@ public extension UIDevice {
 
 /// Return the user-set name of the device as a string, as reported by the system API. **Using on iOS 16 and later results in a generic device name being returned (such as iPhone)**
 func getSystemReportedDeviceUserDisplayName() -> String {
+    #if os(macOS)
+    return Host.current().localizedName ?? "Mac"
+    #elseif os(watchOS)
+    return WKInterfaceDevice.current().name
+    #else
     return UIDevice.current.name
+    #endif
 }
 
 /**
@@ -181,12 +224,18 @@ func getDeviceUserDisplayName() -> String {
  
  */
 func getOSVersion() -> String {
+    #if os(macOS)
+    return ProcessInfo.processInfo.operatingSystemVersionString
+    #elseif os(watchOS)
+    return WKInterfaceDevice.current().systemVersion
+    #else
     return UIDevice.current.systemVersion
+    #endif
 }
 
 /// Returns the current OS version as a double.
 func getOSVersionAsDbl() -> Double {
-    let OSVerString = UIDevice.current.systemVersion
+    let OSVerString = getOSVersion()
     let myDouble = Double(OSVerString) ?? 0.00
     
     return myDouble
@@ -211,7 +260,7 @@ func isiOSPre16() -> Bool {
 
 /// Returns the device name as a string (ex. `iPad Pro (12.9-inch) (2nd generation)`)
 func getDeviceModel() -> String {
-    return UIDevice.modelName
+    return DeviceInfo.modelName
 }
 
 /**
@@ -225,6 +274,22 @@ func getBatteryLevel() -> Int {
     #if os(tvOS)
     return 0
     
+    #elseif os(macOS)
+    // from https://stackoverflow.com/a/34571839
+    guard let snapshot = IOPSCopyPowerSourcesInfo()?.takeRetainedValue() else { return 0 }
+    guard let sources: NSArray = IOPSCopyPowerSourcesList(snapshot)?.takeRetainedValue() else { return 0 }
+    for ps in sources {
+        guard let info: NSDictionary = IOPSGetPowerSourceDescription(snapshot, ps as CFTypeRef)?.takeUnretainedValue() else { return 0 }
+
+        if let capacity = info[kIOPSCurrentCapacityKey] as? Int {
+            return capacity
+        }
+    }
+    // Stop using this on desktops!
+    return 0
+    #elseif os(watchOS)
+    WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+    return Int(WKInterfaceDevice.current().batteryLevel * 100)
     #else
     UIDevice.current.isBatteryMonitoringEnabled = true
     return Int(UIDevice.current.batteryLevel * 100)

@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+#if os(iOS) || os(watchOS)
+import WatchConnectivity
+#endif
 
 public let prodName = "Battery Webhook"
 
@@ -17,6 +20,20 @@ public let version = "1.0b36"
 
 @main
 struct dcbattwebhook_swiftApp: App {
+    
+    
+    private lazy var sessionDelegator: SessionDelegator = {
+        return SessionDelegator()
+    }()
+
+    init() {
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = sessionDelegator
+            session.activate()
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
