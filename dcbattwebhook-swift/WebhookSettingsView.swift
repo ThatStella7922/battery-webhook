@@ -64,6 +64,9 @@ struct WebhookSettingsView: View {
                         }
                     }
                 }
+                #if os(macOS)
+                .formStyle(.grouped)
+                #endif
             }
         }.onAppear() {
             if defaults.object(forKey: "WebhookURL") != nil {

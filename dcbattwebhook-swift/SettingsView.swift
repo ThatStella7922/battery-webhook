@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 
 struct SettingsView: View {
-
     @State private var usrName: String = ""
     @State private var usrPronoun: String = ""
     @State private var usrDeviceName: String = getSystemReportedDeviceUserDisplayName()
@@ -25,7 +24,6 @@ struct SettingsView: View {
         VStack {
             VStack {
                 Form {
-                    
                     if (isiOSPre16() == true) {
                         Section(header: Text("iOS/iPadOS 15 Notice")) {
                             Text("There is a bug in SwiftUI on iOS/iPadOS 15 that causes the text fields below to not show the saved settings. If you tap on a text field, it shows the saved setting just fine. Anything you input into the fields is still saved and this SwiftUI bug is fixed on iOS/iPadOS 16 and newer.")
@@ -33,9 +31,14 @@ struct SettingsView: View {
                     }
                     
                     Section(header: Text("Webhook"), footer: Text("Specify the webhook URL and type of service to push to.")) {
+                        #if !os(macOS)
                         NavigationLink{WebhookSettingsView()} label: {
                             Label("Webhook Settings", systemImage: "link")
                         }
+                        #else
+                        // Why is macOS SwiftUI trash
+                        WebhookSettingsView()
+                        #endif
                     }
                     
                     Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the device name to be shown. \nYour pronoun will be used primarily in automated sending of battery info (see Automation Settings)")) {
@@ -51,7 +54,13 @@ struct SettingsView: View {
                         #endif
                             .disabled(true)
                         
-                        TextField(text: $usrDeviceName) {
+                        TextField(text: $usrDeviceName, prompt: {
+                            #if os(macOS)
+                            Text(getSystemReportedDeviceUserDisplayName())
+                            #else
+                            nil
+                            #endif
+                        }()) {
                             Text("Device Name")
                         }.disableAutocorrection(true)
                         
@@ -81,6 +90,9 @@ struct SettingsView: View {
                         }
                     }
                 }
+                #if os(macOS)
+                .formStyle(.grouped)
+                #endif
             }
         }
         .onAppear() {
@@ -123,7 +135,6 @@ struct SettingsView: View {
         }
         
         .navigationTitle("Settings")
-        
     }
 }
 
