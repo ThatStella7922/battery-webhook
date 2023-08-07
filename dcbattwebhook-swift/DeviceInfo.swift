@@ -212,12 +212,9 @@ func getSystemReportedDeviceUserDisplayName() -> String {
 func getDeviceUserDisplayName() -> String {
     var usrDeviceName = getSystemReportedDeviceUserDisplayName()
     if let usrdevicename = UserDefaults.standard.string(forKey: "UsrDeviceName") {
-        usrDeviceName = usrdevicename
-    }
-    
-    // make sure it cant be empty lol
-    if usrDeviceName == "" {
-        usrDeviceName = getSystemReportedDeviceUserDisplayName()
+        if (usrdevicename.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+            usrDeviceName = usrdevicename
+        }
     }
     
     return usrDeviceName
@@ -295,9 +292,11 @@ func getBatteryLevel() -> Int {
     return 0
     #elseif os(watchOS)
     WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+    defer { WKInterfaceDevice.current().isBatteryMonitoringEnabled = false }
     return Int(WKInterfaceDevice.current().batteryLevel * 100)
     #else
     UIDevice.current.isBatteryMonitoringEnabled = true
+    defer { UIDevice.current.isBatteryMonitoringEnabled = false }
     return Int(UIDevice.current.batteryLevel * 100)
     //returns a value from 0 to 100
     #endif

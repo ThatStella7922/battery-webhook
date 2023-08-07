@@ -42,9 +42,12 @@ struct dcbattwebhook_swiftApp: App {
                 NSWindow.allowsAutomaticWindowTabbing = false
                 #endif
             }
-        }.commands {
+        }
+        #if os(macOS)
+        .commands {
             CommandGroup(replacing: CommandGroupPlacement.newItem) {
             }
         }
+        #endif
     }
 }
