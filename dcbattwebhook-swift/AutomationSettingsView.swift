@@ -39,15 +39,15 @@ struct AutomationSettingsView: View {
                 }
             }
         }.onAppear() {
-            if UserDefaults.standard.object(forKey: "SendOnPluggedIn") != nil {
+            if defaults.object(forKey: "SendOnPluggedIn") != nil {
                 sendOnPluggedIn = defaults.bool(forKey: "SendOnPluggedIn")
             }
             
-            if UserDefaults.standard.object(forKey: "SendOnUnplugged") != nil {
+            if defaults.object(forKey: "SendOnUnplugged") != nil {
                 sendOnUnplugged = defaults.bool(forKey: "SendOnUnplugged")
             }
             
-            if UserDefaults.standard.object(forKey: "SendOnHitFullCharge") != nil {
+            if defaults.object(forKey: "SendOnHitFullCharge") != nil {
                 sendOnHitFullCharge = defaults.bool(forKey: "SendOnHitFullCharge")
             }
             // these if statements read the settings from defaults

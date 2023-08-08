@@ -33,28 +33,28 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     
     // get our info from settings
     let defaults = UserDefaults.standard
-    if UserDefaults.standard.object(forKey: "WebhookURL") != nil {
+    if defaults.object(forKey: "WebhookURL") != nil {
         userwebhookurl = defaults.string(forKey: "WebhookURL")!
     }
-    if UserDefaults.standard.object(forKey: "UserpfpUrl") != nil {
+    if defaults.object(forKey: "UserpfpUrl") != nil {
         userpfpurl = defaults.string(forKey: "UserpfpUrl")!
     }
-    if UserDefaults.standard.object(forKey: "UsrName") != nil {
+    if defaults.object(forKey: "UsrName") != nil {
         usrname = defaults.string(forKey: "UsrName")!
     }
-    if UserDefaults.standard.object(forKey: "UsrPronoun") != nil {
+    if defaults.object(forKey: "UsrPronoun") != nil {
         usrpronoun = defaults.string(forKey: "UsrPronoun")!
     }
-    if UserDefaults.standard.object(forKey: "SendDeviceName") != nil {
+    if defaults.object(forKey: "SendDeviceName") != nil {
         sendDeviceName = defaults.bool(forKey: "SendDeviceName")
     }
-    if UserDefaults.standard.object(forKey: "SendDeviceModel") != nil {
+    if defaults.object(forKey: "SendDeviceModel") != nil {
         sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
     }
-    if UserDefaults.standard.object(forKey: "ShowPfp") != nil {
+    if defaults.object(forKey: "ShowPfp") != nil {
         showpfp = defaults.bool(forKey: "ShowPfp")
     }
-    if UserDefaults.standard.object(forKey: "ShowPronoun") != nil {
+    if defaults.object(forKey: "ShowPronoun") != nil {
         showpronoun = defaults.bool(forKey: "ShowPronoun")
     }
     // end of getting info from settings

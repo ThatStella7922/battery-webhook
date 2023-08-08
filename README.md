@@ -31,6 +31,6 @@ iOS/tvOS/macCatalyst 15.0 or later
 <sub>(macCatalyst 15.0 = macOS Monterey 12.0) </sub>
 
 ## Building
-Open in Xcode, set codesign identity, then build.
+Open in Xcode, change PROJECT_IDENTIFIER at the bottom of project build settings, set codesign identity, then build.
 
 Documentation is provided as DocC for most functions, or code comments

@@ -46,7 +46,9 @@ struct SettingsView: View {
                         TextField(text: $usrPronoun) {
                             Text("Pronoun (her/his/their/etc)")
                         }.disableAutocorrection(true)
+                        #if !os(macOS) && !os(watchOS)
                             .autocapitalization(.none)
+                        #endif
                             .disabled(true)
                         
                         TextField(text: $usrDeviceName) {

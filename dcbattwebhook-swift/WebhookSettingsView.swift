@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+#if os(iOS) || os(watchOS)
+import WatchConnectivity
+#endif
+
 
 struct WebhookSettingsView: View {
     var serviceTypes = ["Discord"]
@@ -35,12 +39,18 @@ struct WebhookSettingsView: View {
                             
                             TextField(text: $webhookurl) {
                                 Text("Discord Webhook URL")
-                            }.keyboardType(.URL)
+                            }
+                            #if !os(macOS) && !os(watchOS)
+                            .keyboardType(.URL)
+                            #endif
                                 .disableAutocorrection(true)
                             
                             TextField(text: $userpfpurl) {
                                 Text("Avatar Image URL (optional)")
-                            }.keyboardType(.URL)
+                            }
+                            #if !os(macOS) && !os(watchOS)
+                            .keyboardType(.URL)
+                            #endif
                                 .disableAutocorrection(true)
                             
                         }
@@ -56,15 +66,15 @@ struct WebhookSettingsView: View {
                 }
             }
         }.onAppear() {
-            if UserDefaults.standard.object(forKey: "WebhookURL") != nil {
+            if defaults.object(forKey: "WebhookURL") != nil {
                 webhookurl = defaults.string(forKey: "WebhookURL")!
             }
             
-            if UserDefaults.standard.object(forKey: "UserpfpUrl") != nil {
+            if defaults.object(forKey: "UserpfpUrl") != nil {
                 userpfpurl = defaults.string(forKey: "UserpfpUrl")!
             }
             
-            if UserDefaults.standard.object(forKey: "SelectedServiceType") != nil {
+            if defaults.object(forKey: "SelectedServiceType") != nil {
                 selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
             }
             
@@ -72,6 +82,24 @@ struct WebhookSettingsView: View {
             defaults.set(webhookurl, forKey: "WebhookURL")
             defaults.set(userpfpurl, forKey: "UserpfpUrl")
             defaults.set(selectedServiceType, forKey: "SelectedServiceType")
+            
+            #if os(iOS)
+            if (WCSession.isSupported()) {
+                let session = WCSession.default
+                if (session.activationState != .activated) {
+                    session.activate()
+                }
+                do {
+                    try session.updateApplicationContext([
+                        "WebhookURL": webhookurl,
+                        "UserpfpUrl": userpfpurl,
+                        "SelectedServiceType": selectedServiceType
+                    ])
+                } catch {
+                    print("Unexpected error: \(error).")
+                }
+            }
+            #endif
             
         }.navigationTitle("Webhook Settings")
     }

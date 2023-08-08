@@ -20,11 +20,11 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     
     // get our info
     let defaults = UserDefaults.standard
-    if UserDefaults.standard.object(forKey: "WebhookURL") != nil {
+    if defaults.object(forKey: "WebhookURL") != nil {
         userwebhookurl = defaults.string(forKey: "WebhookURL")!
     }
     
-    if UserDefaults.standard.object(forKey: "SelectedServiceType") != nil {
+    if defaults.object(forKey: "SelectedServiceType") != nil {
         selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
     }
     
