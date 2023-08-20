@@ -25,14 +25,14 @@ struct HomeUIView: View {
                         let isSettingsValid = ValidateSettings()
                         
                         if (isSettingsValid.err == true) {
-                            errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg, title: "Error")
+                            errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg, title: "Configuration Error")
                         }
                         else {
                             let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
                             SaveCurrentDate()
                             if (ResultsVar.err) {
                                 // See L#58 in SendBatteryInfo.swift, this will never trigger unless that is improved
-                                errAlert = ErrorAlertStruct(msg: ResultsVar.errMsg, title: "HTTP Error")
+                                errAlert = ErrorAlertStruct(msg: ResultsVar.errMsg, title: "Error")
                             }
                             else {
                                 errAlert = ErrorAlertStruct(msg: "The battery info was sent.", title: "Success")
