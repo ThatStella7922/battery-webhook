@@ -10,9 +10,9 @@ import Foundation
 //return bool for failure or pass, then error message as string
 func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> (err: Bool, errMsg: String) {
     
-    var userwebhookurl = ""
-    var selectedServiceType = ""
-    var fullmessageBlock = MessageObj()
+    var userWebhookUrl = ""
+    var selectedServiceType = "Discord"
+    var fullmessageBlock: Codable
     
     // for returning
     var returnErr = false
@@ -20,21 +20,27 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     
     // get our info
     let defaults = UserDefaults.standard
-    if defaults.object(forKey: "WebhookURL") != nil {
-        userwebhookurl = defaults.string(forKey: "WebhookURL")!
-    }
     
     if defaults.object(forKey: "SelectedServiceType") != nil {
         selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
     }
+    if defaults.object(forKey: selectedServiceType + "WebhookUrl") != nil {
+        userWebhookUrl = defaults.string(forKey: selectedServiceType + "WebhookUrl")!
+    }
     
+    // Decide how to construct the webhook data based on the selected service
     switch(selectedServiceType) {
     case "Discord":
         fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
         
+    case "Discord 2":
+        fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+        
     default:
-        fullmessageBlock = MessageObj(contents: "brokey")
-        //todo: better validate this
+        // if we can't resolve, return an error to the user.
+        returnErr = true
+        returnErrMsg = "A fatal error occurred while sending your battery info.\n\"" + selectedServiceType + "\" service type is selected but is not yet supported. Please navigate to Settings -> Webhook Settings to choose a service type from the list."
+        return (returnErr, returnErrMsg)
     }
     // this is how we grab the json to throw into the json encoder below, just by calling constructembed
     
@@ -47,7 +53,7 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     print("broken ahh json: " + jsonString!)
     
     // our actual post
-    let webhookURL = URL(string: userwebhookurl.trimmingCharacters(in: .whitespacesAndNewlines))! // grab the url from user settings
+    let webhookURL = URL(string: userWebhookUrl.trimmingCharacters(in: .whitespacesAndNewlines))! // grab the url from user settings
     var request = URLRequest(url: webhookURL) // create a urlrequest object with the grabbed url as the url
     request.httpMethod = "POST" // make it a POST
     request.addValue("application/json", forHTTPHeaderField: "content-type") // make sure its json
