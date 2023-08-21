@@ -7,6 +7,7 @@
 
 import Foundation
 
+private var selectedServiceType = "Discord"
 private var webhookUrl: String = ""
 private var userPfpUrl: String = ""
 private var usrName: String = ""
@@ -28,11 +29,15 @@ func ValidateSettings() -> (err: Bool, errMsg: String) {
     var returnErr = false
     var returnErrMsg = ""
     
-    if let webhookurl = defaults.string(forKey: "WebhookURL") {
+    if defaults.object(forKey: "SelectedServiceType") != nil {
+        selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
+    }
+    
+    if let webhookurl = defaults.string(forKey: selectedServiceType + "WebhookUrl") {
         webhookUrl = webhookurl
     }
     
-    if let userpfpurl = defaults.string(forKey: "UserpfpUrl") {
+    if let userpfpurl = defaults.string(forKey: selectedServiceType + "UserPfpUrl") {
         userPfpUrl = userpfpurl
     }
     
@@ -45,7 +50,6 @@ func ValidateSettings() -> (err: Bool, errMsg: String) {
     }
     
     showPfp = defaults.bool(forKey: "ShowPfp")
-    
     showPronoun = defaults.bool(forKey: "ShowPronoun")
     // the above loads user preferences into vars for use
     
