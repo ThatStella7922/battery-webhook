@@ -1,10 +1,8 @@
 # Defaults Used
 
 ## Settings
-- WebhookURL
-  - String, contains the Discord Webhook URL
-- UserpfpUrl
-  - String, contains the URL of the user's avatar image
+
+### Global
 - UsrName
   - String, contains the user set display name
 - UsrPronoun
@@ -21,6 +19,17 @@
   - Bool, stores the user's preference on sending their device model
 - SelectedServiceType
   - String, stores the user's preference on which service (discord, telegram, etc) they want to use. Must be selected from a predefined list. See serviceTypes array in WebhookSettingsView.swift
+
+### Service Specific Settings
+The way these are done rn is the following:
+```swift
+selectedServiceType + "WebhookUrl"
+```
+#### Discord
+- DiscordWebhookUrl
+  - String, contains the Discord Webhook URL
+- DiscordUserPfpUrl
+  - String, contains the URL of the user's avatar image
 
 ## Automation Settings
 - SendOnPluggedIn
