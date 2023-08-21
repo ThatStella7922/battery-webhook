@@ -8,55 +8,52 @@
 import Foundation
 
 // three paramters: did the device just get plugged in, did the device just get unplugged, did the device just hit 100% charge. all in that order
-func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> MessageObj {
+func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> DiscordMessageObj {
     // empty variables to store user variables into
-    var userwebhookurl = ""
-    var userpfpurl = ""
-    var usrname = ""
-    var usrpronoun = ""
+    var selectedServiceType = "Discord"
+    
+    var userWebhookUrl = ""
+    var userPfpUrl = ""
+    var usrName = ""
+    // var usrPronoun = ""
     var sendDeviceName = true
     var sendDeviceModel = true
-    var showpfp = true
-    var showpronoun = true
+    var showPfp = true
+    // var showPronoun = true
     // pronoun stuff not used yet (it will be when plugin/unplug detection is added)
     
     // empty variables to work with when constructing
-    var workingVar = ""
-    var footerBlock = MsgFooter()
-    var authorBlock = MsgAuthor()
-    var embedBlock = MsgEmbed()
-    var batteryField = MsgField(name: "Unknown Device", value: "Unknown battery state", inline: true)
-    var timeField = MsgField(name: "Time since last info:", value: "Unknown", inline: true)
-    var advertField = MsgField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + version, inline: false)
-    var fullmessageBlock = MessageObj()
+    var footerBlock = DiscordFooter()
+    var authorBlock = DiscordAuthor()
+    var embedBlock = DiscordEmbed()
+    var batteryField = DiscordEmbedField(name: "Unknown Device", value: "Unknown battery state", inline: true)
+    var timeField = DiscordEmbedField(name: "Time since last info:", value: "Unknown", inline: true)
+    let advertField = DiscordEmbedField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + version, inline: false)
+    var fullmessageBlock = DiscordMessageObj()
     var embedColor = 0
     
     // get our info from settings
     let defaults = UserDefaults.standard
-    if defaults.object(forKey: "WebhookURL") != nil {
-        userwebhookurl = defaults.string(forKey: "WebhookURL")!
+    if defaults.object(forKey: "SelectedServiceType") != nil {
+        selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
     }
-    if defaults.object(forKey: "UserpfpUrl") != nil {
-        userpfpurl = defaults.string(forKey: "UserpfpUrl")!
+    if let userwebhookurl = defaults.string(forKey: selectedServiceType + "WebhookUrl") {
+        userWebhookUrl = userwebhookurl
     }
-    if defaults.object(forKey: "UsrName") != nil {
-        usrname = defaults.string(forKey: "UsrName")!
+    if let userpfpurl = defaults.string(forKey: selectedServiceType + "UserPfpUrl") {
+        userPfpUrl = userpfpurl
     }
-    if defaults.object(forKey: "UsrPronoun") != nil {
-        usrpronoun = defaults.string(forKey: "UsrPronoun")!
+    if let usrname = defaults.string(forKey: "UsrName") {
+        usrName = usrname
     }
-    if defaults.object(forKey: "SendDeviceName") != nil {
-        sendDeviceName = defaults.bool(forKey: "SendDeviceName")
-    }
-    if defaults.object(forKey: "SendDeviceModel") != nil {
-        sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
-    }
-    if defaults.object(forKey: "ShowPfp") != nil {
-        showpfp = defaults.bool(forKey: "ShowPfp")
-    }
-    if defaults.object(forKey: "ShowPronoun") != nil {
-        showpronoun = defaults.bool(forKey: "ShowPronoun")
-    }
+    //if let usrpronoun = defaults.string(forKey: "UsrPronoun") {
+    //    usrPronoun = usrpronoun
+    //}
+    sendDeviceName = defaults.bool(forKey: "SendDeviceName")
+    sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
+    showPfp = defaults.bool(forKey: "ShowPfp")
+    //showPronoun = defaults.bool(forKey: "ShowPronoun")
+    
     // end of getting info from settings
     
     
@@ -71,12 +68,12 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     
     // if the user has disabled sending a pfp, manually set it to the generic gray Discord profile picture image
     // 0.png is blurple, 1.png is gray, 2.png is green, 3.png is orange, 4.png is red, 5.png is hot pink
-    if (showpfp == false) {
-        userpfpurl = "https://cdn.discordapp.com/embed/avatars/1.png"
+    if (showPfp == false) {
+        userPfpUrl = "https://cdn.discordapp.com/embed/avatars/1.png"
     }
     
     // set our author block right here because this also doesn't change
-    authorBlock = MsgAuthor(name: usrname, icon_url: userpfpurl)
+    authorBlock = DiscordAuthor(name: usrName, icon_url: userPfpUrl)
     
     /*
     Footer removed in favor of a third field in the embed doing the advert, and it supports linking back to the GitHub!
@@ -84,7 +81,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     */
     
     // also set our timeField right here because I think this will just be reusable over and over
-    timeField = MsgField(name: "Time since last update:", value: GetTimeSinceSavedDateAsFmtedStr(), inline: true)
+    timeField = DiscordEmbedField(name: "Time since last update:", value: GetTimeSinceSavedDateAsFmtedStr(), inline: true)
     
     
     // ok here we get some logic
@@ -92,26 +89,26 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
         // if we are NOT charging, did NOT get plugged in, did NOT get unplugged, did NOT hit full charge
         if ((sendDeviceName == true) && (sendDeviceModel == true)) {
             // if sending device name and model is ENABLED
-            batteryField = MsgField(name: getDeviceModel(), value: (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: getDeviceModel(), value: (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
         if ((sendDeviceName == false) && (sendDeviceModel == false)) {
             // if sending device name and model is DISABLED
-            batteryField = MsgField(name: "Device", value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: "Device", value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
         if ((sendDeviceName == true) && (sendDeviceModel == false)) {
             // if sending device name is ENABLED but sending model is DISABLED
-            batteryField = MsgField(name: getDeviceUserDisplayName(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: getDeviceUserDisplayName(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
         if ((sendDeviceName == false) && (sendDeviceModel == true)) {
             // if sending device name is DISABLED but sending model is ENABLED
-            batteryField = MsgField(name: getDeviceModel(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: getDeviceModel(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
         }
     }
     
     // build our embed here, the fields are set above
-    embedBlock = MsgEmbed(author: authorBlock, title: "🔋 Device Battery", color: embedColor, fields: [batteryField, timeField, advertField])
+    embedBlock = DiscordEmbed(author: authorBlock, title: "🔋 Device Battery", color: embedColor, fields: [batteryField, timeField, advertField])
     
     // final full message block to be returned
-    fullmessageBlock = MessageObj(embeds: [embedBlock])
+    fullmessageBlock = DiscordMessageObj(embeds: [embedBlock])
     return fullmessageBlock
 }
