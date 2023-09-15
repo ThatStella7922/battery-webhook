@@ -34,6 +34,8 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     
     // get our info from settings
     let defaults = UserDefaults.standard
+    
+    // This handles the 'Discord 2' and 'Discord' services
     if defaults.object(forKey: "SelectedServiceType") != nil {
         selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
     }
@@ -43,6 +45,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     if let userpfpurl = defaults.string(forKey: selectedServiceType + "UserPfpUrl") {
         userPfpUrl = userpfpurl
     }
+    
     if let usrname = defaults.string(forKey: "UsrName") {
         usrName = usrname
     }
@@ -69,7 +72,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     // if the user has disabled sending a pfp, manually set it to the generic gray Discord profile picture image
     // 0.png is blurple, 1.png is gray, 2.png is green, 3.png is orange, 4.png is red, 5.png is hot pink
     if (showPfp == false) {
-        userPfpUrl = "https://cdn.discordapp.com/embed/avatars/1.png"
+        userPfpUrl = "https://cdn.discordapp.com/embed/avatars/" + String(describing: Int.random(in: 0..<5)) + ".png"
     }
     
     // set our author block right here because this also doesn't change
