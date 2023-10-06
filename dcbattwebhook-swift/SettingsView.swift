@@ -37,7 +37,7 @@ struct SettingsView: View {
                     
                     Section(header: Text("Webhook"), footer: Text("Specify the webhook URL and type of service to push to.")) {
                         
-                        Picker("Webhook Service Type", selection: $selectedServiceType) {
+                        Picker("Webhook Service Type", systemImage: "link", selection: $selectedServiceType) {
                             ForEach(serviceTypes, id: \.self) {
                                 Text($0)
                             }
