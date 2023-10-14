@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Foundation
+#if os(iOS) || os(watchOS)
+import WatchConnectivity
+#endif
 
 struct SettingsView: View {
     var serviceTypes = ["Discord", "Discord 2"]

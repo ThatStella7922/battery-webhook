@@ -40,7 +40,7 @@ struct AboutView: View {
                     //DEBUG SECTION
                     //Comment it out for non debug builds
                     Section(header: Text("Debug Information"), footer: Text("Shows info about the current environment to see if underlying functions work before pushing any info to a webhook. This section uses the same functions as the webhook data constructors.")) {
-                        Text("Battery Level: " + String(getBatteryLevel()) + "%")
+                        Text((hasBattery() ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true))
                         Text("Device Model: " + getDeviceModel())
                         Text("Device Name: " + (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName()))
                         Text("OS Version: " + getOSVersion())
