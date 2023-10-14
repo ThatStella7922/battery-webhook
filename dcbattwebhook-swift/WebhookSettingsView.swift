@@ -15,9 +15,8 @@ struct WebhookSettingsView: View {
     var serviceTypes = ["Discord"]
     @State private var selectedServiceType = "Discord"
     
-    @State private var webhookurl: String = ""
-    @State private var userpfpurl: String = ""
-    @State private var notifyMeAbout: String = ""
+    @State private var webhookUrl: String = ""
+    @State private var userPfpUrl: String = ""
     
     // grab some user defaults
     let defaults = UserDefaults.standard
@@ -37,7 +36,7 @@ struct WebhookSettingsView: View {
                     case "Discord":
                         Section(header: Text("Discord URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG/GIF for your avatar image.")) {
                             
-                            TextField(text: $webhookurl) {
+                            TextField(text: $webhookUrl) {
                                 Text("Discord Webhook URL")
                             }
                             #if !os(macOS) && !os(watchOS)
@@ -45,7 +44,7 @@ struct WebhookSettingsView: View {
                             #endif
                                 .disableAutocorrection(true)
                             
-                            TextField(text: $userpfpurl) {
+                            TextField(text: $userPfpUrl) {
                                 Text("Avatar Image URL (optional)")
                             }
                             #if !os(macOS) && !os(watchOS)
@@ -69,22 +68,21 @@ struct WebhookSettingsView: View {
                 #endif
             }
         }.onAppear() {
-            if defaults.object(forKey: "WebhookURL") != nil {
-                webhookurl = defaults.string(forKey: "WebhookURL")!
-            }
-            
-            if defaults.object(forKey: "UserpfpUrl") != nil {
-                userpfpurl = defaults.string(forKey: "UserpfpUrl")!
-            }
-            
             if defaults.object(forKey: "SelectedServiceType") != nil {
                 selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
             }
             
+            if defaults.object(forKey: selectedServiceType + "WebhookUrl") != nil {
+                webhookUrl = defaults.string(forKey: selectedServiceType + "WebhookUrl")!
+            }
+            
+            if defaults.object(forKey: selectedServiceType + "UserPfpUrl") != nil {
+                userPfpUrl = defaults.string(forKey: selectedServiceType + "UserPfpUrl")!
+            }
         }.onDisappear {
-            defaults.set(webhookurl, forKey: "WebhookURL")
-            defaults.set(userpfpurl, forKey: "UserpfpUrl")
             defaults.set(selectedServiceType, forKey: "SelectedServiceType")
+            defaults.set(webhookUrl, forKey: selectedServiceType + "WebhookUrl")
+            defaults.set(userPfpUrl, forKey: selectedServiceType + "UserPfpUrl")
             
             #if os(iOS)
             if (WCSession.isSupported()) {
@@ -94,8 +92,8 @@ struct WebhookSettingsView: View {
                 }
                 do {
                     try session.updateApplicationContext([
-                        "WebhookURL": webhookurl,
-                        "UserpfpUrl": userpfpurl,
+                        "WebhookUrl": webhookUrl,
+                        "UserPfpUrl": userPfpUrl,
                         "SelectedServiceType": selectedServiceType
                     ])
                 } catch {
@@ -103,8 +101,10 @@ struct WebhookSettingsView: View {
                 }
             }
             #endif
-            
         }.navigationTitle("Webhook Settings")
+            .onChange(of: selectedServiceType) { _ in
+                print("GRUNKLER TYPE:" + selectedServiceType)
+            }
     }
 }
 

@@ -13,9 +13,9 @@ import WatchConnectivity
 public let prodName = "Battery Webhook"
 
 #if os(tvOS)
-public let version = "1.0b36 on tvOS"
+public let version = "1.0b39 on tvOS"
 #else
-public let version = "1.0b36"
+public let version = "1.0b39"
 #endif
 
 @main
