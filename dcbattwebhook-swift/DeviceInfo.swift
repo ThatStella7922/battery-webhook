@@ -211,12 +211,9 @@ func getSystemReportedDeviceUserDisplayName() -> String {
 func getDeviceUserDisplayName() -> String {
     var usrDeviceName = getSystemReportedDeviceUserDisplayName()
     if let usrdevicename = UserDefaults.standard.string(forKey: "UsrDeviceName") {
-        usrDeviceName = usrdevicename
-    }
-    
-    // make sure it cant be empty lol
-    if usrDeviceName == "" {
-        usrDeviceName = getSystemReportedDeviceUserDisplayName()
+        if (usrdevicename.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+            usrDeviceName = usrdevicename
+        }
     }
     
     return usrDeviceName
@@ -271,16 +268,16 @@ func getDeviceModel() -> String {
 /**
  Returns the current battery level as an integer from `0` to `100`
  
- - Warning: Returns `0` if running on tvOS (those shits have no battery)
+ - Warning: Returns `-1` if running on tvOS or desktop macOS (those shits have no battery)
  */
 func getBatteryLevel() -> Int {
-    
     //terrible place to put this
     #if os(tvOS)
-    return 0
+    return -1
     
     #elseif os(macOS)
     // from https://stackoverflow.com/a/34571839
+    // probably broken if you use a UPS or something
     guard let snapshot = IOPSCopyPowerSourcesInfo()?.takeRetainedValue() else { return 0 }
     guard let sources: NSArray = IOPSCopyPowerSourcesList(snapshot)?.takeRetainedValue() else { return 0 }
     for ps in sources {
@@ -291,13 +288,50 @@ func getBatteryLevel() -> Int {
         }
     }
     // Stop using this on desktops!
-    return 0
+    return -1
     #elseif os(watchOS)
     WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+    defer { WKInterfaceDevice.current().isBatteryMonitoringEnabled = false }
     return Int(WKInterfaceDevice.current().batteryLevel * 100)
     #else
     UIDevice.current.isBatteryMonitoringEnabled = true
+    defer { UIDevice.current.isBatteryMonitoringEnabled = false }
     return Int(UIDevice.current.batteryLevel * 100)
     //returns a value from 0 to 100
     #endif
+}
+
+// Pretty self explanatory
+func isCritical() -> Bool {
+    return (0...20).contains(getBatteryLevel())
+}
+
+func hasBattery() -> Bool {
+    return getBatteryLevel() != -1
+}
+
+/**
+ Returns the current battery level as a string (ex. `100%`). Mainly to reduce duplicating the -1 handling
+ 
+ */
+func getBatteryPercentage(standalone: Bool = false, prefix: Bool = false) -> String {
+    /* Return values:
+       About page (true, false): 0%/Connected To Power
+       Webhook with custom name (false, true): has 0% battery/is connected to power
+       Webhook without custom name (false, false): 0% battery/Connected to power
+     */
+
+    let connectedString = "Connected to power"
+
+    assert(!(standalone && prefix), "getBatteryPercentage() cannot be standalone and have a prefix at the same time")
+
+    let batteryLevel = getBatteryLevel()
+    let hasBattery = hasBattery()
+    if (standalone) {
+        return hasBattery ? "\(batteryLevel)%" : connectedString.capitalized
+    } else if (prefix) {
+        return hasBattery ? "has \(batteryLevel)% battery" : "is \(connectedString.lowercased())"
+    } else {
+        return hasBattery ? "\(batteryLevel)% battery" : connectedString
+    }
 }

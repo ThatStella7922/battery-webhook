@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Foundation
+#if os(iOS) || os(watchOS)
+import WatchConnectivity
+#endif
 
 struct SettingsView: View {
     var serviceTypes = ["Discord", "Discord 2"]
@@ -109,7 +112,13 @@ struct SettingsView: View {
                         #endif
                             .disabled(true)
                         
-                        TextField(text: $usrDeviceName) {
+                        TextField(text: $usrDeviceName, prompt: {
+                            #if os(macOS)
+                            Text(getSystemReportedDeviceUserDisplayName())
+                            #else
+                            nil
+                            #endif
+                        }()) {
                             Text("Device Name")
                         }.disableAutocorrection(true)
                         
@@ -139,6 +148,9 @@ struct SettingsView: View {
                         }
                     }
                 }
+                #if os(macOS)
+                .formStyle(.grouped)
+                #endif
             }
         }
         .onAppear() {
@@ -189,6 +201,24 @@ struct SettingsView: View {
             defaults.set(sendDeviceModel, forKey: "SendDeviceModel")
             defaults.set(showPfp, forKey: "ShowPfp")
             defaults.set(showPronoun, forKey: "ShowPronoun")
+
+            #if os(iOS)
+            if (WCSession.isSupported()) {
+                let session = WCSession.default
+                if (session.activationState != .activated) {
+                    session.activate()
+                }
+                do {
+                    try session.updateApplicationContext([
+                        selectedServiceType + "WebhookUrl": webhookUrl,
+                        selectedServiceType + "UserPfpUrl": userPfpUrl,
+                        "SelectedServiceType": selectedServiceType
+                    ])
+                } catch {
+                    print("Unexpected error: \(error).")
+                }
+            }
+            #endif
         }.navigationTitle("Settings")
             .onChange(of: selectedServiceType) {_ in
                 // get the old service type and save those old values

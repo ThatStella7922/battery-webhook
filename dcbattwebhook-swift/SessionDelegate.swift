@@ -9,6 +9,7 @@
 
 import Foundation
 import WatchConnectivity
+import SwiftUI
 
 private let defaults = UserDefaults.standard
 

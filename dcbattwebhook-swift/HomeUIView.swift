@@ -52,6 +52,9 @@ struct HomeUIView: View {
                     Text("not right now")
                 }
             }
+            #if os(macOS)
+            .formStyle(.grouped)
+            #endif
         }
         .navigationTitle("Home")
     }

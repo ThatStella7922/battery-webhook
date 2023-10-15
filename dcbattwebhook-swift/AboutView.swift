@@ -25,7 +25,7 @@ struct AboutView: View {
                         Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
                     }
                     
-                    Section(header: Text("Battery Webhook Source Code"), footer: Text("Contributions, issue creation, finding reaons to yell at me, etc. All on the project's GitHub repository.")) {
+                    Section(header: Text("Battery Webhook Source Code"), footer: Text("Contributions, issue creation, finding reasons to yell at me, etc. All on the project's GitHub repository.")) {
                         Link("View Source on GitHub", destination: URL(string: "https://github.com/ThatStella7922/dcbattwebhook-swift")!)
                     }
                     
@@ -40,9 +40,9 @@ struct AboutView: View {
                     //DEBUG SECTION
                     //Comment it out for non debug builds
                     Section(header: Text("Debug Information"), footer: Text("Shows info about the current environment to see if underlying functions work before pushing any info to a webhook. This section uses the same functions as the webhook data constructors.")) {
-                        Text("Battery Level: " + String(getBatteryLevel()) + "%")
+                        Text((hasBattery() ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true))
                         Text("Device Model: " + getDeviceModel())
-                        Text("Device Name: " + getDeviceUserDisplayName())
+                        Text("Device Name: " + (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName()))
                         Text("OS Version: " + getOSVersion())
                         Text("Saved Date: " + GetCurrentDateFormatted())
                         Text("Time Since Saved Date: " + GetTimeSinceSavedDateAsFmtedStr())
@@ -63,6 +63,9 @@ struct AboutView: View {
                         
                     }
                 }
+                #if os(macOS)
+                .formStyle(.grouped)
+                #endif
             }
         }
         .navigationTitle("About")

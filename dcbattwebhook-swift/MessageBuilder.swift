@@ -62,7 +62,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     
     // set our color variable to red or e872e2 depending on if we are <=20% battery
     // maybe the e872e2 will be changeable by the user later but its such a based color so idk lmao
-    if (getBatteryLevel() <= 20) {
+    if (isCritical()) {
         embedColor = 16711680
     }
     else {
@@ -92,24 +92,29 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
         // if we are NOT charging, did NOT get plugged in, did NOT get unplugged, did NOT hit full charge
         if ((sendDeviceName == true) && (sendDeviceModel == true)) {
             // if sending device name and model is ENABLED
-            batteryField = DiscordEmbedField(name: getDeviceModel(), value: (getDeviceUserDisplayName() + " has " + String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: getDeviceModel(), value: (getDeviceUserDisplayName() + " " + getBatteryPercentage(prefix: true)), inline: true)
         }
         if ((sendDeviceName == false) && (sendDeviceModel == false)) {
             // if sending device name and model is DISABLED
-            batteryField = DiscordEmbedField(name: "Device", value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: "Device", value: getBatteryPercentage(), inline: true)
         }
         if ((sendDeviceName == true) && (sendDeviceModel == false)) {
             // if sending device name is ENABLED but sending model is DISABLED
-            batteryField = DiscordEmbedField(name: getDeviceUserDisplayName(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: getDeviceUserDisplayName(), value: getBatteryPercentage(), inline: true)
         }
         if ((sendDeviceName == false) && (sendDeviceModel == true)) {
             // if sending device name is DISABLED but sending model is ENABLED
-            batteryField = DiscordEmbedField(name: getDeviceModel(), value: (String(describing: getBatteryLevel()) + "% battery"), inline: true)
+            batteryField = DiscordEmbedField(name: getDeviceModel(), value: getBatteryPercentage(), inline: true)
         }
     }
     
+    var embedTitle = "🔌 Power Info"
+    if (hasBattery()) {
+        embedTitle = (isCritical() ? "🪫" : "🔋") + " Device Battery"
+    }
+
     // build our embed here, the fields are set above
-    embedBlock = DiscordEmbed(author: authorBlock, title: "🔋 Device Battery", color: embedColor, fields: [batteryField, timeField, advertField])
+    embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, timeField, advertField])
     
     // final full message block to be returned
     fullmessageBlock = DiscordMessageObj(embeds: [embedBlock])

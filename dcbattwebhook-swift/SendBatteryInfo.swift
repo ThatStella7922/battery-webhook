@@ -61,8 +61,13 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     
     // no idea what this shit does but it works rofl
     // update 07/30/2023 I might know what this does but i need time to mess with it
+    let sem = DispatchSemaphore.init(value: 0)
+
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        defer { sem.signal() }
         guard let data = data, error == nil else {
+            returnErr = true
+            returnErrMsg = error?.localizedDescription ?? "No data"
             print(error?.localizedDescription ?? "No data")
             return
         }
@@ -77,8 +82,7 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     
     print("posted (or attempted to). if error occurred then it will be below:")
     task.resume()
-    
-    // i need to figure out how to get the updated returnErr bool and returnErrMsg out of the `task` because right now
-    // the values i set from in there dont actually get returned below.
+    sem.wait()
+
     return (returnErr, returnErrMsg)
 }
