@@ -135,7 +135,6 @@ func GetTimeSinceSavedDate() -> (Time: Int, TimeUnit: String) {
         return (secondsBetweenDates.second ?? 0, "seconds")
     }
 
-    return (0, "error")
 }
 
 /**
