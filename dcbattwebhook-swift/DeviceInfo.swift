@@ -245,10 +245,9 @@ func getOSVersionAsDbl() -> Double {
 
 /**
  Returns `true` if the device is running any version of iOS prior to `16.0`
- 
- - Warning: Returns `true` when running on visionOS and fix is TODO
  */
 func isiOSPre16() -> Bool {
+    #if os(iOS)
     if (getOSVersionAsDbl() < 16.0) {
         return true
     }
@@ -258,6 +257,11 @@ func isiOSPre16() -> Bool {
     else {
         return false
     }
+    
+    #else
+    return false
+    
+    #endif
 }
 
 /// Returns the device name as a string (ex. `iPad Pro (12.9-inch) (2nd generation)`)
@@ -301,11 +305,16 @@ func getBatteryLevel() -> Int {
     #endif
 }
 
-// Pretty self explanatory
+/**
+ Returns whether the battery level is critical.
+ */
 func isCritical() -> Bool {
     return (0...20).contains(getBatteryLevel())
 }
 
+/**
+ Returns whether the device has a battery.
+ */
 func hasBattery() -> Bool {
     return getBatteryLevel() != -1
 }
