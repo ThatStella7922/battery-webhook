@@ -31,10 +31,10 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     // Decide how to construct the webhook data based on the selected service
     switch(selectedServiceType) {
     case "Discord":
-        fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+        fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: isCurrentlyCharging, didGetPluggedIn: didGetPluggedIn, didGetUnplugged: didGetUnplugged, didHitFullCharge: didHitFullCharge)
         
     case "Discord 2":
-        fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+        fullmessageBlock = ConstructDiscordEmbed(isCurrentlyCharging: isCurrentlyCharging, didGetPluggedIn: didGetPluggedIn, didGetUnplugged: didGetUnplugged, didHitFullCharge: didHitFullCharge)
         
     default:
         // if we can't resolve, return an error to the user.
