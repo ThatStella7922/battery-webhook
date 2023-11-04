@@ -22,9 +22,6 @@ struct ContentView: View {
                     NavigationLink{SettingsView()} label: {
                         Label("Settings", systemImage: "gearshape")
                     }
-                    /*NavigationLink{AutomationSettingsView()} label: {
-                        Label("Automation Settings", systemImage: "gearshape.2")
-                    }*/
                     NavigationLink{AboutView()} label: {
                         Label("About", systemImage: "person.circle")
                     }
