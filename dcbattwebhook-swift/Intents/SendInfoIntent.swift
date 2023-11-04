@@ -11,14 +11,14 @@ import SwiftUI
 
 @available(iOS 16.0, macOS 13.0, watchOS 9.0, tvOS 16.0, *)
 struct SendInfoIntent: AppIntent {
-    //@Parameter(title: "Report plugging in device")
-    //var userDidPlugIn: Bool
+    @Parameter(title: "Report that the device was plugged in")
+    var userDidPlugIn: Bool
     
-    //@Parameter(title: "Report unplugging device")
-    //var userDidUnplug: Bool
+    @Parameter(title: "Report that the device was unplugged")
+    var userDidUnplug: Bool
     
-    //@Parameter(title: "Report reaching full charge")
-    //var userDidHit100: Bool
+    @Parameter(title: "Report that the device reached full charge")
+    var userDidHit100: Bool
     
     static let title: LocalizedStringResource = "Send Battery Info"
     static let description: LocalizedStringResource = "Sends battery info using the configuration set in the Battery Webhook app"
@@ -30,23 +30,32 @@ struct SendInfoIntent: AppIntent {
         let isSettingsValid = ValidateSettings()
         
         if (isSettingsValid.err == true) {
-            //errAlert = ErrorAlertStruct(msg: isSettingsValid.errMsg, title: "Configuration Error")
-            return .result(dialog: "Configuration Error")
+            throw MyIntentError.message("Configuration Error", isSettingsValid.errMsg)
         }
         else {
-            let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+            let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: userDidPlugIn, didGetUnplugged: userDidUnplug, didHitFullCharge: userDidHit100)
             SaveCurrentDate()
             if (ResultsVar.err) {
-                // See L#58 in SendBatteryInfo.swift, this will never trigger unless that is improved
-                //errAlert = ErrorAlertStruct(msg: ResultsVar.errMsg, title: "Error")
-                return .result(dialog: "Error while sending")
+                throw MyIntentError.message("Network Error", ResultsVar.errMsg)
             }
             else {
-                //errAlert = ErrorAlertStruct(msg: "The battery info was sent.", title: "Success")
                 return .result(dialog: "Battery info was sent.")
             }
         }
         
         
+    }
+}
+
+@available(iOS 16.0, macOS 13.0, watchOS 9.0, tvOS 16.0, *)
+enum MyIntentError: Swift.Error, CustomLocalizedStringResourceConvertible {
+    case generic
+    case message(_ title: String, _ message: String)
+
+    var localizedStringResource: LocalizedStringResource {
+        switch self {
+        case let .message(title, message): return "\(title): \(message)"
+        case .generic: return "An unknown Intents error occurred. Please try again."
+        }
     }
 }
