@@ -8,48 +8,73 @@
 import SwiftUI
 
 struct AboutView: View {
+    @State private var powerField: String = ""
+    @State private var devModelField: String = ""
+    @State private var devNameField: String = ""
+    @State private var osVerField: String = ""
+    @State private var savedDateField: String = ""
+    @State private var timeSinceSavedDateField: String = ""
+    
     var body: some View {
         VStack {
             VStack {
 
                 Form {
                     Section(header: Text("Info"), footer: Text("Battery Webhook - send your battery info to popular services using webhooks!")) {
-                        Text(prodName).font(.title)
-                        Text("Version " + version + " - by ThatStella7922")
+                        VStack{
+                            Text(prodName).font(.title)
+                            Text("Version " + version + " - by ThatStella7922")
+                        }
                     }
                     
-                    
+                    #if os(tvOS) || os(watchOS)
+                    EmptyView()
+                    #else
                     Section(header: Text("ThatStella7922's Links")) {
                         Link("Website", destination: URL(string: "https://thatstel.la")!)
                         Link("Twitter", destination: URL(string: "https://twitter.com/ThatStella7922")!)
                         Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
                     }
+                    #endif
                     
-                    Section(header: Text("Battery Webhook Source Code"), footer: Text("Contributions, issue creation, finding reasons to yell at me, etc. All on the project's GitHub repository.")) {
+                    #if os(tvOS) || os(watchOS)
+                    Section(header: Text("Battery Webhook on GitHub"), footer: Text("Visit the About page of Battery Webhook from an iOS, iPadOS or macOS device to view the link.")) {
+                        Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")
+                    }
+                    #else
+                    Section(header: Text("Battery Webhook on GitHub"), footer: Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")) {
                         Link("View Source on GitHub", destination: URL(string: "https://github.com/ThatStella7922/dcbattwebhook-swift")!)
                     }
+                    #endif
                     
                     Section(header: Text("Fruity"), footer: Text("Eva's initial reaction to this amazing and definitely not poorly written + unnecessary app :s2badass:")) {
                         Image("sirishortcut")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: 400)
+                        
+                        #if os(tvOS) || os(watchOS)
+                        EmptyView()
+                        #else
                         Link("my wife Eva's website", destination: URL(string: "https://crystall1ne.dev")!)
+                        #endif
                     }
                     
                     //DEBUG SECTION
                     //Comment it out for non debug builds
                     Section(header: Text("Debug Information"), footer: Text("Shows info about the current environment to see if underlying functions work before pushing any info to a webhook. This section uses the same functions as the webhook data constructors.")) {
-                        Text((hasBattery() ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true))
-                        Text("Device Model: " + getDeviceModel())
-                        Text("Device Name: " + (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName()))
-                        Text("OS Version: " + getOSVersion())
-                        Text("Saved Date: " + GetCurrentDateFormatted())
-                        Text("Time Since Saved Date: " + GetTimeSinceSavedDateAsFmtedStr())
+                        Text(powerField)
+                        Text("Device Model: " + devModelField)
+                        Text("Device Name: " + devNameField)
+                        Text("OS Version: " + osVerField)
+                        Text("Saved Date: " + savedDateField)
+                        Text("Time Since Saved Date: " + timeSinceSavedDateField)
                         
                         // save current date button
                         Button {
                             SaveCurrentDate()
+                            savedDateField = GetCurrentDateFormatted()
+                            timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
                         } label: {
                             Label("Save Current Date", systemImage: "square.and.arrow.down")
                         }
@@ -57,6 +82,9 @@ struct AboutView: View {
                         // delete all settings button
                         Button {
                             ResetAllSettings()
+                            SaveCurrentDate()
+                            savedDateField = GetCurrentDateFormatted()
+                            timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
                         } label: {
                             Label("Reset All Settings", systemImage: "trash")
                         }
@@ -69,6 +97,15 @@ struct AboutView: View {
             }
         }
         .navigationTitle("About")
+        .onAppear() {
+            powerField = (hasBattery() ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)
+            devModelField = getDeviceModel()
+            devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName())
+            osVerField = getOSVersion()
+            savedDateField = GetCurrentDateFormatted()
+            timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
+        }
+        
     }
 }
 
