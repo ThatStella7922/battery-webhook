@@ -54,8 +54,22 @@ struct dcbattwebhook_swiftApp: App {
         }
         #if os(macOS)
         .commands {
-            CommandGroup(replacing: CommandGroupPlacement.newItem) {
+            CommandGroup(replacing: CommandGroupPlacement.newItem) {}
+            CommandGroup(after: .newItem) {
+                Button(action: {
+                    sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+                    SaveCurrentDate()
+                }, label: {
+                    Text("Send Battery Info Now")
+                    Image(systemName: "paperplane")
+                }).keyboardShortcut("s", modifiers: [.command, .shift])
             }
+        }
+        #endif
+        
+        #if os(macOS)
+        MenuBarExtra("Battery Webhook", systemImage: "batteryblock") {
+            MenuBarExtraView()
         }
         #endif
     }
