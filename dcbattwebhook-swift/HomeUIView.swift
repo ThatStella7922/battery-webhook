@@ -31,8 +31,7 @@ struct HomeUIView: View {
                             let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
                             SaveCurrentDate()
                             if (ResultsVar.err) {
-                                // See L#58 in SendBatteryInfo.swift, this will never trigger unless that is improved
-                                errAlert = ErrorAlertStruct(msg: ResultsVar.errMsg, title: "Error")
+                                errAlert = ErrorAlertStruct(msg: ResultsVar.errMsg, title: "Network Error")
                             }
                             else {
                                 errAlert = ErrorAlertStruct(msg: "The battery info was sent.", title: "Success")
