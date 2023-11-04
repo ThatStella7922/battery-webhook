@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(macOS)
 struct MenuBarExtraView: View {
     var body: some View {
         Button(action: {
@@ -27,6 +28,4 @@ struct MenuBarExtraView: View {
         })
     }
 }
-/*
- 
- */
+#endif
