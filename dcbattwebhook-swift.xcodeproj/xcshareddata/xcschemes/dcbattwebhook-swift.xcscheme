@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "550348C3291D7FB9006551B0"
-               BuildableName = "dcbattwebhook-swift.app"
-               BlueprintName = "dcbattwebhook-swift"
+               BuildableName = "Battery Webhook.app"
+               BlueprintName = "Battery Webhook"
                ReferencedContainer = "container:dcbattwebhook-swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "550348C3291D7FB9006551B0"
-            BuildableName = "dcbattwebhook-swift.app"
-            BlueprintName = "dcbattwebhook-swift"
+            BuildableName = "Battery Webhook.app"
+            BlueprintName = "Battery Webhook"
             ReferencedContainer = "container:dcbattwebhook-swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "550348C3291D7FB9006551B0"
-            BuildableName = "dcbattwebhook-swift.app"
-            BlueprintName = "dcbattwebhook-swift"
+            BuildableName = "Battery Webhook.app"
+            BlueprintName = "Battery Webhook"
             ReferencedContainer = "container:dcbattwebhook-swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

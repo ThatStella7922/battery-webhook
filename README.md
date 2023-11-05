@@ -19,16 +19,25 @@ Once that's done, you can manually send the battery info to your configured webh
 - [x] Building Discord embed with JSON 
 - [x] HTTP interaction with Discord webhook
 - [x] Manual sending of battery info
+- [x] Send battery info using Shortcuts
+  - Automatable using Shortcuts Automations!
+- [x] macOS-specific UI elements (CommandMenu and MenuBarExtra)
 - [ ] Allow user to change embed color (right now is #e872e2 for >20% and #ff0000 for ≤20% battery)
 - [ ] Preview how the embed will show (lots of work and im lazy)
 - [ ] Support services other than Discord (config infra is there but need to create constructors for whatever format other services expect)
-- [ ] Automated sending of battery info (Siri Shortcuts support for use with power automations? Making the app always run in the background to detect power events?)
 - [ ] probably more stuff idk
 
 ## Compatibility and Dependencies
-iOS/tvOS/macCatalyst 15.0 or later
+- macOS 13.0 or later
+  - Native (AppKit) macOS build
+- iOS/iPadOS/tvOS/macCatalyst 15.0 or later
+  - iOS/tvOS build or Mac Catalyst build
+- watchOS 8 or later
+- visionOS 1 or later
 
-<sub>(macCatalyst 15.0 = macOS Monterey 12.0) </sub>
+Support for the Shortcuts app requires iOS/iPadOS/watchOS 16 or later.
+
+<sub>(macCatalyst 15.0 = macOS Monterey 12.0)</sub>
 
 ## Building
 Open in Xcode, change PROJECT_IDENTIFIER at the bottom of project build settings, set codesign identity, then build.
