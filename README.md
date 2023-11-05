@@ -1,4 +1,8 @@
-# Battery Webhook
+<div align="center">
+  <img src="assets/AppIcon/AppIcon256x256.png" alt="Battery Webhook Logo" width="200" />
+  <h1>Battery Webhook</h1>
+</div>
+
 Send your battery info to popular services using webhooks!
 
 ## Usage
@@ -11,21 +15,23 @@ Once that's done, you can manually send the battery info to your configured webh
 
 <img src="img/output.png" alt="alt text" title="image Title" width="350"/>
 
-## wyd
-- [x] UI (SwiftUI ig)
+## Feature Status
+- [x] UI built with SwiftUI
 - [x] Device info functions
 - [x] Work around iOS 16+ not giving the user-set device name by letting the user set a device name in Battery Webhook
 - [x] Date saving, formatting, comparison, etc
-- [x] Building Discord embed with JSON 
+- [x] Full configuration infrastructure using UserDefaults
+- [x] Building Discord embed with JSON
 - [x] HTTP interaction with Discord webhook
 - [x] Manual sending of battery info
 - [x] Send battery info using Shortcuts
-  - Automatable using Shortcuts Automations!
+  - [ ] Update MessageBuilder.swift to support different power events
+- [x] Automations support with Shortcuts Automations
 - [x] macOS-specific UI elements (CommandMenu and MenuBarExtra)
-- [ ] Allow user to change embed color (right now is #e872e2 for >20% and #ff0000 for ≤20% battery)
-- [ ] Preview how the embed will show (lots of work and im lazy)
+- [ ] Preview how the embed will show
+  - Discord planned
 - [ ] Support services other than Discord (config infra is there but need to create constructors for whatever format other services expect)
-- [ ] probably more stuff idk
+- [ ] ?
 
 ## Compatibility and Dependencies
 - macOS 13.0 or later
