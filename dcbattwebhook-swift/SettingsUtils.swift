@@ -15,3 +15,12 @@ func ResetAllSettings() -> Void {
     defaults.removePersistentDomain(forName: domain)
     defaults.synchronize()
 }
+
+/**
+ Does internal first time launch housekeeping tasks.
+ 
+ For now this sets `IsFirstLaunch` in UserDefaults to `true`.
+*/
+func DoAppFirstTimeLaunch() -> Void {
+    defaults.set(true, forKey: "IsFirstLaunch")
+}

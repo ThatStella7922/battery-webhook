@@ -21,24 +21,26 @@
   - String, stores the user's preference on which service (discord, telegram, etc) they want to use. Must be selected from a predefined list. See serviceTypes array in WebhookSettingsView.swift
 
 ### Service Specific Settings
-The way these are done rn is the following:
+The way these are constructed is as follows:
 ```swift
 selectedServiceType + "WebhookUrl"
+selectedServiceType + "WebhookUserPfpUrl"
 ```
 #### Discord
 - DiscordWebhookUrl
   - String, contains the Discord Webhook URL
 - DiscordUserPfpUrl
   - String, contains the URL of the user's avatar image
-
-## Automation Settings
-- SendOnPluggedIn
-  - Bool, stores the user's choice on enabling the automated sending of battery info when they plug in their device
-- SendOnUnplugged
-  - Bool, stores the user's choice on enabling the automated sending of battery info when they unplug their device
-- SendOnHitFullCharge
-  - Bool, stores the user's choice on enabling the automated sending of battery info when their device reaches 100% charge
+  
+#### Discord2
+- Discord2WebhookUrl
+  - String, contains the Discord Webhook URL
+- Discord2UserPfpUrl
+  - String, contains the URL of the user's avatar image
 
 ## Internal Use
 - SavedDate
   - Date, stores a date to be used for other stuff
+- IsFirstLaunch
+  - Bool, set to true after the first time the app is launched.
+  - Will be reset to false if UserDefaults are cleared
