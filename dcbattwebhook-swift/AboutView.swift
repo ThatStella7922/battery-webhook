@@ -20,12 +20,37 @@ struct AboutView: View {
             VStack {
 
                 Form {
+                    #if os(watchOS)
+                    Section(header: Text("Info"), footer: Text("Battery Webhook - send your battery info to popular services using webhooks!")) {
+                        VStack {
+                            HStack{
+                                Image("icon")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 40)
+                                    .padding(.bottom, 5)
+                                Text(prodName).font(.title3)
+                                    .padding()
+                                    .lineLimit(2)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .minimumScaleFactor(0.7)
+                            }
+                            Text("Version " + version + " - by ThatStella7922").padding(.bottom, 5)
+                        }.multilineTextAlignment(.center)
+                    }
+                    #else
                     Section(header: Text("Info"), footer: Text("Battery Webhook - send your battery info to popular services using webhooks!")) {
                         VStack{
-                            Text(prodName).font(.title)
-                            Text("Version " + version + " - by ThatStella7922")
+                            Image("icon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 80)
+                                .padding(.bottom, 5)
+                            Text(prodName).font(.title).frame(maxWidth: .infinity, alignment: .center)
+                            Text("Version " + version + " - by ThatStella7922").frame(maxWidth: .infinity, alignment: .center)
                         }
                     }
+                    #endif
                     
                     #if os(tvOS) || os(watchOS)
                     EmptyView()
