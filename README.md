@@ -49,3 +49,8 @@ Support for the Shortcuts app requires iOS/iPadOS/watchOS 16 or later.
 Open in Xcode, change PROJECT_IDENTIFIER at the bottom of project build settings, set codesign identity, then build.
 
 Documentation is provided as DocC for most functions, or code comments
+
+## Credits
+### App Icon
+The app icon uses modified assets from [DazzleUi](https://dazzleui.gumroad.com/l/dazzleiconsfree?ref=svgrepo.com) under the CC Attribution License.\
+This does not imply endorsement or sponsorship of Battery Webhook by DazzleUi.
