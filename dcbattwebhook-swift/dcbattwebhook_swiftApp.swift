@@ -57,8 +57,21 @@ struct dcbattwebhook_swiftApp: App {
             CommandGroup(replacing: CommandGroupPlacement.newItem) {}
             CommandGroup(after: .newItem) {
                 Button(action: {
-                    sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
-                    SaveCurrentDate()
+                    let isSettingsValid = ValidateSettings()
+                    if (isSettingsValid.err == true) {
+                        // config error
+                    }
+                    else {
+                        let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+                        SaveCurrentDate()
+                        if (ResultsVar.err) {
+                            // network error
+                        }
+                        else {
+                            // success
+                        }
+
+                    }
                 }, label: {
                     Text("Send Battery Info Now")
                     Image(systemName: "paperplane")
