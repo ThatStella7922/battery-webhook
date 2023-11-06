@@ -48,7 +48,7 @@ struct HomeUIView: View {
                 }
                 //preview section
                 Section(header: Text("Preview")){
-                    Text("not right now")
+                    DiscordPreviewView()
                 }
             }
             #if os(macOS)
