@@ -42,6 +42,8 @@
 		55A9E5342AF7669F0091D1A6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
 		55A9E53A2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */; };
 		55A9E53B2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */; };
+		55B272002B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
+		55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
 		55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
 		55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
@@ -97,6 +99,7 @@
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		55A9E5322AF7669F0091D1A6 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsAWebhook.swift; sourceTree = "<group>"; };
+		55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscordPreviewView.swift; sourceTree = "<group>"; };
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
 		55B4E8E92931742300492C77 /* EmbedStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStructs.swift; sourceTree = "<group>"; };
 		55E7AEA929253E8F002E6869 /* DefaultsUsed.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DefaultsUsed.md; sourceTree = "<group>"; };
@@ -161,7 +164,9 @@
 				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
 				550348C9291D7FB9006551B0 /* ContentView.swift */,
 				550348DC291DA3BC006551B0 /* HomeUIView.swift */,
+				55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */,
 				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
+				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
 				55A9E5352AF772E80091D1A6 /* HelpViews */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
@@ -171,7 +176,6 @@
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
 				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
-				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
 				5173E4242A78F1520076663F /* SessionDelegate.swift */,
 				558200B22AF4651C0004750F /* Intents */,
@@ -324,6 +328,7 @@
 				558200B12AF465110004750F /* SendInfoIntent.swift in Sources */,
 				5173E41C2A78EE980076663F /* SendBatteryInfo.swift in Sources */,
 				5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */,
+				55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
 				5173E41E2A78EE980076663F /* EmbedStructs.swift in Sources */,
 				5173E41F2A78EE980076663F /* TimeCounter.swift in Sources */,
 				5173E4212A78EE980076663F /* WebhookSettingsView.swift in Sources */,
@@ -344,6 +349,7 @@
 				55F26F402AF740E600AB8E1C /* WelcomeView.swift in Sources */,
 				55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */,
 				5173E4252A78F1520076663F /* SessionDelegate.swift in Sources */,
+				55B272002B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
 				558200B02AF465110004750F /* SendInfoIntent.swift in Sources */,
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */,
@@ -381,7 +387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -414,7 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -559,7 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -608,7 +614,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
