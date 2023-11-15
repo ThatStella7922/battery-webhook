@@ -9,17 +9,23 @@ import Foundation
 
 // three paramters: did the device just get plugged in, did the device just get unplugged, did the device just hit 100% charge. all in that order
 func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged: Bool, didHitFullCharge: Bool) -> DiscordMessageObj {
+    var isAutomated = false
+    var automationVerb = ""
+    if (isCurrentlyCharging || didGetPluggedIn || didGetUnplugged || didHitFullCharge ) {
+        isAutomated = true
+    }
+    
     // empty variables to store user variables into
     var selectedServiceType = "Discord"
     
     var userWebhookUrl = ""
     var userPfpUrl = ""
     var usrName = ""
-    // var usrPronoun = ""
+    var usrPronoun = "their"
     var sendDeviceName = true
     var sendDeviceModel = true
     var showPfp = true
-    // var showPronoun = true
+    var showPronoun = true
     // pronoun stuff not used yet (it will be when plugin/unplug detection is added)
     
     // empty variables to work with when constructing
@@ -27,8 +33,9 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     var authorBlock = DiscordAuthor()
     var embedBlock = DiscordEmbed()
     var batteryField = DiscordEmbedField(name: "Unknown Device", value: "Unknown battery state", inline: true)
-    var timeField = DiscordEmbedField(name: "Time since last info:", value: "Unknown", inline: true)
-    let advertField = DiscordEmbedField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + version, inline: false)
+    var timeField = DiscordEmbedField(name: "Time since last update:", value: "Unknown", inline: true)
+    var automationTimeField = DiscordEmbedField(name: "Time since last update:", value: "Unknown", inline: true)
+    let advertField = DiscordEmbedField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + versionBase, inline: false)
     var fullmessageBlock = DiscordMessageObj()
     var embedColor = 0
     
@@ -49,13 +56,13 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     if let usrname = defaults.string(forKey: "UsrName") {
         usrName = usrname
     }
-    //if let usrpronoun = defaults.string(forKey: "UsrPronoun") {
-    //    usrPronoun = usrpronoun
-    //}
+    if let usrpronoun = defaults.string(forKey: "UsrPronoun") {
+        usrPronoun = usrpronoun
+    }
     sendDeviceName = defaults.bool(forKey: "SendDeviceName")
     sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
     showPfp = defaults.bool(forKey: "ShowPfp")
-    //showPronoun = defaults.bool(forKey: "ShowPronoun")
+    showPronoun = defaults.bool(forKey: "ShowPronoun")
     
     // end of getting info from settings
     
@@ -86,9 +93,33 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     // also set our timeField right here because I think this will just be reusable over and over
     timeField = DiscordEmbedField(name: "Time since last update:", value: GetTimeSinceSavedDateAsFmtedStr(), inline: true)
     
+    automationTimeField = DiscordEmbedField(name: "Time since last update:", value: GetTimeSinceAutomationSavedDateAsFmtedStr(), inline: true)
     
-    // ok here we get some logic
-    if ((isCurrentlyCharging == false) && (didGetPluggedIn == false) && (didGetUnplugged == false) && (didHitFullCharge == false)) {
+    
+    /*
+     isCurrentlyCharging isn't used - yet!
+     
+     The following logic decides what battery field gets created
+     */
+    if (isAutomated) {
+        if (didGetPluggedIn) {
+            // we GOT PLUGGED in
+            automationVerb = "plugged in"
+            batteryField = DiscordEmbedField(name: "Current battery level:", value: (getBatteryPercentage()), inline: true)
+        } else if (didGetUnplugged) {
+            // we GOT UNPLUGGED
+            automationVerb = "unplugged"
+            batteryField = DiscordEmbedField(name: "Current battery level:", value: (getBatteryPercentage()), inline: true)
+            
+        } else if (didHitFullCharge) {
+            automationVerb = "fully charged"
+            // device GOT full charge
+            batteryField = DiscordEmbedField(name: "Fully charged:", value: (getBatteryPercentage()), inline: true)
+            
+        } else {
+            batteryField = DiscordEmbedField(name: "Current battery level:", value: (getBatteryPercentage()), inline: true)
+        }
+    } else {
         // if we are NOT charging, did NOT get plugged in, did NOT get unplugged, did NOT hit full charge
         if ((sendDeviceName == true) && (sendDeviceModel == true)) {
             // if sending device name and model is ENABLED
@@ -111,10 +142,22 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     var embedTitle = "🔌 Power Info"
     if (hasBattery()) {
         embedTitle = (isCritical() ? "🪫" : "🔋") + " Device Battery"
+        
+        if (isAutomated) {
+            if (["unplugged"].contains(automationVerb)) {
+                embedTitle = "🔋 \(usrName) \(automationVerb) \(usrPronoun) \(getDeviceUserDisplayName())"
+            } else {
+                embedTitle = "⚡️ \(usrName) \(automationVerb) \(usrPronoun) \(getDeviceUserDisplayName())"
+            }
+        }
     }
 
     // build our embed here, the fields are set above
-    embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, timeField, advertField])
+    if (isAutomated) {
+        embedBlock = DiscordEmbed(title: embedTitle, color: embedColor, fields: [batteryField, automationTimeField, advertField])
+    } else {
+        embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, timeField, advertField])
+    }
     
     // final full message block to be returned
     fullmessageBlock = DiscordMessageObj(embeds: [embedBlock])
