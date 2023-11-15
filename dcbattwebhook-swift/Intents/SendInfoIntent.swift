@@ -25,6 +25,10 @@ struct SendInfoIntent: AppIntent {
     static let openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
+        /*
+         TODO Make sure the user hasn't set more than a single option at a time!
+         Ideal functionality will throw an error like the ones below, saying you can't enable more than one option at a time
+         */
         
         // Validate the settings
         let isSettingsValid = ValidateSettings()
@@ -34,7 +38,7 @@ struct SendInfoIntent: AppIntent {
         }
         else {
             let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: userDidPlugIn, didGetUnplugged: userDidUnplug, didHitFullCharge: userDidHit100)
-            SaveCurrentDate()
+            SaveAutomationCurrentDate()
             if (ResultsVar.err) {
                 throw MyIntentError.message("Network Error", ResultsVar.errMsg)
             }
