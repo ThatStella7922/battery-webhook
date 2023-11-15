@@ -47,9 +47,9 @@ struct HomeUIView: View {
                     )
                 }
                 //preview section
-                Section(header: Text("Preview")){
+                /*Section(header: Text("Preview")){
                     DiscordPreviewView()
-                }
+                }*/
             }
             #if os(macOS)
             .formStyle(.grouped)
