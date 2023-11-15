@@ -98,7 +98,7 @@ struct AboutView: View {
                         // save current date button
                         Button {
                             SaveCurrentDate()
-                            savedDateField = GetCurrentDateFormatted()
+                            savedDateField = GetSavedDateFormatted()
                             timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
                         } label: {
                             Label("Save Current Date", systemImage: "square.and.arrow.down")
@@ -108,7 +108,7 @@ struct AboutView: View {
                         Button {
                             ResetAllSettings()
                             SaveCurrentDate()
-                            savedDateField = GetCurrentDateFormatted()
+                            savedDateField = GetSavedDateFormatted()
                             timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
                         } label: {
                             Label("Reset All Settings", systemImage: "trash")
@@ -127,7 +127,7 @@ struct AboutView: View {
             devModelField = getDeviceModel()
             devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName())
             osVerField = getOSVersion()
-            savedDateField = GetCurrentDateFormatted()
+            savedDateField = GetSavedDateFormatted()
             timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
         }
         

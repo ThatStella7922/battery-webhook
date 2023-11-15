@@ -306,7 +306,7 @@ func getBatteryLevel() -> Int {
 }
 
 /**
- Returns whether the battery level is critical.
+ Returns whether the battery level is critical. (0 - 20%)
  */
 func isCritical() -> Bool {
     return (0...20).contains(getBatteryLevel())
@@ -321,7 +321,17 @@ func hasBattery() -> Bool {
 
 /**
  Returns the current battery level as a string (ex. `100%`). Mainly to reduce duplicating the -1 handling
- 
+
+ # Usage
+ ```
+ if (standalone) {
+     return hasBattery ? "\(batteryLevel)%" : connectedString.capitalized
+ } else if (prefix) {
+     return hasBattery ? "has \(batteryLevel)% battery" : "is \(connectedString.lowercased())"
+ } else {
+     return hasBattery ? "\(batteryLevel)% battery" : connectedString
+ }
+ ```
  */
 func getBatteryPercentage(standalone: Bool = false, prefix: Bool = false) -> String {
     /* Return values:

@@ -41,6 +41,8 @@ selectedServiceType + "WebhookUserPfpUrl"
 ## Internal Use
 - SavedDate
   - Date, stores a date to be used for other stuff
+- AutomationSavedDate
+  - Date, stores a date for use with automation actions (comparisons and etc)
 - IsFirstLaunch
   - Bool, set to true after the first time the app is launched.
   - Will be reset to false if UserDefaults are cleared

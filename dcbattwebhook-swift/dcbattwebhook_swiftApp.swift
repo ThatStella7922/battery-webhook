@@ -13,7 +13,7 @@ import WatchConnectivity
 /// Name of the app
 public let prodName = "Battery Webhook"
 /// Base version of the app, use `version` if you want the running OS as well
-public let versionBase  = "1.0b42"
+public let versionBase  = "1.0b43"
 
 #if os(macOS)
 public let version = "\(versionBase) on macOS"
@@ -24,7 +24,7 @@ public let version = "\(versionBase) on visionOS"
 #elseif os(tvOS)
 public let version = "\(versionBase) on tvOS"
 #elseif os(iOS)
-public let version = "\(versionBase) on iOS"
+public let version = "\(versionBase)"
 #endif
 
 @main
