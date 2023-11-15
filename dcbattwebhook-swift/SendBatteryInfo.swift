@@ -50,7 +50,6 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     
     // if i need to print the encoded json to the console for inspecting later
     let jsonString = String(data: jsonData, encoding: .utf8)
-    print("broken ahh json: " + jsonString!)
     
     // our actual post
     let webhookURL = URL(string: userWebhookUrl.trimmingCharacters(in: .whitespacesAndNewlines))! // grab the url from user settings
@@ -80,7 +79,6 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
         }
     }
     
-    print("posted (or attempted to). if error occurred then it will be below:")
     task.resume()
     sem.wait()
 
