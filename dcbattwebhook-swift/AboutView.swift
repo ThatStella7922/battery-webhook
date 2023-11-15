@@ -123,7 +123,7 @@ struct AboutView: View {
         }
         .navigationTitle("About")
         .onAppear() {
-            powerField = (hasBattery() ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)
+            powerField = (hasBattery ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)
             devModelField = getDeviceModel()
             devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName())
             osVerField = getOSVersion()

@@ -313,11 +313,11 @@ func isCritical() -> Bool {
 }
 
 /**
- Returns whether the device has a battery.
+ Indicates whether the device has a battery. This is a closure, as we only need to check once.
  */
-func hasBattery() -> Bool {
+let hasBattery = {
     return getBatteryLevel() != -1
-}
+}()
 
 /**
  Returns the current battery level as a string (ex. `100%`). Mainly to reduce duplicating the -1 handling
@@ -345,7 +345,6 @@ func getBatteryPercentage(standalone: Bool = false, prefix: Bool = false) -> Str
     assert(!(standalone && prefix), "getBatteryPercentage() cannot be standalone and have a prefix at the same time")
 
     let batteryLevel = getBatteryLevel()
-    let hasBattery = hasBattery()
     if (standalone) {
         return hasBattery ? "\(batteryLevel)%" : connectedString.capitalized
     } else if (prefix) {

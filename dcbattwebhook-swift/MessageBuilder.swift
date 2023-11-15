@@ -140,7 +140,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     }
     
     var embedTitle = "🔌 Power Info"
-    if (hasBattery()) {
+    if (hasBattery) {
         embedTitle = (isCritical() ? "🪫" : "🔋") + " Device Battery"
         
         if (isAutomated) {
