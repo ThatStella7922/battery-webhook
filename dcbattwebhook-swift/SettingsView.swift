@@ -99,18 +99,17 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the device name to be shown. \nYour pronoun will be used primarily in automated sending of battery info (see Automation Settings)")) {
+                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their' (see Help for more details)")) {
                         TextField(text: $usrName) {
                             Text("Display Name")
                         }.disableAutocorrection(true)
                         
                         TextField(text: $usrPronoun) {
-                            Text("Pronoun (her/his/their/etc)")
+                            Text("Pronoun (her/his/xir/etc)")
                         }.disableAutocorrection(true)
                         #if !os(macOS) && !os(watchOS)
                             .autocapitalization(.none)
                         #endif
-                            .disabled(true)
                         
                         TextField(text: $usrDeviceName, prompt: {
                             #if os(macOS)
@@ -128,7 +127,7 @@ struct SettingsView: View {
                         
                         Toggle(isOn: $showPronoun) {
                             Text("Show specified pronoun")
-                        }.disabled(true)
+                        }
                         
                     }
                     
