@@ -125,7 +125,7 @@ struct AboutView: View {
         .onAppear() {
             powerField = (hasBattery() ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)
             devModelField = getDeviceModel()
-            devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported \(getSystemReportedDeviceUserDisplayName()))" : getDeviceUserDisplayName())
+            devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported: \"\(getSystemReportedDeviceUserDisplayName())\")" : getDeviceUserDisplayName())
             osVerField = getOSVersion()
             savedDateField = GetSavedDateFormatted()
             timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
