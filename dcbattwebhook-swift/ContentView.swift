@@ -51,10 +51,14 @@ struct ContentView: View {
         }.onAppear() {
             if defaults.bool(forKey: "IsFirstLaunch") == false {
                 DoAppFirstTimeLaunch()
-                #if os(macOS)
+                #if os(macOS) || os(watchOS)
                 //nothing
                 #else
-                self.isShowingWelcomeSheet = true
+                switch UIDevice.current.userInterfaceIdiom {
+                    case .phone: self.isShowingWelcomeSheet = true
+                    case .pad: self.isShowingWelcomeSheet = false
+                    default: self.isShowingWelcomeSheet = false
+                }
                 #endif
             }
             
