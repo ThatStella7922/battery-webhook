@@ -29,6 +29,11 @@ public let version = "\(versionBase)"
 
 @main
 struct dcbattwebhook_swiftApp: App {
+    #if os(macOS)
+    @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
+    @AppStorage("hideMainWindow") private var hideMainWindow = false
+    #endif
+    
     #if os(iOS) || os(watchOS)
     private lazy var sessionDelegator: SessionDelegator = {
         return SessionDelegator()
@@ -46,13 +51,19 @@ struct dcbattwebhook_swiftApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            #if os(macOS)
+                .frame(minWidth: 600, maxWidth: 1000, minHeight: 300, maxHeight: 500)
+            #endif
             .onAppear {
                 #if os(macOS)
                 NSWindow.allowsAutomaticWindowTabbing = false
+                if (!hideMainWindow) {let _ = NSApplication.shared.setActivationPolicy(.regular)}
+                else {let _ = NSApplication.shared.setActivationPolicy(.accessory)}
                 #endif
             }
         }
         #if os(macOS)
+        .windowResizability(.contentSize)
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.newItem) {}
             CommandGroup(after: .newItem) {
@@ -76,12 +87,13 @@ struct dcbattwebhook_swiftApp: App {
                     Text("Send Battery Info Now")
                     Image(systemName: "paperplane")
                 }).keyboardShortcut("s", modifiers: [.command, .shift])
+                    .disabled(ValidateSettings().err)
             }
         }
         #endif
         
         #if os(macOS)
-        MenuBarExtra("Battery Webhook", systemImage: "batteryblock") {
+        MenuBarExtra("Battery Webhook", systemImage: "batteryblock", isInserted: $showMenuBarExtra) {
             MenuBarExtraView()
         }
         #endif
