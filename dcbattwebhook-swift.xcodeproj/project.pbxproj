@@ -46,6 +46,8 @@
 		55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
 		55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
+		55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE77552B0586390094B98D /* SettingsViewmacOS.swift */; };
+		55CE77572B0586390094B98D /* SettingsViewmacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE77552B0586390094B98D /* SettingsViewmacOS.swift */; };
 		55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
 		55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
 		55F26F3C2AF6F56E00AB8E1C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55F26F3B2AF6F56E00AB8E1C /* Credits.rtf */; };
@@ -102,6 +104,7 @@
 		55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscordPreviewView.swift; sourceTree = "<group>"; };
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
 		55B4E8E92931742300492C77 /* EmbedStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStructs.swift; sourceTree = "<group>"; };
+		55CE77552B0586390094B98D /* SettingsViewmacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewmacOS.swift; sourceTree = "<group>"; };
 		55E7AEA929253E8F002E6869 /* DefaultsUsed.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DefaultsUsed.md; sourceTree = "<group>"; };
 		55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
 		55ED8937291F628700CB170C /* SettingsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValidator.swift; sourceTree = "<group>"; };
@@ -160,13 +163,14 @@
 			children = (
 				55F26F3B2AF6F56E00AB8E1C /* Credits.rtf */,
 				550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */,
-				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
 				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
 				550348C9291D7FB9006551B0 /* ContentView.swift */,
 				550348DC291DA3BC006551B0 /* HomeUIView.swift */,
 				55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */,
 				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
+				55CE77552B0586390094B98D /* SettingsViewmacOS.swift */,
+				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
 				55A9E5352AF772E80091D1A6 /* HelpViews */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
@@ -316,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */,
+				55CE77572B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
 				55A9E53B2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */,
 				5173E4172A78EE980076663F /* AboutView.swift in Sources */,
 				5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */,
@@ -354,6 +359,7 @@
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */,
 				553CD2B42AF65288006D3402 /* MenuBarExtraView.swift in Sources */,
+				55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
 				550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */,
 				55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */,
 				55A9E53A2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */,

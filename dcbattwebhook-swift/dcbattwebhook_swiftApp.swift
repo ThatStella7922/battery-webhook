@@ -13,7 +13,7 @@ import WatchConnectivity
 /// Name of the app
 public let prodName = "Battery Webhook"
 /// Base version of the app, use `version` if you want the running OS as well
-public let versionBase  = "1.0b43"
+public let versionBase  = "1.0b44"
 
 #if os(macOS)
 public let version = "\(versionBase) on macOS"
@@ -51,16 +51,14 @@ struct dcbattwebhook_swiftApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            #if os(macOS)
-                .frame(minWidth: 600, maxWidth: 1000, minHeight: 300, maxHeight: 500)
-            #endif
-            .onAppear {
                 #if os(macOS)
-                NSWindow.allowsAutomaticWindowTabbing = false
-                if (!hideMainWindow) {let _ = NSApplication.shared.setActivationPolicy(.regular)}
-                else {let _ = NSApplication.shared.setActivationPolicy(.accessory)}
+                .frame(minWidth: 600, maxWidth: 1000, minHeight: 300, maxHeight: 500)
+                .onAppear {
+                    NSWindow.allowsAutomaticWindowTabbing = false
+                    if (!hideMainWindow) {let _ = NSApplication.shared.setActivationPolicy(.regular)}
+                    else {let _ = NSApplication.shared.setActivationPolicy(.accessory)}
+                }
                 #endif
-            }
         }
         #if os(macOS)
         .windowResizability(.contentSize)

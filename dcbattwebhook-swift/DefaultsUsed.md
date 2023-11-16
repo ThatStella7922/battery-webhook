@@ -43,6 +43,10 @@ selectedServiceType + "WebhookUserPfpUrl"
   - Date, stores a date to be used for other stuff
 - AutomationSavedDate
   - Date, stores a date for use with automation actions (comparisons and etc)
+- showMenuBarExtra
+  - Bool, stores whether the user has chosen to show or hide the menu bar extra (true by default)
+- hideMainWindow
+  - Bool, stores whether the user has chosen to hide or show the main window and dock icon (false by default)
 - IsFirstLaunch
   - Bool, set to true after the first time the app is launched.
   - Will be reset to false if UserDefaults are cleared
