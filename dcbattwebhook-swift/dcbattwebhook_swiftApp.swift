@@ -32,6 +32,8 @@ public let version = "\(versionBase)"
 @main
 struct dcbattwebhook_swiftApp: App {
     #if os(macOS)
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
     @AppStorage("hideMainWindow") private var hideMainWindow = false
     #endif
