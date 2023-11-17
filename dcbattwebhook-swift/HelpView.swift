@@ -11,21 +11,10 @@ struct HelpView: View {
     var body: some View {
         Form{
             VStack{
-                WelcomeView().padding(.bottom)
-                Text("To learn more, you can view the help available below.").multilineTextAlignment(.center)
+                WelcomeViewNoIcon().padding(.bottom)
+                Text("To learn more about how Battery Webhook works, how to configure it, automate it and much more, visit the online documentation.").multilineTextAlignment(.center)
             }
-            NavigationLink(destination: WhatIsAWebhookHelpView(), label: {
-                Text("What is a webhook?")
-            })
-            NavigationLink(destination: WhatIsAWebhookHelpView(), label: {
-                Text("What's the use-case for something like this?")
-            })
-            NavigationLink(destination: WhatIsAWebhookHelpView(), label: {
-                Text("How do I create a webhook in Discord?")
-            })
-            NavigationLink(destination: WhatIsAWebhookHelpView(), label: {
-                Text("How do I configure Battery Webhook?")
-            })
+            Link("Open Documentation", destination: URL(string: "https://docs.thatstel.la/battery-webhook")!)
         }
         #if os(macOS)
         .formStyle(.grouped)
