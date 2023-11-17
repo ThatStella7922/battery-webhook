@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "AppIconSqaureMasked.png",
-      "idiom" : "universal"
+      "filename" : "AppIcontvOS-Front1280x720.png",
+      "idiom" : "tv"
     }
   ],
   "info" : {

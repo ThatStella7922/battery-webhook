@@ -40,8 +40,6 @@
 		55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
 		55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
 		55A9E5342AF7669F0091D1A6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
-		55A9E53A2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */; };
-		55A9E53B2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */; };
 		55B272002B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
 		55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
@@ -100,7 +98,6 @@
 		55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBatteryInfo.swift; sourceTree = "<group>"; };
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		55A9E5322AF7669F0091D1A6 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsAWebhook.swift; sourceTree = "<group>"; };
 		55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscordPreviewView.swift; sourceTree = "<group>"; };
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
 		55B4E8E92931742300492C77 /* EmbedStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStructs.swift; sourceTree = "<group>"; };
@@ -163,23 +160,22 @@
 			children = (
 				55F26F3B2AF6F56E00AB8E1C /* Credits.rtf */,
 				550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */,
-				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
 				550348C9291D7FB9006551B0 /* ContentView.swift */,
+				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
 				550348DC291DA3BC006551B0 /* HomeUIView.swift */,
 				55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */,
 				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
+				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				55CE77552B0586390094B98D /* SettingsViewmacOS.swift */,
 				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
-				55A9E5352AF772E80091D1A6 /* HelpViews */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
 				55ED8937291F628700CB170C /* SettingsValidator.swift */,
 				55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */,
 				55B4E8E729316C0600492C77 /* MessageBuilder.swift */,
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
-				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
 				5173E4242A78F1520076663F /* SessionDelegate.swift */,
 				558200B22AF4651C0004750F /* Intents */,
@@ -206,14 +202,6 @@
 				558200AF2AF465110004750F /* SendInfoIntent.swift */,
 			);
 			path = Intents;
-			sourceTree = "<group>";
-		};
-		55A9E5352AF772E80091D1A6 /* HelpViews */ = {
-			isa = PBXGroup;
-			children = (
-				55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */,
-			);
-			path = HelpViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,7 +309,6 @@
 			files = (
 				5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */,
 				55CE77572B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
-				55A9E53B2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */,
 				5173E4172A78EE980076663F /* AboutView.swift in Sources */,
 				5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */,
 				55F26F412AF740E600AB8E1C /* WelcomeView.swift in Sources */,
@@ -362,7 +349,6 @@
 				55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
 				550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */,
 				55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */,
-				55A9E53A2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */,
 				550348CA291D7FB9006551B0 /* ContentView.swift in Sources */,
 				556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */,
 				550348C8291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift in Sources */,
@@ -387,25 +373,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
-				DEVELOPMENT_TEAM = FBT742498U;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = FBT742498U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = thatstel.la.batterywebhook;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "thatstel.la.battery-webhook";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.battery-webhook.watch";
 				PRODUCT_NAME = "Battery Webhook Watch";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = WildcardProvisioning;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -420,25 +411,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
-				DEVELOPMENT_TEAM = FBT742498U;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = FBT742498U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = thatstel.la.batterywebhook;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "thatstel.la.battery-webhook";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.battery-webhook.watch";
 				PRODUCT_NAME = "Battery Webhook Watch";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = WildcardProvisioning;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -564,14 +560,20 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = FBT742498U;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = FBT742498U;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FBT742498U;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -592,12 +594,14 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook;
+				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.battery-webhook";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = WildcardProvisioningtvOS;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = WildcardProvisioningDistribution;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -614,14 +618,20 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = FBT742498U;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = FBT742498U;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FBT742498U;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -642,12 +652,14 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook;
+				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.battery-webhook";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = WildcardProvisioningtvOS;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = WildcardProvisioningDistribution;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;

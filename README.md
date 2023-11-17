@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/AppIcon/AppIcon256x256.png" alt="Battery Webhook Logo" width="200" />
+  <img src="assets/Generic/AppIconSqaureMasked.png" alt="Battery Webhook Logo" width="200" />
   <h1>Battery Webhook</h1>
 </div>
 

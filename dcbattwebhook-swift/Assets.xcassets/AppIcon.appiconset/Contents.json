@@ -1,73 +1,73 @@
 {
   "images" : [
     {
-      "filename" : "AppIcon1024x1024.png",
+      "filename" : "AppIconiOS1024x1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
     },
     {
-      "filename" : "AppIcon16x16.png",
+      "filename" : "AppIconMac16x16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "AppIcon32x32 1.png",
+      "filename" : "AppIconMac32x32 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "AppIcon32x32.png",
+      "filename" : "AppIconMac32x32.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "AppIcon64x64.png",
+      "filename" : "AppIconMac64x64.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "AppIcon128x128.png",
+      "filename" : "AppIconMac128x128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "AppIcon256x256.png",
+      "filename" : "AppIconMac256x256 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "AppIcon256x256 1.png",
+      "filename" : "AppIconMac256x256.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "AppIcon512x512 1.png",
+      "filename" : "AppIconMac512x512 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "AppIcon512x512.png",
+      "filename" : "AppIconMac512x512.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "AppIcon1024x1024 2.png",
+      "filename" : "AppIconMac1024x1024.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
     },
     {
-      "filename" : "AppIcon1024x1024 1.png",
+      "filename" : "AppIconwatchOS1024x1024.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "size" : "1024x1024"
