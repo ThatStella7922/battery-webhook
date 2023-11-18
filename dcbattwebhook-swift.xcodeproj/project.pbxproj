@@ -46,7 +46,6 @@
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
 		55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
 		55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE77552B0586390094B98D /* SettingsViewmacOS.swift */; };
-		55CE77572B0586390094B98D /* SettingsViewmacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE77552B0586390094B98D /* SettingsViewmacOS.swift */; };
 		55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
 		55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
 		55F26F3C2AF6F56E00AB8E1C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55F26F3B2AF6F56E00AB8E1C /* Credits.rtf */; };
@@ -170,7 +169,6 @@
 				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
-				55CE77552B0586390094B98D /* SettingsViewmacOS.swift */,
 				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
@@ -202,6 +200,7 @@
 		554DEBE32B07E5AB009FF921 /* MacSupport */ = {
 			isa = PBXGroup;
 			children = (
+				55CE77552B0586390094B98D /* SettingsViewmacOS.swift */,
 				554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */,
 			);
 			path = MacSupport;
@@ -319,7 +318,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */,
-				55CE77572B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
 				5173E4172A78EE980076663F /* AboutView.swift in Sources */,
 				5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */,
 				55F26F412AF740E600AB8E1C /* WelcomeView.swift in Sources */,
