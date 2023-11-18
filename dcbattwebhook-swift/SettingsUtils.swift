@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 private let defaults = UserDefaults.standard
 
@@ -14,6 +15,11 @@ func ResetAllSettings() -> Void {
     let domain = Bundle.main.bundleIdentifier!
     defaults.removePersistentDomain(forName: domain)
     defaults.synchronize()
+}
+
+/// Returns the entire UserDefaults (Settings) as a Dictionary object
+func GetSettingsAsDictionary() -> Dictionary<String, Any> {
+    return UserDefaults.standard.dictionaryRepresentation()
 }
 
 /**
