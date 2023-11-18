@@ -37,6 +37,12 @@
 		557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
 		558200B02AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
 		558200B12AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
+		558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */; };
+		558CCBCD2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */; };
+		558CCBCF2B08513200FC4442 /* SettingsUtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */; };
+		558CCBD02B08513200FC4442 /* SettingsUtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */; };
+		558CCBD22B085A8500FC4442 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBD12B085A8500FC4442 /* FileHelper.swift */; };
+		558CCBD32B085A8500FC4442 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBD12B085A8500FC4442 /* FileHelper.swift */; };
 		55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */; };
 		55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
 		55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
@@ -96,6 +102,9 @@
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
 		557299C82936D5DF00D7523D /* WebhookSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSettingsView.swift; sourceTree = "<group>"; };
 		558200AF2AF465110004750F /* SendInfoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInfoIntent.swift; sourceTree = "<group>"; };
+		558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSPre16NoticeView.swift; sourceTree = "<group>"; };
+		558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtilsView.swift; sourceTree = "<group>"; };
+		558CCBD12B085A8500FC4442 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBatteryInfo.swift; sourceTree = "<group>"; };
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		55A9E5322AF7669F0091D1A6 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -166,7 +175,9 @@
 				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
 				550348DC291DA3BC006551B0 /* HomeUIView.swift */,
 				55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */,
+				558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */,
 				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
+				558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
@@ -177,6 +188,7 @@
 				55B4E8E729316C0600492C77 /* MessageBuilder.swift */,
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
+				558CCBD12B085A8500FC4442 /* FileHelper.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
 				5173E4242A78F1520076663F /* SessionDelegate.swift */,
 				558200B22AF4651C0004750F /* Intents */,
@@ -320,13 +332,16 @@
 				5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */,
 				5173E4172A78EE980076663F /* AboutView.swift in Sources */,
 				5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */,
+				558CCBD02B08513200FC4442 /* SettingsUtilsView.swift in Sources */,
 				55F26F412AF740E600AB8E1C /* WelcomeView.swift in Sources */,
+				558CCBD32B085A8500FC4442 /* FileHelper.swift in Sources */,
 				5173E4192A78EE980076663F /* ContentView.swift in Sources */,
 				5173E41A2A78EE980076663F /* HomeUIView.swift in Sources */,
 				55A9E5342AF7669F0091D1A6 /* HelpView.swift in Sources */,
 				5173E41B2A78EE980076663F /* SettingsValidator.swift in Sources */,
 				5173E4262A78F1520076663F /* SessionDelegate.swift in Sources */,
 				558200B12AF465110004750F /* SendInfoIntent.swift in Sources */,
+				558CCBCD2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
 				5173E41C2A78EE980076663F /* SendBatteryInfo.swift in Sources */,
 				5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */,
 				55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
@@ -353,16 +368,19 @@
 				5173E4252A78F1520076663F /* SessionDelegate.swift in Sources */,
 				55B272002B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
 				558200B02AF465110004750F /* SendInfoIntent.swift in Sources */,
+				558CCBD22B085A8500FC4442 /* FileHelper.swift in Sources */,
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */,
 				553CD2B42AF65288006D3402 /* MenuBarExtraView.swift in Sources */,
 				55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
+				558CCBCF2B08513200FC4442 /* SettingsUtilsView.swift in Sources */,
 				550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */,
 				55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */,
 				550348CA291D7FB9006551B0 /* ContentView.swift in Sources */,
 				556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */,
 				550348C8291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift in Sources */,
 				550348D9291D9EB7006551B0 /* DeviceInfo.swift in Sources */,
+				558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
