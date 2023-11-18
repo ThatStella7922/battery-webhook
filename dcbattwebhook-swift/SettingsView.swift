@@ -166,8 +166,14 @@ struct SettingsView: View {
                 usrPronoun = usrpronoun
             }
             
-            sendDeviceName = defaults.bool(forKey: "SendDeviceName")
-            sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
+            
+            if defaults.object(forKey: "SendDeviceName") == nil {
+                sendDeviceName = true
+            } else { sendDeviceName = defaults.bool(forKey: "SendDeviceName") }
+            if defaults.object(forKey: "SendDeviceModel") == nil {
+                sendDeviceModel = true
+            } else { sendDeviceModel = defaults.bool(forKey: "SendDeviceModel") }
+            
             showPfp = defaults.bool(forKey: "ShowPfp")
             showPronoun = defaults.bool(forKey: "ShowPronoun")
             
