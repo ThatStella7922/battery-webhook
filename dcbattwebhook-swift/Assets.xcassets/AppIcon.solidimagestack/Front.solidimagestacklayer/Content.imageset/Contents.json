@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "AppIconvisionOS-FrontLayer.png",
+      "idiom" : "vision"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

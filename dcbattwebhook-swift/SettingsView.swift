@@ -141,11 +141,18 @@ struct SettingsView: View {
                         }
                     }
                     
+                    #if os(iOS)
                     if (isiOSPre16() == false) {
-                        Section(header: Text("iOS/iPadOS 16 Notice")) {
-                            Text("On iOS/iPadOS 16 and later, Apple no longer lets developers get the device's name (set in Settings > General > About > Name), so you need to manually set it above.")
-                        }
+                        iOSPre16NoticeView()
                     }
+                    #endif
+                    
+                    #if os(macOS)
+                    SettingsViewmacOS()
+                    #endif
+                    
+                    SettingsUtilsView()
+                    
                 }
                 #if os(macOS)
                 .formStyle(.grouped)
@@ -160,8 +167,14 @@ struct SettingsView: View {
                 usrPronoun = usrpronoun
             }
             
-            sendDeviceName = defaults.bool(forKey: "SendDeviceName")
-            sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
+            
+            if defaults.object(forKey: "SendDeviceName") == nil {
+                sendDeviceName = true
+            } else { sendDeviceName = defaults.bool(forKey: "SendDeviceName") }
+            if defaults.object(forKey: "SendDeviceModel") == nil {
+                sendDeviceModel = true
+            } else { sendDeviceModel = defaults.bool(forKey: "SendDeviceModel") }
+            
             showPfp = defaults.bool(forKey: "ShowPfp")
             showPronoun = defaults.bool(forKey: "ShowPronoun")
             

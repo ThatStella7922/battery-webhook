@@ -9,6 +9,7 @@ import SwiftUI
 
 #if os(macOS)
 struct MenuBarExtraView: View {
+    @AppStorage("hideMainWindow") private var hideMainWindow = false
     var body: some View {
         Button(action: {
             let isSettingsValid = ValidateSettings()
@@ -32,6 +33,18 @@ struct MenuBarExtraView: View {
             Text("Send Battery Info Now")
             Image(systemName: "paperplane")
         }).keyboardShortcut("s", modifiers: [.command, .shift])
+            .disabled(ValidateSettings().err)
+        
+        Divider()
+        
+        Button(action: {
+            hideMainWindow = false
+            let _ = NSApplication.shared.setActivationPolicy(.regular)
+            NSApplication.shared.activate(ignoringOtherApps: true)
+        }, label: {
+            Text("Unhide Main Window and Dock Icon")
+            Image(systemName: "macwindow")
+        }).disabled(!hideMainWindow)
         
         Divider()
 

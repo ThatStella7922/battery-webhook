@@ -32,20 +32,26 @@
 		550348D9291D9EB7006551B0 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D8291D9EB7006551B0 /* DeviceInfo.swift */; };
 		550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348DC291DA3BC006551B0 /* HomeUIView.swift */; };
 		553CD2B42AF65288006D3402 /* MenuBarExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */; };
+		554DEBEC2B07F561009FF921 /* MacAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */; };
 		556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
 		557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
 		558200B02AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
 		558200B12AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
+		558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */; };
+		558CCBCD2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */; };
+		558CCBCF2B08513200FC4442 /* SettingsUtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */; };
+		558CCBD02B08513200FC4442 /* SettingsUtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */; };
+		558CCBD22B085A8500FC4442 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBD12B085A8500FC4442 /* FileHelper.swift */; };
+		558CCBD32B085A8500FC4442 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBD12B085A8500FC4442 /* FileHelper.swift */; };
 		55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */; };
 		55950C5C291DDCDF00F1CAD8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
 		55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
 		55A9E5342AF7669F0091D1A6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
-		55A9E53A2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */; };
-		55A9E53B2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */; };
 		55B272002B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
 		55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */; };
 		55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
 		55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
+		55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE77552B0586390094B98D /* SettingsViewmacOS.swift */; };
 		55E7AEAD29257AF1002E6869 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
 		55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
 		55F26F3C2AF6F56E00AB8E1C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55F26F3B2AF6F56E00AB8E1C /* Credits.rtf */; };
@@ -80,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		5120A3AA2A78EC39000B05B3 /* Battery Webhook Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battery Webhook Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5151E2602B0C611C00B777CA /* Codesigning.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Codesigning.xcconfig; sourceTree = "<group>"; };
 		5173E4242A78F1520076663F /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
 		5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "dcbattwebhook-swift-watch.entitlements"; sourceTree = "<group>"; };
 		550348C4291D7FB9006551B0 /* Battery Webhook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battery Webhook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,16 +99,20 @@
 		550348D8291D9EB7006551B0 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		550348DC291DA3BC006551B0 /* HomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIView.swift; sourceTree = "<group>"; };
 		553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraView.swift; sourceTree = "<group>"; };
+		554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacAppDelegate.swift; sourceTree = "<group>"; };
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
 		557299C82936D5DF00D7523D /* WebhookSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSettingsView.swift; sourceTree = "<group>"; };
 		558200AF2AF465110004750F /* SendInfoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInfoIntent.swift; sourceTree = "<group>"; };
+		558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSPre16NoticeView.swift; sourceTree = "<group>"; };
+		558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtilsView.swift; sourceTree = "<group>"; };
+		558CCBD12B085A8500FC4442 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBatteryInfo.swift; sourceTree = "<group>"; };
 		55950C5B291DDCDF00F1CAD8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		55A9E5322AF7669F0091D1A6 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsAWebhook.swift; sourceTree = "<group>"; };
 		55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscordPreviewView.swift; sourceTree = "<group>"; };
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
 		55B4E8E92931742300492C77 /* EmbedStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStructs.swift; sourceTree = "<group>"; };
+		55CE77552B0586390094B98D /* SettingsViewmacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewmacOS.swift; sourceTree = "<group>"; };
 		55E7AEA929253E8F002E6869 /* DefaultsUsed.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DefaultsUsed.md; sourceTree = "<group>"; };
 		55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
 		55ED8937291F628700CB170C /* SettingsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValidator.swift; sourceTree = "<group>"; };
@@ -160,22 +171,25 @@
 			children = (
 				55F26F3B2AF6F56E00AB8E1C /* Credits.rtf */,
 				550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */,
-				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
-				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
+				554DEBE32B07E5AB009FF921 /* MacSupport */,
 				550348C9291D7FB9006551B0 /* ContentView.swift */,
+				55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */,
 				550348DC291DA3BC006551B0 /* HomeUIView.swift */,
 				55B271FF2B03114800BD8A36 /* DiscordPreviewView.swift */,
+				558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */,
 				55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */,
+				558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
+				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
+				553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
-				55A9E5352AF772E80091D1A6 /* HelpViews */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
 				55ED8937291F628700CB170C /* SettingsValidator.swift */,
 				55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */,
 				55B4E8E729316C0600492C77 /* MessageBuilder.swift */,
 				55B4E8E92931742300492C77 /* EmbedStructs.swift */,
 				556FE4A429253A0100C09A63 /* TimeCounter.swift */,
-				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
+				558CCBD12B085A8500FC4442 /* FileHelper.swift */,
 				550348D8291D9EB7006551B0 /* DeviceInfo.swift */,
 				5173E4242A78F1520076663F /* SessionDelegate.swift */,
 				558200B22AF4651C0004750F /* Intents */,
@@ -184,6 +198,7 @@
 				5173E4272A78F7C80076663F /* dcbattwebhook-swift-watch.entitlements */,
 				550348CD291D7FB9006551B0 /* dcbattwebhook_swift.entitlements */,
 				550348CE291D7FB9006551B0 /* Preview Content */,
+				5151E2602B0C611C00B777CA /* Codesigning.xcconfig */,
 			);
 			path = "dcbattwebhook-swift";
 			sourceTree = "<group>";
@@ -196,20 +211,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		554DEBE32B07E5AB009FF921 /* MacSupport */ = {
+			isa = PBXGroup;
+			children = (
+				55CE77552B0586390094B98D /* SettingsViewmacOS.swift */,
+				554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */,
+			);
+			path = MacSupport;
+			sourceTree = "<group>";
+		};
 		558200B22AF4651C0004750F /* Intents */ = {
 			isa = PBXGroup;
 			children = (
 				558200AF2AF465110004750F /* SendInfoIntent.swift */,
 			);
 			path = Intents;
-			sourceTree = "<group>";
-		};
-		55A9E5352AF772E80091D1A6 /* HelpViews */ = {
-			isa = PBXGroup;
-			children = (
-				55A9E5392AF7739D0091D1A6 /* WhatIsAWebhook.swift */,
-			);
-			path = HelpViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,16 +332,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5173E4162A78EE980076663F /* dcbattwebhook_swiftApp.swift in Sources */,
-				55A9E53B2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */,
 				5173E4172A78EE980076663F /* AboutView.swift in Sources */,
 				5173E4182A78EE980076663F /* SettingsUtils.swift in Sources */,
+				558CCBD02B08513200FC4442 /* SettingsUtilsView.swift in Sources */,
 				55F26F412AF740E600AB8E1C /* WelcomeView.swift in Sources */,
+				558CCBD32B085A8500FC4442 /* FileHelper.swift in Sources */,
 				5173E4192A78EE980076663F /* ContentView.swift in Sources */,
 				5173E41A2A78EE980076663F /* HomeUIView.swift in Sources */,
 				55A9E5342AF7669F0091D1A6 /* HelpView.swift in Sources */,
 				5173E41B2A78EE980076663F /* SettingsValidator.swift in Sources */,
 				5173E4262A78F1520076663F /* SessionDelegate.swift in Sources */,
 				558200B12AF465110004750F /* SendInfoIntent.swift in Sources */,
+				558CCBCD2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
 				5173E41C2A78EE980076663F /* SendBatteryInfo.swift in Sources */,
 				5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */,
 				55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
@@ -342,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */,
+				554DEBEC2B07F561009FF921 /* MacAppDelegate.swift in Sources */,
 				557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */,
 				550348D7291D84E1006551B0 /* SettingsView.swift in Sources */,
 				55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */,
@@ -351,16 +370,19 @@
 				5173E4252A78F1520076663F /* SessionDelegate.swift in Sources */,
 				55B272002B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
 				558200B02AF465110004750F /* SendInfoIntent.swift in Sources */,
+				558CCBD22B085A8500FC4442 /* FileHelper.swift in Sources */,
 				55950C5A291DAC8400F1CAD8 /* SendBatteryInfo.swift in Sources */,
 				55B4E8EA2931742300492C77 /* EmbedStructs.swift in Sources */,
 				553CD2B42AF65288006D3402 /* MenuBarExtraView.swift in Sources */,
+				55CE77562B0586390094B98D /* SettingsViewmacOS.swift in Sources */,
+				558CCBCF2B08513200FC4442 /* SettingsUtilsView.swift in Sources */,
 				550348DD291DA3BC006551B0 /* HomeUIView.swift in Sources */,
 				55A9E5332AF7669F0091D1A6 /* HelpView.swift in Sources */,
-				55A9E53A2AF7739D0091D1A6 /* WhatIsAWebhook.swift in Sources */,
 				550348CA291D7FB9006551B0 /* ContentView.swift in Sources */,
 				556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */,
 				550348C8291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift in Sources */,
 				550348D9291D9EB7006551B0 /* DeviceInfo.swift in Sources */,
+				558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,24 +403,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
-				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = thatstel.la.batterywebhook;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "$(APP_IDENTIFIER)";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER).watch";
 				PRODUCT_NAME = "Battery Webhook Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -414,24 +433,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
-				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = thatstel.la.batterywebhook;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "$(APP_IDENTIFIER)";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER).watch";
 				PRODUCT_NAME = "Battery Webhook Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -445,6 +461,7 @@
 		};
 		550348D1291D7FB9006551B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5151E2602B0C611C00B777CA /* Codesigning.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -503,6 +520,7 @@
 		};
 		550348D2291D7FB9006551B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5151E2602B0C611C00B777CA /* Codesigning.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -558,18 +576,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = RC;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -582,12 +599,11 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -604,18 +620,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = RC;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -628,12 +643,11 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = thatstel.la.batterywebhook;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;

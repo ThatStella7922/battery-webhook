@@ -25,10 +25,29 @@ struct SendInfoIntent: AppIntent {
     static let openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        /*
-         TODO Make sure the user hasn't set more than a single option at a time!
-         Ideal functionality will throw an error like the ones below, saying you can't enable more than one option at a time
-         */
+        
+        // Ensure user does not enable more than a single option
+        var throwMultiOptionError = false
+        if (userDidPlugIn || userDidUnplug || userDidHit100) {
+            if (userDidPlugIn && userDidUnplug && userDidHit100) {
+                throwMultiOptionError = true
+            } else if (userDidPlugIn && userDidUnplug) {
+                throwMultiOptionError = true
+            } else if (userDidPlugIn && userDidHit100) {
+                throwMultiOptionError = true
+            } else if (userDidUnplug && userDidPlugIn) {
+                throwMultiOptionError = true
+            } else if (userDidUnplug && userDidHit100) {
+                throwMultiOptionError = true
+            } else if (userDidHit100 && userDidPlugIn) {
+                throwMultiOptionError = true
+            } else if (userDidHit100 && userDidUnplug) {
+                throwMultiOptionError = true
+            }
+            if (throwMultiOptionError) {
+                throw MyIntentError.message("Configuration Error", "You cannot enable more than one automation event in a single action at a time. Please create seperate Shortcuts Automations if you want to send battery info when more than one automation event is triggered.")
+            }
+        }
         
         // Validate the settings
         let isSettingsValid = ValidateSettings()

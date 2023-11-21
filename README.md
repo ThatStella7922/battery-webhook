@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/AppIcon/AppIcon256x256.png" alt="Battery Webhook Logo" width="200" />
+  <img src="assets/Generic/AppIconSqaureMasked.png" alt="Battery Webhook Logo" width="200" />
   <h1>Battery Webhook</h1>
 </div>
 
@@ -25,7 +25,7 @@ Once that's done, you can manually send the battery info to your configured webh
 - [x] HTTP interaction with Discord webhook
 - [x] Manual sending of battery info
 - [x] Send battery info using Shortcuts
-  - [ ] Update MessageBuilder.swift to support different power events
+  - [x] Update MessageBuilder.swift to support different power events
 - [x] Automations support with Shortcuts Automations
 - [x] macOS-specific UI elements (CommandMenu and MenuBarExtra)
 - [ ] Preview how the embed will show
@@ -34,16 +34,13 @@ Once that's done, you can manually send the battery info to your configured webh
 - [ ] ?
 
 ## Compatibility and Dependencies
-- macOS 13.0 or later
-  - Native (AppKit) macOS build
-- iOS/iPadOS/tvOS/macCatalyst 15.0 or later
-  - iOS/tvOS build or Mac Catalyst build
+- iOS/iPadOS 15.0 or later
 - watchOS 8 or later
-- visionOS 1 or later
+- tvOS 15.0 or later
+- macOS 13.0 or later
+- visionOS 1.0 or later
 
 Support for the Shortcuts app requires iOS/iPadOS/watchOS 16 or later.
-
-<sub>(macCatalyst 15.0 = macOS Monterey 12.0)</sub>
 
 ## Building
 Open in Xcode, change PROJECT_IDENTIFIER at the bottom of project build settings, set codesign identity, then build.

@@ -19,6 +19,26 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            #if os(tvOS)
+            TabView {
+                HomeUIView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                SettingsView()
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+                HelpView()
+                    .tabItem {
+                        Label("Help", systemImage: "questionmark.circle")
+                    }
+                AboutView()
+                    .tabItem {
+                        Label("About", systemImage: "person.circle")
+                    }
+            }
+            #else
             NavigationView {
                 List() {
                     NavigationLink(destination: HomeUIView(), isActive: $isShowingHome, label: {
@@ -48,13 +68,18 @@ struct ContentView: View {
                     .padding()
                 #endif
             }
+            #endif
         }.onAppear() {
             if defaults.bool(forKey: "IsFirstLaunch") == false {
                 DoAppFirstTimeLaunch()
-                #if os(macOS)
+                #if os(macOS) || os(watchOS)
                 //nothing
                 #else
-                self.isShowingWelcomeSheet = true
+                switch UIDevice.current.userInterfaceIdiom {
+                    case .phone: self.isShowingWelcomeSheet = true
+                    case .pad: self.isShowingWelcomeSheet = false
+                    default: self.isShowingWelcomeSheet = false
+                }
                 #endif
             }
             

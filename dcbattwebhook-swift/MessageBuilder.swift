@@ -35,7 +35,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     var batteryField = DiscordEmbedField(name: "Unknown Device", value: "Unknown battery state", inline: true)
     var timeField = DiscordEmbedField(name: "Time since last update:", value: "Unknown", inline: true)
     var automationTimeField = DiscordEmbedField(name: "Time since last update:", value: "Unknown", inline: true)
-    let advertField = DiscordEmbedField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + versionBase, inline: false)
+    let advertField = DiscordEmbedField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + version, inline: false)
     var fullmessageBlock = DiscordMessageObj()
     var embedColor = 0
     
