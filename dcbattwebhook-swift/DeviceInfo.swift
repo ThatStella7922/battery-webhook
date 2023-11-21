@@ -35,15 +35,18 @@ public struct DeviceInfo {
         // If this doesn't work we can use cachedSerial from the defaults instead
         // but this seems to work
         // Partially stolen from https://stackoverflow.com/a/57820994
-        var serialNumber: String? {
+        var details: (serialNumber: String?, macModelIdentifier: String?) {
             let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
-            if (service == 0) { return nil }
+            if (service == 0) { return (nil, nil) }
             defer { IOObjectRelease(service) }
-            return IORegistryEntryCreateCFProperty(service, "IOPlatformSerialNumber" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String
+            return (
+                IORegistryEntryCreateCFProperty(service, "IOPlatformSerialNumber" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String,
+                IORegistryEntryCreateCFProperty(service, "model" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String
+            )
         }
 
         var modelName: String? {
-            guard let serial = serialNumber,
+            guard let serial = details.serialNumber,
                 let defaults = UserDefaults.init(suiteName: "com.apple.SystemProfiler"),
                 let regionCode = Locale.current.regionCode,
                 let names = defaults.object(forKey: "CPU Names") as? [String: String],
@@ -63,7 +66,7 @@ public struct DeviceInfo {
             return nil
         }
 
-        return modelName ?? "Unknown: \(identifier)"
+        return modelName ?? details.macModelIdentifier ?? "Unknown: \(identifier)"
 
         
         #else
@@ -209,14 +212,14 @@ func getSystemReportedDeviceUserDisplayName() -> String {
  If this value doesn't exist for whatever reason, this function will fall back to returning what is reported by the system API subject to the same limitations as `getSystemReportedDeviceUserDisplayName()`
  */
 func getDeviceUserDisplayName() -> String {
-    var usrDeviceName = getSystemReportedDeviceUserDisplayName()
-    if let usrdevicename = UserDefaults.standard.string(forKey: "UsrDeviceName") {
-        if (usrdevicename.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
-            usrDeviceName = usrdevicename
+    var deviceName = getSystemReportedDeviceUserDisplayName()
+    if let usrDeviceName = UserDefaults.standard.string(forKey: "UsrDeviceName") {
+        if (usrDeviceName.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+            deviceName = usrDeviceName
         }
     }
     
-    return usrDeviceName
+    return deviceName
 }
 
 /**
@@ -247,6 +250,7 @@ func getOSVersionAsDbl() -> Double {
  Returns `true` if the device is running any version of iOS prior to `16.0`
  */
 func isiOSPre16() -> Bool {
+    
     #if os(iOS)
     if (getOSVersionAsDbl() < 16.0) {
         return true
@@ -313,11 +317,11 @@ func isCritical() -> Bool {
 }
 
 /**
- Returns whether the device has a battery.
+ Indicates whether the device has a battery. This is a computed property, as we only need to check once.
  */
-func hasBattery() -> Bool {
+let hasBattery = {
     return getBatteryLevel() != -1
-}
+}()
 
 /**
  Returns the current battery level as a string (ex. `100%`). Mainly to reduce duplicating the -1 handling
@@ -345,7 +349,6 @@ func getBatteryPercentage(standalone: Bool = false, prefix: Bool = false) -> Str
     assert(!(standalone && prefix), "getBatteryPercentage() cannot be standalone and have a prefix at the same time")
 
     let batteryLevel = getBatteryLevel()
-    let hasBattery = hasBattery()
     if (standalone) {
         return hasBattery ? "\(batteryLevel)%" : connectedString.capitalized
     } else if (prefix) {

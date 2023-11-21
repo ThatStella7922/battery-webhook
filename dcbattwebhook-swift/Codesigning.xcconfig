@@ -1,0 +1,13 @@
+//
+//  Codesigning.xcconfig
+//  dcbattwebhook-swift
+//
+//  Created by Dhinak G on 11/20/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CODE_SIGN_STYLE = Automatic;
+DEVELOPMENT_TEAM = FBT742498U;
+APP_IDENTIFIER = thatstel.la.batterywebhook;
