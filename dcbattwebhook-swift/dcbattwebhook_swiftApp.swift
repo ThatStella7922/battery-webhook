@@ -67,6 +67,7 @@ struct dcbattwebhook_swiftApp: App {
         #if os(macOS)
         .windowResizability(.contentSize)
         .commands {
+            SidebarCommands()
             CommandGroup(replacing: CommandGroupPlacement.newItem) {}
             CommandGroup(after: .newItem) {
                 Button(action: {
