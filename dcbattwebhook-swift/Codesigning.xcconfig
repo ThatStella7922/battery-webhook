@@ -10,4 +10,4 @@
 
 CODE_SIGN_STYLE = Automatic;
 DEVELOPMENT_TEAM = FBT742498U;
-APP_IDENTIFIER = thatstel.la.batterywebhook;
+APP_IDENTIFIER = thatstel.la.battery-webhook;

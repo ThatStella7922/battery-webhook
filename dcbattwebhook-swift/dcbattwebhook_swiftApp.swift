@@ -15,7 +15,8 @@ public let prodName = "Battery Webhook"
 /// Base version of the app, use `version` if you want the running OS as well
 let versionNum = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
 let versionBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "unknown"
-public let versionBase  = versionNum + versionBuild
+let versionType = "dev"
+public let versionBase = "\(versionNum)(\(versionBuild)) \(versionType)"
 
 #if os(macOS)
 public let version = "\(versionBase) on macOS"
