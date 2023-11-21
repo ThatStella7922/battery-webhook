@@ -323,7 +323,7 @@ func isCritical() -> Bool {
 }
 
 /**
- Indicates whether the device has a battery. This is a closure, as we only need to check once.
+ Indicates whether the device has a battery. This is a computed property, as we only need to check once.
  */
 let hasBattery = {
     return getBatteryLevel() != -1
