@@ -252,11 +252,6 @@ func getOSVersionAsDbl() -> Double {
 func isiOSPre16() -> Bool {
     
     #if os(iOS)
-    print(UIDevice.current.name)
-    print(UIDevice.current.model)
-    print(UIDevice.current.localizedModel)
-    print(getOSVersion())
-    assert(UIDevice.current.name == UIDevice.current.model)
     if (getOSVersionAsDbl() < 16.0) {
         return true
     }
@@ -264,7 +259,6 @@ func isiOSPre16() -> Bool {
         return false
     }
     else {
-        assert(false)
         return false
     }
     
