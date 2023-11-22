@@ -20,6 +20,14 @@
 - SelectedServiceType
   - String, stores the user's preference on which service (discord, telegram, etc) they want to use. Must be selected from a predefined list. See serviceTypes array in WebhookSettingsView.swift
 
+### Automations
+- MacSendOnPluggedIn
+  - Bool, stores whether the user has chosen to send battery info when plugging in their Mac (false by default)
+- MacSendOnUnplugged
+  - Bool, stores whether the user has chosen to send battery info when unolugging their Mac (false by default)
+- MacSendOnHitFullCharge
+  - Bool, stores whether the user has chosen to send battery info when their Mac hits 100% charge (false by default as not yet implemented)
+
 ### Service Specific Settings
 The way these are constructed is as follows:
 ```swift

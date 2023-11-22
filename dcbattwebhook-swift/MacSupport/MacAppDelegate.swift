@@ -15,7 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let source = IOPSNotificationCreateRunLoopSource(
             {
                 _ in
-                print(getPowerSource())
+                if macAutomationsSavedPowerSource != GetMacPowerSource() {
+                    HandleMacPowerStateChange()
+                    macAutomationsSavedPowerSource = GetMacPowerSource()
+                }
                 
             },nil).takeRetainedValue()
         

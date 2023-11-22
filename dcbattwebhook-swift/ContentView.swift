@@ -29,6 +29,10 @@ struct ContentView: View {
                     .tabItem {
                         Label("Settings", systemImage: "gearshape")
                     }
+                AutomationsView()
+                    .tabItem {
+                        Label("Automations", systemImage: "gearshape.2")
+                    }
                 HelpView()
                     .tabItem {
                         Label("Help", systemImage: "questionmark.circle")
@@ -47,6 +51,9 @@ struct ContentView: View {
                     NavigationLink(destination: SettingsView(), isActive: $isShowingSettings, label: {
                         Label("Settings", systemImage: "gearshape")
                     })
+                    NavigationLink{AutomationsView()} label: {
+                        Label("Automations", systemImage: "gearshape.2")
+                    }
                     NavigationLink(destination: HelpView(), isActive: $isShowingHelp, label: {
                         Label("Help", systemImage: "questionmark.circle")
                     })
