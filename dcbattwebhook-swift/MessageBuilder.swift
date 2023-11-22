@@ -57,7 +57,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
         usrName = usrname
     }
     if let usrpronoun = defaults.string(forKey: "UsrPronoun") {
-        usrPronoun = usrpronoun
+        if !usrpronoun.isEmpty {usrPronoun = usrpronoun}
     }
     sendDeviceName = defaults.bool(forKey: "SendDeviceName")
     sendDeviceModel = defaults.bool(forKey: "SendDeviceModel")
