@@ -37,7 +37,7 @@ struct AboutView: View {
                                     .fixedSize(horizontal: false, vertical: true)
                                     .minimumScaleFactor(0.7)
                             }
-                            Text("Version " + version + " - by ThatStella7922").padding(.bottom, 5)
+                            Text("Version " + version + " - with 💜 by ThatStella7922").padding(.bottom, 5)
                         }.multilineTextAlignment(.center)
                     }
                     #else
@@ -49,8 +49,18 @@ struct AboutView: View {
                                 .frame(maxWidth: 80)
                                 .padding(.bottom, 5)
                             Text(prodName).font(.title).frame(maxWidth: .infinity, alignment: .center)
-                            Text("Version " + version + " - by ThatStella7922").frame(maxWidth: .infinity, alignment: .center)
+                            Text("Version " + version + " - with 💜 by ThatStella7922").frame(maxWidth: .infinity, alignment: .center)
                         }
+                    }
+                    #endif
+                    
+                    #if os(tvOS) || os(watchOS)
+                    Section(header: Text("Battery Webhook on GitHub"), footer: Text("Visit the About page of Battery Webhook from an iOS, iPadOS or macOS device to view the link.")) {
+                        Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")
+                    }
+                    #else
+                    Section(header: Text("Battery Webhook on GitHub"), footer: Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")) {
+                        Link("View Source on GitHub", destination: URL(string: "https://github.com/ThatStella7922/battery-webhook")!)
                     }
                     #endif
                     
@@ -63,29 +73,6 @@ struct AboutView: View {
                         Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
                     }
                     #endif
-                    
-                    #if os(tvOS) || os(watchOS)
-                    Section(header: Text("Battery Webhook on GitHub"), footer: Text("Visit the About page of Battery Webhook from an iOS, iPadOS or macOS device to view the link.")) {
-                        Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")
-                    }
-                    #else
-                    Section(header: Text("Battery Webhook on GitHub"), footer: Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")) {
-                        Link("View Source on GitHub", destination: URL(string: "https://github.com/ThatStella7922/dcbattwebhook-swift")!)
-                    }
-                    #endif
-                    
-                    Section(header: Text("Fruity"), footer: Text("Eva's initial reaction to this amazing and definitely not poorly written + unnecessary app :s2badass:")) {
-                        Image("sirishortcut")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 400)
-                        
-                        #if os(tvOS) || os(watchOS)
-                        EmptyView()
-                        #else
-                        Link("my wife Eva's website", destination: URL(string: "https://crystall1ne.dev")!)
-                        #endif
-                    }
                     
                     //DEBUG SECTION
                     #if DEBUG
