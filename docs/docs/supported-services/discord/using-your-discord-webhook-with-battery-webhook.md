@@ -8,7 +8,7 @@ Open the Battery Webhook app, then go to **Settings**. Ensure the **Webhook Serv
 
 Once you're done, it should look like this:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Testing it out
 
@@ -20,3 +20,4 @@ Once you see a success message stating "The battery info was sent", you'll see t
 
 This covers the basic usage of Battery Webhook!
 
+It can get better from here, though/

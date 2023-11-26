@@ -26,17 +26,16 @@ Battery Webhook can send something like the following whenever you open the app 
 
 </div>
 
-That's fine and all, but not very useful unless you feel like opening the app every time you want to report battery info. **However**, Battery Webhook supports automations! So, you can have it send battery info whenever you plug in, unplug or fully charge your device, as seen below:
+That's fine and all, but not very useful unless you feel like opening the app every time you want to report battery info. **However**, Battery Webhook supports power-efficient automations! So you can have it send battery info whenever you plug in, unplug or fully charge your device, as seen below:
 
 <figure><img src="../../.gitbook/assets/image (11).png" alt="" width="563"><figcaption><p>Battery Webhook's output to a Discord webhook when triggered by plugging in, fully charging, then unplugging the device</p></figcaption></figure>
 
-Automations allow Battery Webhook to inform you about power state changes for devices that you may want to be informed about, like in these examples:
+Automations allow Battery Webhook to inform you about power state changes for devices that you may want to be informed about, such as:
 
-* You have a MacBook that you need on and charged at all times and want to know if it loses power
-* You're using an old iPhone or iPad as an indoor camera and must know if you it gets unplugged
-* You want to see exactly how long your device takes to charge
-* You simply want to share with friends
-* Much more
+* A MacBook that you need on and charged at all times and want to know if it loses power
+* An old iPhone or iPad being used as an indoor camera and you must know if it gets unplugged
+* How long your phone took to charge overnight
+* Friend's devices, just for fun
 
 ### What about my privacy?
 
@@ -53,4 +52,4 @@ It also has you provide the following information:
 * Display Name (required, doesn't need to be a real name or username)
 * Pronoun (optional, only used for automations)
 
-You can opt out of sending some of the collected into to webhooks, which is covered in [Further configuring Battery Webhook](../supported-services/configuring-a-discord-webhook/further-configuring-battery-webhook.md). For most users, however, this isn't needed.
+You can opt out of sending some of the collected into to webhooks, which is covered in [Further configuring Battery Webhook](../supported-services/discord/further-configuring-battery-webhook.md). For most users, however, this isn't needed.

@@ -1,14 +1,24 @@
 # Setting up automations
 
-Battery Webhook supports the Shortcuts app, where it provides the **Send Battery Info** action. This action depends on the app's configure being valid, so ensure you've configured it properly before using the action.
+### macOS
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
+Battery Webhook uses IOPowerManagement events and IOKit queries to directly talk to your Mac's hardware, which provides _highly_ power-efficient and fast automations.
 
-You can report to the webhook that you've plugged in, unplugged or fully charged your device.
+To take advantage of automations on macOS, just open the app and toggle the desired events in the **Automations** section.
+
+The automations will not be triggered if your configuration is invalid, so just ensure that it's valid before enabling them.
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### iOS and iPadOS
 
-You can combine this action with Shortcuts Automations to have a setup just like the example shown on the [Introduction](../../introduction/#why-should-i-use-this) page:
+Battery Webhook uses the Shortcuts Automations feature built into the Shortcuts app. As such, we add the **Send Battery Info** action to Shortcuts. This action depends on the app's configuration being valid, so ensure you've configured it properly before using the action.
+
+<figure><img src="../../../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
+
+With the action, you can report to the webhook that you've plugged in, unplugged or fully charged your device.
+
+When set up with Shortcuts Automations, you can report battery info as seen on the [Introduction](../../introduction/#why-should-i-use-this) page:
 
 <figure><img src="../../../.gitbook/assets/image (15).png" alt="" width="188"><figcaption></figcaption></figure>
 
