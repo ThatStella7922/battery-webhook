@@ -5,49 +5,42 @@
 
 Send your battery info to popular services using webhooks!
 
-## Usage
-Install and run, then configure in the Settings page:
+## Usage and compatibility
+Check out the [Battery Webhook documentation](https://docs.thatstel.la/battery-webhook) to learn more about using the app.
 
-<img src="img/app.png" alt="alt text" title="image Title" width="250"/>
-<br><br>
+You can download Battery Webhook on the App Store (soon, I hope), or from the [Releases](https://github.com/ThatStella7922/battery-webhook/releases) page here on GitHub.
 
-Once that's done, you can manually send the battery info to your configured webhook:
-
-<img src="img/output.png" alt="alt text" title="image Title" width="350"/>
-
-## Feature Status
-- [x] UI built with SwiftUI
-- [x] Device info functions
-- [x] Work around iOS 16+ not giving the user-set device name by letting the user set a device name in Battery Webhook
+## Development
+### Feature Status
+- [x] Fully modern, built in Swift and SwiftUI
+- [x] Device info functions (name, battery info, etc)
 - [x] Date saving, formatting, comparison, etc
-- [x] Full configuration infrastructure using UserDefaults
-- [x] Building Discord embed with JSON
-- [x] HTTP interaction with Discord webhook
-- [x] Manual sending of battery info
-- [x] Send battery info using Shortcuts
-  - [x] Update MessageBuilder.swift to support different power events
-- [x] Automations support with Shortcuts Automations
-- [x] macOS-specific UI elements (CommandMenu and MenuBarExtra)
-- [ ] Preview how the embed will show
-  - Discord planned
-- [ ] Support services other than Discord (config infra is there but need to create constructors for whatever format other services expect)
-- [ ] ?
+- [x] Full configuration infrastructure with UserDefaults
+- [x] Full programmatic building of various embeds in JSON format
+- [x] HTTP interaction with webhooks
+- [x] Manual sending of battery info in the app
+- [x] Automations support on iOS with Shortcuts Automations
+- [x] Automations support on macOS with IOPowerManagement events and IOKit for high power efficiency
+- [x] Siri Shortcuts support on all compatible platforms
+- [x] Menu bar extra on macOS
 
-## Compatibility and Dependencies
-- iOS/iPadOS 15.0 or later
-- watchOS 8 or later
-- tvOS 15.0 or later
-- macOS 13.0 or later
-- visionOS 1.0 or later
-
-Support for the Shortcuts app requires iOS/iPadOS/watchOS 16 or later.
-
-## Building
-Open in Xcode, change PROJECT_IDENTIFIER at the bottom of project build settings, set codesign identity, then build.
+### Building
+Set the development team and bundle identifier in `dcbattwebhook-swift/Codesigning.xcconfig`, then build with Xcode.
 
 Documentation is provided as DocC for most functions, or code comments
 
 ## Credits
+Built with 💜 by ThatStella7922
+
+### Contributors
+Battery Webhook would not be possible without its contributors:
+- my [Eva Luna](https://github.com/crystall1nedev)
+  - Feature ideas, occasional code help and *lots* of encouragement when I was feeling down, as well as her reaction being the entire reason I began this project:<br><img src="img/sirishortcut.png" width="350" />
+- [Dhinak G](https://github.com/dhinakg)
+  - watchOS compatibility, Mac hardware information and general knowledge
+- [João Eduardo](https://github.com/joaodforce)
+  - Early pointers with how to interact with iOS and Apple's development tools
+
 ### App Icon
 The app icon uses modified assets from [DazzleUi](https://dazzleui.gumroad.com/l/dazzleiconsfree?ref=svgrepo.com) under the CC Attribution License.\
 This does not imply endorsement or sponsorship of Battery Webhook by DazzleUi.
