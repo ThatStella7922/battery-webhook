@@ -23,6 +23,7 @@ You can download Battery Webhook on the App Store (soon, I hope), or from the [R
 - [x] Automations support on macOS with IOPowerManagement events and IOKit for high power efficiency
 - [x] Siri Shortcuts support on all compatible platforms
 - [x] Menu bar extra on macOS
+- [X] Supports UPS (Uninterruiptible Power Supply) on desktop Macs without a battery
 
 ### Building
 Set the development team and bundle identifier in `dcbattwebhook-swift/Codesigning.xcconfig`, then build with Xcode.
