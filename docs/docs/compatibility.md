@@ -1,21 +1,24 @@
 ---
-description: What platforms can Battery Webhook run on?
+description: What will Battery Webhook run on?
 ---
 
 # Compatibility
 
-Battery Webhook has been built from the ground up to take advantage of features available only in Apple's OSes, so the app runs on:
+Battery Webhook has been built from the ground up to take advantage of features available only in Apple's OSes, and requires one of these OSes at minimum:
 
-* iOS 15.0 and later
-* iPadOS 15.0 and later
-* watchOS 8 and later
-* macOS Sonoma 13.0 and later
+* iOS 15.0 or later
+* iPadOS 15.0 or later
+* watchOS 8 or later
+* macOS Ventura 13.0 or later
 
-Additionally, support for the following OSes is well under way:
+Additionally, Battery Webhook has some additional features only supported on more recent OS versions.
 
-* tvOS 15.0 and later
-* visionOS
+* Siri Shortcuts support
+  * All macOS versions are supported
+  * iOS 16.0 or later is required
+  * iPadOS 16.0 or later is required
+  * watchOS 9.0 or later is required
 
 ***
 
-Support for Windows or Android devices is not planned at this time.
+Now that you know what Battery Webhook will run on, view [Supported Services](supported-services/) to learn what services you can push to.

@@ -13,3 +13,7 @@ You'll notice that the **Settings** page in Battery Webhook has a few options we
 **Show specified avatar image** and **Show specified pronoun** control whether Battery Webhook will send the avatar image/pronoun to the webhook.
 
 **Send Device Name** and **Send Device Model** will control whether Battery Webhook will send your devices name/model to the webhook. These can be disabled if you would like greater privacy.
+
+***
+
+Now that you know all of Battery Webhook's options, see [Setting up automations](setting-up-automations.md) to learn how to automate sending of battery info!
