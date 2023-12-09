@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551E25732B23A1E100D61EF5 /* IOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E25722B23A1E100D61EF5 /* IOSViewController.swift */; };
 		554D49CA2B2390D400CAE7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D49C92B2390D400CAE7CC /* AppDelegate.swift */; };
-		554D49CC2B2390D400CAE7CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D49CB2B2390D400CAE7CC /* ViewController.swift */; };
+		554D49CC2B2390D400CAE7CC /* MacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D49CB2B2390D400CAE7CC /* MacViewController.swift */; };
 		554D49CE2B2390D600CAE7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554D49CD2B2390D600CAE7CC /* Assets.xcassets */; };
 		554D49D92B23932200CAE7CC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D49D82B23932200CAE7CC /* main.swift */; };
+		55A519FD2B2398F3004F6C1E /* IOSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A519FC2B2398F3004F6C1E /* IOSAppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		551E25722B23A1E100D61EF5 /* IOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewController.swift; sourceTree = "<group>"; };
 		554D49C62B2390D400CAE7CC /* battery-webhook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "battery-webhook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		554D49C92B2390D400CAE7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		554D49CB2B2390D400CAE7CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		554D49CB2B2390D400CAE7CC /* MacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacViewController.swift; sourceTree = "<group>"; };
 		554D49CD2B2390D600CAE7CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		554D49D22B2390D600CAE7CC /* battery_webhook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = battery_webhook.entitlements; sourceTree = "<group>"; };
 		554D49D82B23932200CAE7CC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		55A519FC2B2398F3004F6C1E /* IOSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSAppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +58,21 @@
 			children = (
 				554D49D82B23932200CAE7CC /* main.swift */,
 				554D49C92B2390D400CAE7CC /* AppDelegate.swift */,
-				554D49CB2B2390D400CAE7CC /* ViewController.swift */,
+				55A519FC2B2398F3004F6C1E /* IOSAppDelegate.swift */,
+				55A519FE2B23A10D004F6C1E /* Views */,
 				554D49CD2B2390D600CAE7CC /* Assets.xcassets */,
 				554D49D22B2390D600CAE7CC /* battery_webhook.entitlements */,
 			);
 			path = "battery-webhook";
+			sourceTree = "<group>";
+		};
+		55A519FE2B23A10D004F6C1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				554D49CB2B2390D400CAE7CC /* MacViewController.swift */,
+				551E25722B23A1E100D61EF5 /* IOSViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				554D49CC2B2390D400CAE7CC /* ViewController.swift in Sources */,
+				554D49CC2B2390D400CAE7CC /* MacViewController.swift in Sources */,
+				551E25732B23A1E100D61EF5 /* IOSViewController.swift in Sources */,
 				554D49CA2B2390D400CAE7CC /* AppDelegate.swift in Sources */,
+				55A519FD2B2398F3004F6C1E /* IOSAppDelegate.swift in Sources */,
 				554D49D92B23932200CAE7CC /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,12 +281,13 @@
 				CODE_SIGN_ENTITLEMENTS = "battery-webhook/battery_webhook.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2023 ThatStella7922";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -282,7 +299,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -295,12 +312,13 @@
 				CODE_SIGN_ENTITLEMENTS = "battery-webhook/battery_webhook.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2023 ThatStella7922";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -312,7 +330,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
