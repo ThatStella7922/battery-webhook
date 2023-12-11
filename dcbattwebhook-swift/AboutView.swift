@@ -8,14 +8,7 @@
 import SwiftUI
 
 struct AboutView: View {
-    @State private var powerField: String = ""
-    @State private var devModelField: String = ""
-    @State private var devNameField: String = ""
-    @State private var osVerField: String = ""
-    @State private var savedDateField: String = ""
-    @State private var timeSinceSavedDateField: String = ""
-    @State private var dataContainerPath: String = ""
-    @State private var dummyFilePath: String = ""
+    @State private var isShowingDebugSheet = false
     
     var body: some View {
         VStack {
@@ -31,13 +24,17 @@ struct AboutView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(maxWidth: 40)
                                     .padding(.bottom, 5)
+                                    .onTapGesture(count: 5, perform: {
+                                        isShowingDebugSheet = true
+                                    })
                                 Text(prodName).font(.title3)
                                     .padding()
                                     .lineLimit(2)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .minimumScaleFactor(0.7)
                             }
-                            Text("Version " + version + " - with 💜 by ThatStella7922").padding(.bottom, 5)
+                            Text("Version " + version)
+                            Text("with 💜 by ThatStella7922").padding(.bottom, 5)
                         }.multilineTextAlignment(.center)
                     }
                     #else
@@ -48,8 +45,12 @@ struct AboutView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxWidth: 80)
                                 .padding(.bottom, 5)
-                            Text(prodName).font(.title).frame(maxWidth: .infinity, alignment: .center)
-                            Text("Version " + version + " - with 💜 by ThatStella7922").frame(maxWidth: .infinity, alignment: .center)
+                                .onTapGesture(count: 5, perform: {
+                                    isShowingDebugSheet = true
+                                })
+                            Text(prodName).font(.title)
+                            Text("Version " + version)
+                            Text("with 💜 by ThatStella7922").frame(maxWidth: .infinity, alignment: .center)
                         }
                     }
                     #endif
@@ -73,29 +74,6 @@ struct AboutView: View {
                         Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
                     }
                     #endif
-                    
-                    //DEBUG SECTION
-                    #if DEBUG
-                    Section(header: Text("Debug Information"), footer: Text("Shows info about the current environment to see if underlying functions work before pushing any info to a webhook. This section uses the same functions as the webhook data constructors.")) {
-                        Text(powerField)
-                        Text("Device Model: " + devModelField)
-                        Text("Device Name: " + devNameField)
-                        Text("OS Version: " + osVerField)
-                        Text("Saved Date: " + savedDateField)
-                        Text("Time Since Saved Date: " + timeSinceSavedDateField)
-                        ScrollView(.horizontal) {Text("Data container path: " + dataContainerPath).fixedSize(horizontal: true, vertical: false)}
-                        ScrollView(.horizontal) {Text("Dummy file path: " + dummyFilePath).fixedSize(horizontal: true, vertical: false)}
-                        
-                        // save current date button
-                        Button {
-                            SaveCurrentDate()
-                            savedDateField = GetSavedDateFormatted()
-                            timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
-                        } label: {
-                            Label("Save Current Date", systemImage: "square.and.arrow.down")
-                        }
-                    }
-                    #endif
                 }
                 #if os(macOS)
                 .formStyle(.grouped)
@@ -104,15 +82,15 @@ struct AboutView: View {
         }
         .navigationTitle("About")
         .onAppear() {
-            powerField = (hasBattery ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)
-            devModelField = getDeviceModel()
-            devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported: \"\(getSystemReportedDeviceUserDisplayName())\")" : getDeviceUserDisplayName())
-            osVerField = getOSVersion()
-            savedDateField = GetSavedDateFormatted()
-            timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
-            dataContainerPath = String(describing: GetDataContainerPath())
-            dummyFilePath = String(describing: BuildFilePathInDataContainer(fileName: "DummyFile", fileExtension: "txt"))
-        }
+            
+        }.sheet(isPresented: $isShowingDebugSheet, content: {
+            DebugView().padding(.bottom)
+            Button {
+                self.isShowingDebugSheet = false
+            } label: {
+                Text("Done").font(.title3)
+            }
+        })
         
     }
 }
