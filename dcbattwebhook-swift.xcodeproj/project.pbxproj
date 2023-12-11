@@ -36,6 +36,8 @@
 		554DEBEC2B07F561009FF921 /* MacAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */; };
 		556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
 		557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
+		557CB8182B26D0CA0095D790 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
+		557CB8192B26D0CA0095D790 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
 		558200B02AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
 		558200B12AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
 		558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */; };
@@ -107,6 +109,7 @@
 		554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacAppDelegate.swift; sourceTree = "<group>"; };
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
 		557299C82936D5DF00D7523D /* WebhookSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSettingsView.swift; sourceTree = "<group>"; };
+		557CB8172B26D0CA0095D790 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		558200AF2AF465110004750F /* SendInfoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInfoIntent.swift; sourceTree = "<group>"; };
 		558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSPre16NoticeView.swift; sourceTree = "<group>"; };
 		558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtilsView.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
+				557CB8172B26D0CA0095D790 /* DebugView.swift */,
 				55ED8937291F628700CB170C /* SettingsValidator.swift */,
 				55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */,
 				55B4E8E729316C0600492C77 /* MessageBuilder.swift */,
@@ -354,6 +358,7 @@
 				5173E41B2A78EE980076663F /* SettingsValidator.swift in Sources */,
 				5173E4262A78F1520076663F /* SessionDelegate.swift in Sources */,
 				558200B12AF465110004750F /* SendInfoIntent.swift in Sources */,
+				557CB8192B26D0CA0095D790 /* DebugView.swift in Sources */,
 				558CCBCD2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
 				5173E41C2A78EE980076663F /* SendBatteryInfo.swift in Sources */,
 				5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */,
@@ -394,6 +399,7 @@
 				550348CA291D7FB9006551B0 /* ContentView.swift in Sources */,
 				556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */,
 				550348C8291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift in Sources */,
+				557CB8182B26D0CA0095D790 /* DebugView.swift in Sources */,
 				550348D9291D9EB7006551B0 /* DeviceInfo.swift in Sources */,
 				558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
 				5508C7CF2B0D697F004A8F71 /* MacIOKit.swift in Sources */,
@@ -419,7 +425,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -430,7 +436,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER).watch";
 				PRODUCT_NAME = "Battery Webhook Watch";
 				SDKROOT = watchos;
@@ -449,7 +455,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook-swift-watch.entitlements";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -460,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER).watch";
 				PRODUCT_NAME = "Battery Webhook Watch";
 				SDKROOT = watchos;
@@ -594,7 +600,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -615,7 +621,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -627,7 +633,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,7";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
@@ -641,7 +647,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -662,7 +668,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -673,7 +679,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,7";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Release;
 		};
