@@ -90,17 +90,11 @@ struct ContentView: View {
                 #endif
             }
             
-            //save the current date if one is not already saved
-            if defaults.object(forKey: "SavedDate") == nil {
-                SaveCurrentDate()
-            }
-            
             // Automatically show Home view if settings are valid
             if (!ValidateSettings().err) {
                 self.isShowingHome = true
             }
             
-            //automations will be shortcuts based :fr:
         }.sheet(isPresented: $isShowingWelcomeSheet, content: {
             VStack{
                 WelcomeView().padding(.bottom)

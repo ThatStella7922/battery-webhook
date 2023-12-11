@@ -29,4 +29,6 @@ func GetSettingsAsDictionary() -> Dictionary<String, Any> {
 */
 func DoAppFirstTimeLaunch() -> Void {
     defaults.set(true, forKey: "IsFirstLaunch")
+    SaveAutomationCurrentDate() // Saves automations current date so no "275 months"
+    SaveCurrentDate() // Saves manual current date so no "275 months"
 }
