@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		551E25732B23A1E100D61EF5 /* IOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E25722B23A1E100D61EF5 /* IOSViewController.swift */; };
+		551E25762B2417CD00D61EF5 /* MacWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E25752B2417CD00D61EF5 /* MacWelcomeViewController.swift */; };
+		551E25792B2418AD00D61EF5 /* MacNSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E25782B2418AD00D61EF5 /* MacNSLabel.swift */; };
 		554D49CA2B2390D400CAE7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D49C92B2390D400CAE7CC /* AppDelegate.swift */; };
 		554D49CC2B2390D400CAE7CC /* MacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D49CB2B2390D400CAE7CC /* MacViewController.swift */; };
 		554D49CE2B2390D600CAE7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554D49CD2B2390D600CAE7CC /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		551E25722B23A1E100D61EF5 /* IOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewController.swift; sourceTree = "<group>"; };
+		551E25752B2417CD00D61EF5 /* MacWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWelcomeViewController.swift; sourceTree = "<group>"; };
+		551E25782B2418AD00D61EF5 /* MacNSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacNSLabel.swift; sourceTree = "<group>"; };
 		554D49C62B2390D400CAE7CC /* battery-webhook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "battery-webhook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		554D49C92B2390D400CAE7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554D49CB2B2390D400CAE7CC /* MacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551E25742B2413F300D61EF5 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				554D49CB2B2390D400CAE7CC /* MacViewController.swift */,
+				551E25752B2417CD00D61EF5 /* MacWelcomeViewController.swift */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		551E25772B24189700D61EF5 /* Custom Controls */ = {
+			isa = PBXGroup;
+			children = (
+				551E25782B2418AD00D61EF5 /* MacNSLabel.swift */,
+			);
+			path = "Custom Controls";
+			sourceTree = "<group>";
+		};
 		554D49BD2B2390D400CAE7CC = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +81,7 @@
 				554D49C92B2390D400CAE7CC /* AppDelegate.swift */,
 				55A519FC2B2398F3004F6C1E /* IOSAppDelegate.swift */,
 				55A519FE2B23A10D004F6C1E /* Views */,
+				551E25772B24189700D61EF5 /* Custom Controls */,
 				554D49CD2B2390D600CAE7CC /* Assets.xcassets */,
 				554D49D22B2390D600CAE7CC /* battery_webhook.entitlements */,
 			);
@@ -69,7 +91,7 @@
 		55A519FE2B23A10D004F6C1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				554D49CB2B2390D400CAE7CC /* MacViewController.swift */,
+				551E25742B2413F300D61EF5 /* Mac */,
 				551E25722B23A1E100D61EF5 /* IOSViewController.swift */,
 			);
 			path = Views;
@@ -144,9 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551E25792B2418AD00D61EF5 /* MacNSLabel.swift in Sources */,
 				554D49CC2B2390D400CAE7CC /* MacViewController.swift in Sources */,
 				551E25732B23A1E100D61EF5 /* IOSViewController.swift in Sources */,
 				554D49CA2B2390D400CAE7CC /* AppDelegate.swift in Sources */,
+				551E25762B2417CD00D61EF5 /* MacWelcomeViewController.swift in Sources */,
 				55A519FD2B2398F3004F6C1E /* IOSAppDelegate.swift in Sources */,
 				554D49D92B23932200CAE7CC /* main.swift in Sources */,
 			);

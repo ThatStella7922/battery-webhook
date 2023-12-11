@@ -12,9 +12,9 @@ import Foundation
 class MacViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("[Initialization] MacViewController setting up view...")
+        NSLog("[Initialization] MacViewController starting up...")
         setupBlur()
-        
+        setupSidebar()
     }
 
     override var representedObject: Any? {
@@ -38,7 +38,51 @@ class MacViewController: NSViewController {
         } else {
             NSLog("[MacViewController] Will not blur because this requires macOS 10.10+")
         }
+    }
+    
+    
+    func setupSidebar() {
+        NSLog("[MacViewController] Initializing window splitview...")
+        let splitView = MainSplitViewController()
+        self.view.addSubview(splitView.view)
+    }
+}
+
+class MainSplitViewController: NSSplitViewController {
+    private let splitViewResorationIdentifier = "com.company.restorationId:mainSplitViewController"
+    
+    lazy var vcA = MacWelcomeViewController()
+    lazy var vcB = MacWelcomeViewController()
+
+    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setupUI()
+        setupLayout()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    private func setupUI() {
         
+        view.wantsLayer = true
+        
+        splitView.dividerStyle = .paneSplitter
+        splitView.autosaveName = NSSplitView.AutosaveName(rawValue: splitViewResorationIdentifier)
+        splitView.identifier = NSUserInterfaceItemIdentifier(rawValue: splitViewResorationIdentifier)
+    }
+
+    private func setupLayout() {
+        
+        minimumThicknessForInlineSidebars = 180
+        
+        let itemA = NSSplitViewItem(sidebarWithViewController: vcA)
+        itemA.minimumThickness = 80
+        addSplitViewItem(itemA)
+        
+        let itemB = NSSplitViewItem(contentListWithViewController: vcB)
+        itemB.minimumThickness = 100
+        addSplitViewItem(itemB)
     }
 }
 #endif

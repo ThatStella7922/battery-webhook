@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        addMenuItems()
         let macVC = MacViewController()
         window = NSWindow(
                     contentRect: NSRect(x: 0, y: 0, width: 480, height: 270),
@@ -24,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.title = prodName
         window.contentView = macVC.view
         window.makeKeyAndOrderFront(nil)
-        addMenuItems()
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
