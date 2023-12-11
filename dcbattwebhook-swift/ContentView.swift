@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("shouldDisableMenuItem") private var shouldDisableMenuItem = true
     
     @State private var isShowingHome = false
     @State private var isShowingSettings = false
@@ -88,6 +89,12 @@ struct ContentView: View {
                     default: self.isShowingWelcomeSheet = false
                 }
                 #endif
+                
+                if ValidateSettings().err {
+                    shouldDisableMenuItem = true
+                } else {
+                    shouldDisableMenuItem = false
+                }
             }
             
             // Automatically show Home view if settings are valid

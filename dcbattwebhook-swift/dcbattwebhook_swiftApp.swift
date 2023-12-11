@@ -41,6 +41,7 @@ struct dcbattwebhook_swiftApp: App {
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    @AppStorage("showMenuBarExtra") private var shouldDisableMenuItem = true
     @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
     @AppStorage("hideMainWindow") private var hideMainWindow = false
     #endif
@@ -97,7 +98,7 @@ struct dcbattwebhook_swiftApp: App {
                     Text("Send Battery Info Now")
                     Image(systemName: "paperplane")
                 }).keyboardShortcut("s", modifiers: [.command, .shift])
-                    .disabled(ValidateSettings().err)
+                    .disabled(shouldDisableMenuItem)
             }
         }
         #endif

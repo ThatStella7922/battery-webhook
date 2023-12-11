@@ -9,7 +9,9 @@ import SwiftUI
 
 #if os(macOS)
 struct MenuBarExtraView: View {
+    @AppStorage("shouldDisableMenuItem") private var shouldDisableMenuItem = true
     @AppStorage("hideMainWindow") private var hideMainWindow = false
+    
     var body: some View {
         Button(action: {
             let isSettingsValid = ValidateSettings()
@@ -33,7 +35,7 @@ struct MenuBarExtraView: View {
             Text("Send Battery Info Now")
             Image(systemName: "paperplane")
         }).keyboardShortcut("s", modifiers: [.command, .shift])
-            .disabled(ValidateSettings().err)
+            .disabled(shouldDisableMenuItem)
         
         Divider()
         

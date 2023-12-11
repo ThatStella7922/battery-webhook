@@ -15,6 +15,8 @@ struct SettingsView: View {
     var serviceTypes = ["Discord", "Discord 2"]
     @State private var selectedServiceType = "Discord"
     
+    @AppStorage("shouldDisableMenuItem") private var shouldDisableMenuItem = true
+    
     @State private var webhookUrl: String = ""
     @State private var userPfpUrl: String = ""
     @State private var usrName: String = ""
@@ -99,7 +101,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their' (see Help for more details)")) {
+                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their'.")) {
                         TextField(text: $usrName) {
                             Text("Display Name")
                         }.disableAutocorrection(true)
@@ -213,6 +215,12 @@ struct SettingsView: View {
             defaults.set(sendDeviceModel, forKey: "SendDeviceModel")
             defaults.set(showPfp, forKey: "ShowPfp")
             defaults.set(showPronoun, forKey: "ShowPronoun")
+            
+            if ValidateSettings().err {
+                shouldDisableMenuItem = true
+            } else {
+                shouldDisableMenuItem = false
+            }
 
             #if os(iOS)
             if (WCSession.isSupported()) {

@@ -55,6 +55,9 @@ selectedServiceType + "WebhookUserPfpUrl"
   - Bool, stores whether the user has chosen to show or hide the menu bar extra (true by default)
 - hideMainWindow
   - Bool, stores whether the user has chosen to hide or show the main window and dock icon (false by default)
+- shouldDisableMenuItem
+  - Bool, stores whether the command menu item/menu bar extra can be used to send battery info
 - IsFirstLaunch
-  - Bool, set to true after the first time the app is launched.
-  - Will be reset to false if UserDefaults are cleared
+  - Bool, set to True after the first time the app is launched.
+  - Gets reset to false if UserDefaults are cleared
+
