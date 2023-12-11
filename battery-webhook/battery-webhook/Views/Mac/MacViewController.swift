@@ -25,11 +25,20 @@ class MacViewController: NSViewController {
     
     func setupBlur() {
         NSLog("[MacViewController] Initializing window background blur...")
-        let visualEffect = NSVisualEffectView()
-        visualEffect.blendingMode = .behindWindow
-        visualEffect.state = .active
-        visualEffect.material = .sidebar
-        self.view = visualEffect
+        if #available(macOS 10.10, *) {
+            let visualEffect = NSVisualEffectView()
+            visualEffect.blendingMode = .behindWindow
+            visualEffect.state = .active
+            if #available(macOS 10.11, *) {
+                visualEffect.material = .sidebar
+            } else {
+                visualEffect.material = .mediumLight
+            }
+            self.view = visualEffect
+        } else {
+            NSLog("[MacViewController] Will not blur because this requires macOS 10.10+")
+        }
+        
     }
 }
 #endif
