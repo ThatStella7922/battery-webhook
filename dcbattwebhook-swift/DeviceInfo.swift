@@ -27,49 +27,25 @@ public struct DeviceInfo {
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         
-        #if os(macOS) || targetEnvironment(macCatalyst)
+        #if os(macOS)
         #if arch(x86_64)
-        
-        // it works in rosetta
-
-        // If this doesn't work we can use cachedSerial from the defaults instead
-        // but this seems to work
-        // Partially stolen from https://stackoverflow.com/a/57820994
-        var details: (serialNumber: String?, macModelIdentifier: String?) {
-            let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
-            if (service == 0) { return (nil, nil) }
-            defer { IOObjectRelease(service) }
-            return (
-                IORegistryEntryCreateCFProperty(service, "IOPlatformSerialNumber" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String,
-                IORegistryEntryCreateCFProperty(service, "model" as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String
-            )
+        var MacModelIdentifier: String {
+            let service = IOServiceGetMatchingService(kIOMasterPortDefault,
+                                                      IOServiceMatching("IOPlatformExpertDevice"))
+            var modelIdentifier: String?
+            if let modelData = IORegistryEntryCreateCFProperty(service, "model" as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data {
+                modelIdentifier = String(data: modelData, encoding: .utf8)?.trimmingCharacters(in: .controlCharacters)
+            }
+            
+            IOObjectRelease(service)
+            return modelIdentifier ?? "Unknown: \(identifier)"
         }
 
-        var modelName: String? {
-            guard let serial = details.serialNumber,
-                let defaults = UserDefaults.init(suiteName: "com.apple.SystemProfiler"),
-                let regionCode = Locale.current.regionCode,
-                let names = defaults.object(forKey: "CPU Names") as? [String: String],
-                !names.isEmpty else {
-                    return nil
-            }
-            for language in Locale.preferredLanguages {
-                var key = "\(serial.suffix(4))-\(language)_\(regionCode)"
-                if let entry = names[key] {
-                    return entry
-                }
-                key = "\(serial.suffix(3))-\(language)_\(regionCode)"
-                if let entry = names[key] {
-                    return entry
-                }
-            }
-            return nil
-        }
-
-        return modelName ?? details.macModelIdentifier ?? "Unknown: \(identifier)"
+        return MacModelIdentifier
 
         
         #else
+        // Prpduct Name detection for Apple Silicon Macs
         let entry = IORegistryEntryFromPath(kIOMainPortDefault,"IOService:/AppleARMPE/product")
         defer { IOObjectRelease(entry) }
         let deviceName = IORegistryEntryCreateCFProperty(entry, "product-name" as CFString, kCFAllocatorDefault, 0)
@@ -285,7 +261,6 @@ func getBatteryLevel() -> Int {
     
     #elseif os(macOS)
     // from https://stackoverflow.com/a/34571839
-    // probably broken if you use a UPS or something
     guard let snapshot = IOPSCopyPowerSourcesInfo()?.takeRetainedValue() else { return 0 }
     guard let sources: NSArray = IOPSCopyPowerSourcesList(snapshot)?.takeRetainedValue() else { return 0 }
     for ps in sources {
