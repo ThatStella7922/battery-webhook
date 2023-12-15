@@ -7,11 +7,7 @@
 
 import Foundation
 
-public class DiscordService {
-    init() {
-        print("in init()")
-    }
-    
+public class DiscordService {    
     /**
      Author block to be used in a `DiscordEmbed`
      
