@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55CB73D42B2DC4B20040B88D /* BatteryWebhook in Frameworks */ = {isa = PBXBuildFile; productRef = 55CB73D32B2DC4B20040B88D /* BatteryWebhook */; };
 		55DB0CC42B29977C00112AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CC32B29977C00112AAA /* AppDelegate.swift */; };
 		55DB0CC62B29977C00112AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CC52B29977C00112AAA /* SceneDelegate.swift */; };
 		55DB0CC82B29977C00112AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CC72B29977C00112AAA /* ViewController.swift */; };
 		55DB0CCB2B29977C00112AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55DB0CC92B29977C00112AAA /* Main.storyboard */; };
 		55DB0CCD2B29977D00112AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55DB0CCC2B29977D00112AAA /* Assets.xcassets */; };
 		55DB0CD02B29977D00112AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55DB0CCE2B29977D00112AAA /* LaunchScreen.storyboard */; };
-		55DB0CDD2B299D6A00112AAA /* BatteryWebhook in Frameworks */ = {isa = PBXBuildFile; productRef = 55DB0CDC2B299D6A00112AAA /* BatteryWebhook */; };
 		55DB0CDF2B29A47F00112AAA /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CDE2B29A47F00112AAA /* color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55CB73D22B2DC4A30040B88D /* BatteryWebhookPkg */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BatteryWebhookPkg; sourceTree = "<group>"; };
 		55DB0CC02B29977C00112AAA /* BWTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55DB0CC32B29977C00112AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55DB0CC52B29977C00112AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		55DB0CCC2B29977D00112AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55DB0CCF2B29977D00112AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55DB0CD12B29977D00112AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55DB0CDA2B299D0700112AAA /* BatteryWebhookPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BatteryWebhookPackage; sourceTree = "<group>"; };
 		55DB0CDE2B29A47F00112AAA /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55DB0CDD2B299D6A00112AAA /* BatteryWebhook in Frameworks */,
+				55CB73D42B2DC4B20040B88D /* BatteryWebhook in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +45,7 @@
 		55DB0CB72B29977C00112AAA = {
 			isa = PBXGroup;
 			children = (
-				55DB0CDA2B299D0700112AAA /* BatteryWebhookPackage */,
+				55CB73D22B2DC4A30040B88D /* BatteryWebhookPkg */,
 				55DB0CC22B29977C00112AAA /* BWTest */,
 				55DB0CC12B29977C00112AAA /* Products */,
 				55DB0CDB2B299D6A00112AAA /* Frameworks */,
@@ -99,7 +99,7 @@
 			);
 			name = BWTest;
 			packageProductDependencies = (
-				55DB0CDC2B299D6A00112AAA /* BatteryWebhook */,
+				55CB73D32B2DC4B20040B88D /* BatteryWebhook */,
 			);
 			productName = BWTest;
 			productReference = 55DB0CC02B29977C00112AAA /* BWTest.app */;
@@ -386,7 +386,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		55DB0CDC2B299D6A00112AAA /* BatteryWebhook */ = {
+		55CB73D32B2DC4B20040B88D /* BatteryWebhook */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BatteryWebhook;
 		};

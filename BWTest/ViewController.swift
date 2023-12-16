@@ -16,11 +16,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func testNetFunctionButton(_ sender: UIButton) {
-        let obj = DiscordService.DiscordMessageObj(content: "gm")
+        let obj = BatteryWebhookServices.DiscordService.DiscordPayload(content: "gm")
         
-        BatteryWebhookSendInfo.sendDiscord(sendUrl: "https://discord.com/api/webhooks/1031569089157681152/MV9_sStrZbjGQVA_MFdPE2i5a6SBvRTfkZSIig2fB28ADnzYsEankfvJH8VriNTivrBe", dataToPost: obj)
+        BatteryWebhookSendInfo.sendDiscord(sendUrl: "https://discord.com/api/webhooks/1031569089157681152/MV9_sStrZbjGQVA_MFdPE2i5a6SBvRTfkZSIig2fB28ADnzYsEankfvJH8VriNTivrBe", payload: obj)
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

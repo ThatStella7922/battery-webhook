@@ -1,11 +1,11 @@
 //
 //  Colors.swift
-//  BatteryWebhookCore
+//  BatteryWebhook
 //
 //  Created by Stella Luna on 12/13/23.
 //
 
-import Foundation
+
 import UIKit
 
 public class DiscordIntColor {

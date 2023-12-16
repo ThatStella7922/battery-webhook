@@ -7,13 +7,24 @@
 
 import Foundation
 
+/**
+ BatteryWebhook's core components for interacting with the Internet
+ */
 public class BatteryWebhookNetworking {
     enum BatteryWebhookNetworkingError: Error {
         case invalid
         case uncorrect
     }
     
+    /**
+     Performs an HTTP POST of JSON data to a specified URL, taking the data as an Encodable object.
+     
+     - Parameters:
+      - sendUrl: The URL to POST to
+      - dataToPost: An Encodable object that this function will encode to JSON automatically
+     */
     public static func jsonPost(sendUrl: String, dataToPost: Encodable) throws -> (err: Bool, errMsg: String) {
+        //TODO: Actually throw errors instead of returning them
         
         var returnErr = false
         var returnErrMsg = ""
@@ -40,8 +51,7 @@ public class BatteryWebhookNetworking {
                 return
             }
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            if let responseJSON = responseJSON as? [String: Any] {
-                //print(responseJSON)
+            if responseJSON is [String: Any] {
                 let jsonErrString = String(data: data, encoding: .utf8)
                 returnErr = true
                 returnErrMsg = jsonErrString ?? "there was an error while getting the error text"
