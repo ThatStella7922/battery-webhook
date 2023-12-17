@@ -23,13 +23,22 @@ import Foundation
    - Keeps track of exactly *what* keys are used in BatteryWebhookPkg
  */
 public class BatteryWebhookSettings {
-    /// Privacy settings used across all of Battery Webhook, from BatteryWebhookPkg up to the iOS version of Battery Webhook
+    /// Privacy settings used across all of Battery Webhook (from BatteryWebhookPkg up to client GUI apps of Battery Webhook)
     public class GlobalPrivacySettings {
         /// Stores the user's preference on sending their device name (as Bool)
         public static let sendDeviceName = "sendDeviceName"
         
         /// Stores the user's preference on sending their device model (as Bool)
         public static let sendDeviceModel = "sendDeviceModel"
+    }
+    
+    /// Settings for the user's identity that are used across all of Battery Webhook (from BatteryWebhookPkg up to client GUI apps of Battery Webhook)
+    public class GlobalIdentitySettings {
+        public static let usrName = "usrName"
+        
+        public static let usrPronoun = "usrPronoun"
+        
+        public static let customUsrDeviceName = "customUsrDeviceName"
     }
     
     /// Settings specific to the "Discord" service

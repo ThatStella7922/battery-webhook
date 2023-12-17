@@ -12,7 +12,6 @@ import BatteryWebhookCore
 class ViewController: UIViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
-    @IBOutlet weak var colorPicker: UIColorWell!
     
     
     @IBAction func testNetFunctionButton(_ sender: UIButton) {

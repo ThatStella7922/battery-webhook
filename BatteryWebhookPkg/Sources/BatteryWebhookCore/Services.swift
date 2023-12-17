@@ -8,9 +8,12 @@
 import Foundation
 
 /**
- Definitions of data types for building payloads intended for use with every service supported by BatteryWebhookPkg
+ Data types and definitions of every service supported by BatteryWebhookPkg, so you can build payloads and reference service types.
  */
 public class BatteryWebhookServices {
+    public class ServiceList {
+        public static let Discord = "Discord"
+    }
     
     /// Data types used to build payloads for the "Discord" service
     public class DiscordService {
