@@ -14,4 +14,4 @@ Welcome to the documentation for Battery Webhook. To get started, tap the **Intr
 * Battery Webhook's [GitHub repository](https://github.com/ThatStella7922/battery-webhook)
 * Battery Webhook on [the App Store](https://apps.apple.com/us/app/battery-webhook/id6472404778)
 
-This documentation is for Battery Webhook 1.0.
+This documentation is for Battery Webhook 1.1.
