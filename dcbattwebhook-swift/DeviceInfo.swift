@@ -155,7 +155,7 @@ public struct DeviceInfo {
             case "Watch6,11", "Watch6,13":                       return "Apple Watch SE (2nd generation) 44mm"
             case "Watch6,18":                                    return "Apple Watch Ultra"
             case "Watch7,1", "Watch7,2", "Watch7,3", "Watch7,4": return "Apple Watch Series 9"
-            case "Watch7,5":                                     return "Apple Watch Ultra (2nd generation)"
+            case "Watch7,5":                                     return "Apple Watch Ultra 2"
             case "i386", "x86_64", "arm64":return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "watchOS"))"
             default: return identifier
             }
