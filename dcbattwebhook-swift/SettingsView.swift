@@ -102,17 +102,51 @@ struct SettingsView: View {
                     }
                     
                     Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their'.")) {
+                        
+                        #if os(iOS)
+                        HStack {
+                            Text("Display Name:")
+                            TextField(text: $usrName) {
+                                Text("Display Name")
+                            }.disableAutocorrection(true)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        #else
                         TextField(text: $usrName) {
                             Text("Display Name")
                         }.disableAutocorrection(true)
+                        #endif
                         
+                        
+                        #if os(iOS)
+                        HStack {
+                            Text("Pronoun:")
+                            TextField(text: $usrPronoun) {
+                                Text("Pronoun (her/his/xir/etc)")
+                            }.disableAutocorrection(true)
+                                .multilineTextAlignment(.trailing)
+                                #if !os(macOS) && !os(watchOS)
+                                .autocapitalization(.none)
+                                #endif
+                        }
+                        #else
                         TextField(text: $usrPronoun) {
                             Text("Pronoun (her/his/xir/etc)")
                         }.disableAutocorrection(true)
-                        #if !os(macOS) && !os(watchOS)
+                            #if !os(macOS) && !os(watchOS)
                             .autocapitalization(.none)
+                            #endif
                         #endif
                         
+                        #if os(iOS)
+                        HStack {
+                            Text("Device Name:")
+                            TextField(text: $usrDeviceName) {
+                                Text("Device Name")
+                            }.disableAutocorrection(true)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        #else
                         TextField(text: $usrDeviceName, prompt: {
                             #if os(macOS)
                             Text(getSystemReportedDeviceUserDisplayName())
@@ -122,6 +156,7 @@ struct SettingsView: View {
                         }()) {
                             Text("Device Name")
                         }.disableAutocorrection(true)
+                        #endif
                         
                         Toggle(isOn: $showPfp) {
                             Text("Show specified avatar image")
