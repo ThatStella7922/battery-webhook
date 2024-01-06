@@ -66,11 +66,7 @@ struct AutomationsView: View {
             #elseif os(iOS)
             AutomationsViewRequiresShortcutsView()
             #endif
-        }
-        .navigationTitle("Automations")
-        .onAppear() {
-        }
-        
+        }.navigationTitle("Automations")
     }
 }
 
