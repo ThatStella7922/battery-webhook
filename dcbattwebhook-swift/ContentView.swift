@@ -64,55 +64,47 @@ struct ContentView: View {
                 }
                 .navigationTitle(prodName)
                 
-                VStack {
-                    WelcomeView()
-                    Button {
-                        self.isShowingSettings = true
-                    } label: {
-                        Text("Configure Battery Webhook")
-                    }.padding(.top)
-                }.frame(maxWidth: 600)
                 #if os(macOS)
-                    .padding()
+                EmptyView()
                 #endif
             }
             #endif
         }.onAppear() {
             if defaults.bool(forKey: "IsFirstLaunch") == false {
                 DoAppFirstTimeLaunch()
-                #if os(macOS) || os(watchOS)
-                //nothing
-                #else
-                switch UIDevice.current.userInterfaceIdiom {
-                    case .phone: self.isShowingWelcomeSheet = true
-                    case .pad: self.isShowingWelcomeSheet = false
-                    default: self.isShowingWelcomeSheet = false
-                }
-                #endif
-                
-                if ValidateSettings().err {
-                    shouldDisableMenuItem = true
-                } else {
-                    shouldDisableMenuItem = false
-                }
+                self.isShowingSettings = true
+                self.isShowingWelcomeSheet = true
             }
             
-            // Automatically show Home view if settings are valid
+            // Automatically show Home view and enable menu item if settings are valid
+            // If invalid, automatically show Settings view and disable menu item
             if (!ValidateSettings().err) {
                 self.isShowingHome = true
+                shouldDisableMenuItem = false
+            } else {
+                self.isShowingSettings = true
+                shouldDisableMenuItem = true
             }
             
         }.sheet(isPresented: $isShowingWelcomeSheet, content: {
             VStack{
-                WelcomeView().padding(.bottom)
-                Text("You can do so in the Settings page, where you can configure that info and various other options to customize your experience. ").padding(.bottom)
+                #if !os(watchOS)
+                WelcomeView()
+                Text("You can do so in the Settings page, where you can configure that info and various other options to customize your experience. ").padding(.top)
                     .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.5)
                 Button {
                     self.isShowingWelcomeSheet = false
                 } label: {
                     Text("Get Started").font(.title3)
-                }
+                }.padding(.top)
+                #else
+                WelcomeViewWatch()
+                #endif
             }.padding()
+                #if os(macOS)
+                .frame(minWidth: 650, maxWidth: 850, minHeight: 450, maxHeight: 450)
+                #endif
         })
     }
 }
