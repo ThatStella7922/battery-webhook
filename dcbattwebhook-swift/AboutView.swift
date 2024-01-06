@@ -84,12 +84,12 @@ struct AboutView: View {
         .onAppear() {
             
         }.sheet(isPresented: $isShowingDebugSheet, content: {
-            DebugView().padding(.bottom)
+            DebugView()
             Button {
                 self.isShowingDebugSheet = false
             } label: {
                 Text("Done").font(.title3)
-            }
+            }.padding()
         })
         
     }

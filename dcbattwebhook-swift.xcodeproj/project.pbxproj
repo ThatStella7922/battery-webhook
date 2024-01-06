@@ -19,7 +19,6 @@
 		5173E41D2A78EE980076663F /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
 		5173E41E2A78EE980076663F /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
 		5173E41F2A78EE980076663F /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
-		5173E4212A78EE980076663F /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
 		5173E4222A78EE980076663F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D6291D84E1006551B0 /* SettingsView.swift */; };
 		5173E4232A78EE980076663F /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D8291D9EB7006551B0 /* DeviceInfo.swift */; };
 		5173E4252A78F1520076663F /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173E4242A78F1520076663F /* SessionDelegate.swift */; };
@@ -35,7 +34,6 @@
 		553CD2B42AF65288006D3402 /* MenuBarExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */; };
 		554DEBEC2B07F561009FF921 /* MacAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */; };
 		556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
-		557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557299C82936D5DF00D7523D /* WebhookSettingsView.swift */; };
 		557CB8182B26D0CA0095D790 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
 		557CB8192B26D0CA0095D790 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
 		558200B02AF465110004750F /* SendInfoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558200AF2AF465110004750F /* SendInfoIntent.swift */; };
@@ -108,7 +106,6 @@
 		553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraView.swift; sourceTree = "<group>"; };
 		554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacAppDelegate.swift; sourceTree = "<group>"; };
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
-		557299C82936D5DF00D7523D /* WebhookSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSettingsView.swift; sourceTree = "<group>"; };
 		557CB8172B26D0CA0095D790 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		558200AF2AF465110004750F /* SendInfoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInfoIntent.swift; sourceTree = "<group>"; };
 		558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSPre16NoticeView.swift; sourceTree = "<group>"; };
@@ -191,7 +188,6 @@
 				558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */,
 				550348D6291D84E1006551B0 /* SettingsView.swift */,
 				55B23ECF2B0DC32B0045CE26 /* AutomationsView.swift */,
-				557299C82936D5DF00D7523D /* WebhookSettingsView.swift */,
 				55A9E5322AF7669F0091D1A6 /* HelpView.swift */,
 				55950C5B291DDCDF00F1CAD8 /* AboutView.swift */,
 				557CB8172B26D0CA0095D790 /* DebugView.swift */,
@@ -365,7 +361,6 @@
 				55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
 				5173E41E2A78EE980076663F /* EmbedStructs.swift in Sources */,
 				5173E41F2A78EE980076663F /* TimeCounter.swift in Sources */,
-				5173E4212A78EE980076663F /* WebhookSettingsView.swift in Sources */,
 				5173E4222A78EE980076663F /* SettingsView.swift in Sources */,
 				5173E4232A78EE980076663F /* DeviceInfo.swift in Sources */,
 			);
@@ -377,7 +372,6 @@
 			files = (
 				55B4E8E829316C0600492C77 /* MessageBuilder.swift in Sources */,
 				554DEBEC2B07F561009FF921 /* MacAppDelegate.swift in Sources */,
-				557299C92936D5DF00D7523D /* WebhookSettingsView.swift in Sources */,
 				55B23ED02B0DC32B0045CE26 /* AutomationsView.swift in Sources */,
 				550348D7291D84E1006551B0 /* SettingsView.swift in Sources */,
 				55ED8938291F628700CB170C /* SettingsValidator.swift in Sources */,
@@ -600,7 +594,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -621,18 +614,18 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,7";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
@@ -647,7 +640,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "dcbattwebhook-swift/dcbattwebhook_swift.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -668,17 +660,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,7";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Release;

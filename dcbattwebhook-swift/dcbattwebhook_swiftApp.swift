@@ -64,11 +64,11 @@ struct dcbattwebhook_swiftApp: App {
         WindowGroup {
             ContentView()
                 #if os(macOS)
-                .frame(minWidth: 600, maxWidth: 1000, minHeight: 300, maxHeight: 500)
+                .frame(minWidth: 600, maxWidth: 1000, minHeight: 400, maxHeight: 600)
                 .onAppear {
                     NSWindow.allowsAutomaticWindowTabbing = false
                     if (!hideMainWindow) {let _ = NSApplication.shared.setActivationPolicy(.regular)}
-                    else {let _ = NSApplication.shared.setActivationPolicy(.accessory)}
+                    else {let _ = NSApplication.shared.setActivationPolicy(.prohibited)}
                 }
                 #endif
         }
