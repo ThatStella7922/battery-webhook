@@ -19,7 +19,7 @@ struct SettingsViewmacOS: View {
             Toggle(isOn: $showMenuBarExtra) {
                 HStack{
                     Text("Show Menu Bar Extra:")
-                    Image(systemName: "batteryblock")
+                    Image("MenuBarExtra").renderingMode(.template)
                 }
             }.disabled(cannotControlMenuBarExtraVisibility)
             

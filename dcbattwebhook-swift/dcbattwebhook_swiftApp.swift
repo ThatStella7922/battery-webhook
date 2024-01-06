@@ -104,8 +104,10 @@ struct dcbattwebhook_swiftApp: App {
         #endif
         
         #if os(macOS)
-        MenuBarExtra("Battery Webhook", systemImage: "batteryblock", isInserted: $showMenuBarExtra) {
+        MenuBarExtra(isInserted: $showMenuBarExtra) {
             MenuBarExtraView()
+        } label: {
+            Image("MenuBarExtra").renderingMode(.template)
         }
         #endif
     }
