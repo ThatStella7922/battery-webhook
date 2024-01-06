@@ -55,6 +55,27 @@ func HandleMacPowerStateChange() {
     }
 }
 
+func HandleMacHitFullCharge() {
+    if (GetMacAutomationSetting(automationSetting: "MacSendOnHitFullCharge")) {
+        let isSettingsValid = ValidateSettings()
+        
+        if (isSettingsValid.err == true) {
+            // config error
+        }
+        else {
+            let ResultsVar = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: true)
+            SaveAutomationCurrentDate()
+            if (ResultsVar.err) {
+                // network error
+            }
+            else {
+                // success
+            }
+
+        }
+    }
+}
+
 /**
  Returns the current power source as string.
  

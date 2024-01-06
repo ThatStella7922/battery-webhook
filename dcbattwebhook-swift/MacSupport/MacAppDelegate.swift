@@ -18,8 +18,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if macAutomationsSavedPowerSource != GetMacPowerSource() {
                     HandleMacPowerStateChange()
                     macAutomationsSavedPowerSource = GetMacPowerSource()
+                } else if (hasBattery) && (getBatteryLevel() != macAutomationsCurrentBattery) {
+                    if (getBatteryLevel() == 100) {
+                        HandleMacHitFullCharge()
+                        macAutomationsCurrentBattery = getBatteryLevel()
+                    } else {
+                        macAutomationsCurrentBattery = getBatteryLevel()
+                    }
                 }
-                
+                                
             },nil).takeRetainedValue()
         
         CFRunLoopAddSource(CFRunLoopGetCurrent(),source,.defaultMode)
