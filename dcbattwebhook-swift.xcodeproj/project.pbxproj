@@ -103,6 +103,7 @@
 		550348D8291D9EB7006551B0 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		550348DC291DA3BC006551B0 /* HomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIView.swift; sourceTree = "<group>"; };
 		5508C7CE2B0D697F004A8F71 /* MacIOKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacIOKit.swift; sourceTree = "<group>"; };
+		5519BFC72B4955AE0075BF07 /* Battery-Webhook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Battery-Webhook-Info.plist"; sourceTree = "<group>"; };
 		553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraView.swift; sourceTree = "<group>"; };
 		554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacAppDelegate.swift; sourceTree = "<group>"; };
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		550348BB291D7FB9006551B0 = {
 			isa = PBXGroup;
 			children = (
+				5519BFC72B4955AE0075BF07 /* Battery-Webhook-Info.plist */,
 				550348C6291D7FB9006551B0 /* dcbattwebhook-swift */,
 				550348C5291D7FB9006551B0 /* Products */,
 				5120A3A32A78EBDC000B05B3 /* Frameworks */,
@@ -600,6 +602,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Battery-Webhook-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -647,6 +650,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Battery-Webhook-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Battery Webhook";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
