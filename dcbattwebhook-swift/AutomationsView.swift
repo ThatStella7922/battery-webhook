@@ -32,9 +32,9 @@ struct AutomationsView: View {
                     Toggle(isOn: $macSendOnUnplugged) {
                         Text("Device is unplugged")
                     }
-                    /*Toggle(isOn: $macSendOnHitFullCharge) {
+                    Toggle(isOn: $macSendOnHitFullCharge) {
                         Text("Device finishes charging")
-                    }.disabled(true)*/
+                    }
                 }
             }.formStyle(.grouped)
                 .onAppear() {
