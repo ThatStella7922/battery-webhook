@@ -26,7 +26,7 @@
 - MacSendOnUnplugged
   - Bool, stores whether the user has chosen to send battery info when unolugging their Mac (false by default)
 - MacSendOnHitFullCharge
-  - Bool, stores whether the user has chosen to send battery info when their Mac hits 100% charge (false by default as not yet implemented)
+  - Bool, stores whether the user has chosen to send battery info when their Mac hits 100% charge (false by default)
 
 ### Service Specific Settings
 The way these are constructed is as follows:
@@ -57,6 +57,8 @@ selectedServiceType + "WebhookUserPfpUrl"
   - Bool, stores whether the user has chosen to hide or show the main window and dock icon (false by default)
 - shouldDisableMenuItem
   - Bool, stores whether the command menu item/menu bar extra can be used to send battery info
+- launchAtLogin
+  - Bool, stores the last known state of whether the app should start up on login, this is ultimately decided by Login Items in System Settings however
 - IsFirstLaunch
   - Bool, set to True after the first time the app is launched.
   - Gets reset to false if UserDefaults are cleared

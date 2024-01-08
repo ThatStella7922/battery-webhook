@@ -121,6 +121,7 @@
 		55B4E8E729316C0600492C77 /* MessageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilder.swift; sourceTree = "<group>"; };
 		55B4E8E92931742300492C77 /* EmbedStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStructs.swift; sourceTree = "<group>"; };
 		55CE77552B0586390094B98D /* SettingsViewmacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewmacOS.swift; sourceTree = "<group>"; };
+		55E29E2F2B4CB5530019597E /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		55E7AEA929253E8F002E6869 /* DefaultsUsed.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DefaultsUsed.md; sourceTree = "<group>"; };
 		55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
 		55ED8937291F628700CB170C /* SettingsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValidator.swift; sourceTree = "<group>"; };
@@ -160,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5519BFC72B4955AE0075BF07 /* Battery-Webhook-Info.plist */,
+				55E29E2C2B4AF38B0019597E /* ci_scripts */,
 				550348C6291D7FB9006551B0 /* dcbattwebhook-swift */,
 				550348C5291D7FB9006551B0 /* Products */,
 				5120A3A32A78EBDC000B05B3 /* Frameworks */,
@@ -238,6 +240,14 @@
 				558200AF2AF465110004750F /* SendInfoIntent.swift */,
 			);
 			path = Intents;
+			sourceTree = "<group>";
+		};
+		55E29E2C2B4AF38B0019597E /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				55E29E2F2B4CB5530019597E /* ci_post_xcodebuild.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

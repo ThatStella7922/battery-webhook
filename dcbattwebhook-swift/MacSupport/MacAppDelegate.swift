@@ -12,6 +12,14 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
+        if GetMacAutomationSetting(automationSetting: "MacSendOnAppOpened") {
+            let isSettingsValid = ValidateSettings()
+            if (isSettingsValid.err != true) {
+                _ = sendInfo(isCurrentlyCharging: false, didGetPluggedIn: false, didGetUnplugged: false, didHitFullCharge: false)
+                SaveCurrentDate()
+            }
+        }
+        
         let source = IOPSNotificationCreateRunLoopSource(
             {
                 _ in

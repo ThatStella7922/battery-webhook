@@ -11,11 +11,13 @@ struct AutomationsView: View {
     @State private var macSendOnPluggedIn = false
     @State private var macSendOnUnplugged = false
     @State private var macSendOnHitFullCharge = false
+    @State private var macSendOnAppOpened = false
     
     private var macSendSettings: [Bool] {[
         macSendOnPluggedIn,
         macSendOnUnplugged,
-        macSendOnHitFullCharge
+        macSendOnHitFullCharge,
+        macSendOnAppOpened
     ]}
     
     let defaults = UserDefaults.standard
@@ -27,13 +29,20 @@ struct AutomationsView: View {
                 Section(header: Text("Events"), footer: Text("You can choose to automatically send battery info when one or more of these things happen.\nConfigure Display name, pronoun, etc. in Settings.")) {
                     Text("Send battery info automatically when...")
                     Toggle(isOn: $macSendOnPluggedIn) {
-                        Text("Device is plugged in")
+                        Text("This Mac is plugged in")
+                        Text("Triggered when this Mac is plugged into external power")
                     }
                     Toggle(isOn: $macSendOnUnplugged) {
-                        Text("Device is unplugged")
+                        Text("This Mac is unplugged")
+                        Text("Triggered when this Mac is unplugged from external power")
                     }
                     Toggle(isOn: $macSendOnHitFullCharge) {
-                        Text("Device finishes charging")
+                        Text("This Mac finishes charging")
+                        Text("Triggered when this Mac's battery reaches 100% charge")
+                    }
+                    Toggle(isOn: $macSendOnAppOpened) {
+                        Text("\(prodName) is opened on this Mac")
+                        Text("Triggered when the app finishes launching, either manually or when \(prodName) is a login item")
                     }
                 }
             }.formStyle(.grouped)
@@ -47,15 +56,19 @@ struct AutomationsView: View {
                     if defaults.object(forKey: "MacSendOnHitFullCharge") == nil {
                         macSendOnHitFullCharge = false
                     } else { macSendOnHitFullCharge = defaults.bool(forKey: "MacSendOnHitFullCharge") }
+                    
+                    macSendOnAppOpened = defaults.bool(forKey: "MacSendOnAppOpened")
                 }
                 .onDisappear() {
                     defaults.set(macSendOnPluggedIn, forKey: "MacSendOnPluggedIn")
                     defaults.set(macSendOnUnplugged, forKey: "MacSendOnUnplugged")
                     defaults.set(macSendOnHitFullCharge, forKey: "MacSendOnHitFullCharge")
+                    defaults.set(macSendOnAppOpened, forKey: "MacSendOnAppOpened")
                 }.onChange(of: macSendSettings) {_ in
                     defaults.set(macSendOnPluggedIn, forKey: "MacSendOnPluggedIn")
                     defaults.set(macSendOnUnplugged, forKey: "MacSendOnUnplugged")
                     defaults.set(macSendOnHitFullCharge, forKey: "MacSendOnHitFullCharge")
+                    defaults.set(macSendOnAppOpened, forKey: "MacSendOnAppOpened")
                 }
             #elseif os(watchOS)
             AutomationsViewNotEligibleView()

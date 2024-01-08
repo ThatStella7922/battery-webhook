@@ -19,6 +19,7 @@ import Foundation
  MacSendOnPluggedIn
  MacSendOnUnplugged
  MacSendOnHitFullCharge
+ MacSendOnAppOpened
  ```
  
  - Returns:
@@ -32,24 +33,21 @@ func GetMacAutomationSetting(automationSetting: String) -> Bool {
     var macSendOnPluggedIn = false
     var macSendOnUnplugged = false
     var macSendOnHitFullCharge = false
-    
-    if defaults.object(forKey: "MacSendOnPluggedIn") == nil {
-        macSendOnPluggedIn = false
-    } else { macSendOnPluggedIn = defaults.bool(forKey: "MacSendOnPluggedIn") }
-    if defaults.object(forKey: "MacSendOnUnplugged") == nil {
-        macSendOnUnplugged = false
-    } else { macSendOnUnplugged = defaults.bool(forKey: "MacSendOnUnplugged") }
-    if defaults.object(forKey: "MacSendOnHitFullCharge") == nil {
-        macSendOnHitFullCharge = false
-    } else { macSendOnHitFullCharge = defaults.bool(forKey: "MacSendOnHitFullCharge") }
+    var macSendOnAppOpened = false
     
     switch automationSetting {
     case "MacSendOnPluggedIn":
+        macSendOnPluggedIn = defaults.bool(forKey: "MacSendOnPluggedIn")
         return macSendOnPluggedIn
     case "MacSendOnUnplugged":
+        macSendOnUnplugged = defaults.bool(forKey: "MacSendOnUnplugged")
         return macSendOnUnplugged
     case "MacSendOnHitFullCharge":
+        macSendOnHitFullCharge = defaults.bool(forKey: "MacSendOnHitFullCharge")
         return macSendOnHitFullCharge
+    case "MacSendOnAppOpened":
+        macSendOnAppOpened = defaults.bool(forKey: "MacSendOnAppOpened")
+        return macSendOnAppOpened
     default:
         return false
     }
