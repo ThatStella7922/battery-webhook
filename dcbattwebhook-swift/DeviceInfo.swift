@@ -52,7 +52,7 @@ public struct DeviceInfo {
         if (deviceName == nil) {
             return "Unknown: \(identifier)"
         }
-        return String(decoding: deviceName!.takeUnretainedValue() as! Data, as: UTF8.self)
+        return String(decoding: deviceName!.takeUnretainedValue() as! Data, as: UTF8.self).trimmingCharacters(in: CharacterSet(charactersIn: "\u{00}"))
         #endif
         #endif
         
