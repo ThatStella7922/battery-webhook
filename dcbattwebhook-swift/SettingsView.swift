@@ -101,7 +101,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show your avatar image next to your display name (this requires specifying an 'Avatar Image URL' above).\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their'.")) {
+                    Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show the specified avatar image next to your display name.\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their'.")) {
                         
                         #if os(iOS)
                         HStack {
@@ -168,7 +168,7 @@ struct SettingsView: View {
                         
                     }
                     
-                    Section(header: Text("Privacy"), footer: Text("You can choose if you want to specify your device's name (\"" + getDeviceUserDisplayName() + "\") and/or model (" + getDeviceModel() + ")")) {
+                    Section(header: Text("Privacy"), footer: Text("Choose whether to include your device's name (\"\(getDeviceUserDisplayName())\") and/or model (\(getDeviceModel())) in the sent battery info.")) {
                         Toggle(isOn: $sendDeviceName) {
                             Text("Send Device Name")
                         }
