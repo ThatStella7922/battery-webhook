@@ -103,7 +103,7 @@ struct SettingsView: View {
                     
                     Section(header: Text("Identity"), footer: Text("Enter a display name, then choose if you want to show the specified avatar image next to your display name.\nYou can also change the shown device name. \nYour pronoun will be used primarily in automated sending of battery info, and if disabled we will default to using 'their'.")) {
                         
-                        #if os(iOS)
+                        #if os(iOS) || os(visionOS)
                         HStack {
                             Text("Display Name:")
                             TextField(text: $usrName) {
@@ -118,7 +118,7 @@ struct SettingsView: View {
                         #endif
                         
                         
-                        #if os(iOS)
+                        #if os(iOS) || os(visionOS)
                         HStack {
                             Text("Pronoun:")
                             TextField(text: $usrPronoun) {
@@ -138,7 +138,7 @@ struct SettingsView: View {
                             #endif
                         #endif
                         
-                        #if os(iOS)
+                        #if os(iOS) || os(visionOS)
                         HStack {
                             Text("Device Name:")
                             TextField(text: $usrDeviceName) {

@@ -73,11 +73,15 @@ struct AutomationsView: View {
             #elseif os(watchOS)
             AutomationsViewNotEligibleView()
             #elseif os(visionOS)
-            AutomationsViewNotEligibleView()
+            AutomationsViewRequiresShortcutsView()
             #elseif os(tvOS)
             AutomationsViewNotEligibleView()
             #elseif os(iOS)
-            AutomationsViewRequiresShortcutsView()
+            if !(isiOSPre16()) {
+                AutomationsViewRequiresShortcutsView()
+            } else {
+                AutomationsViewNotEligibleView()
+            }
             #endif
         }.navigationTitle("Automations")
     }
@@ -107,7 +111,7 @@ struct AutomationsViewRequiresShortcutsView: View {
             Form {
                 VStack{
                     Image(systemName: "info.circle").foregroundStyle(.yellow).font(.system(size: 30)).padding()
-                    Text("This device does not support in-app automations, but it can use Shortcuts Automations.\n\nPlease see the Help for more details about Shortcuts Automations.").frame(maxWidth: .infinity, alignment: .center)
+                    Text("This device does not support in-app automations, but it can use the Automations feature built into the Shortcuts app.\n\nPlease see the documentation for details about setting up automations.").frame(maxWidth: .infinity, alignment: .center)
                 }
             }
         }

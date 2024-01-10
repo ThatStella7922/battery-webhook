@@ -57,7 +57,7 @@ public struct DeviceInfo {
         #endif
         
         func mapToDevice(identifier: String) -> String { // swiftlint:disable:this cyclomatic_complexity
-            #if os(xrOS)
+            #if os(visionOS)
             switch identifier {
             case "RealityDevice14,1":      return "Apple Vision Pro"
             case "i386", "x86_64", "arm64":return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "visionOS"))"
