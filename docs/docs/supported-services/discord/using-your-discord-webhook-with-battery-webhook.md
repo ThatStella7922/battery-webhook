@@ -18,7 +18,7 @@ Back out of **Settings**, then go into **Home**. Then tap **Send Battery Info No
 
 Once you see a success message saying, "The battery info was sent", you'll see the following in the Discord channel you configured your webhook to post to:
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt="" width="375"><figcaption></figcaption></figure>
 
 This covers the basic usage of Battery Webhook!
 

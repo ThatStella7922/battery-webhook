@@ -22,13 +22,13 @@ Battery Webhook can send something like the following whenever you open the app 
 
 <div data-full-width="false">
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt="" width="563"><figcaption><p>Battery Webhook's output to a Discord webhook when manually triggered</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="563"><figcaption><p>Battery Webhook's output to a Discord webhook when manually triggered</p></figcaption></figure>
 
 </div>
 
 That's fine and all, but not very useful unless you feel like opening the app every time you want to report battery info. **However**, Battery Webhook supports power-efficient automations! So you can have it send battery info whenever you plug in, unplug or fully charge your device, as seen below:
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="563"><figcaption><p>Battery Webhook's output to a Discord webhook when triggered by plugging in, fully charging, then unplugging the device</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt="" width="563"><figcaption><p>Battery Webhook's output to a Discord webhook when triggered by plugging in, fully charging, then unplugging the device</p></figcaption></figure>
 
 Automations allow Battery Webhook to inform you about power state changes for devices that you may want to be informed about, such as:
 
