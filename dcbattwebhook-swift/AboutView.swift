@@ -56,6 +56,16 @@ struct AboutView: View {
                     #endif
                     
                     #if os(tvOS) || os(watchOS)
+                    EmptyView()
+                    #else
+                    Section(header: Text("ThatStella7922's Links")) {
+                        Link("Website", destination: URL(string: "https://thatstel.la")!)
+                        Link("Twitter", destination: URL(string: "https://twitter.com/ThatStella7922")!)
+                        Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
+                    }
+                    #endif
+                    
+                    #if os(tvOS) || os(watchOS)
                     Section(header: Text("Battery Webhook on GitHub"), footer: Text("Visit the About page of Battery Webhook from an iOS, iPadOS or macOS device to view the link.")) {
                         Text("Source code, contributions, bug reports, feature requests and more. All on the project's GitHub repository.")
                     }
@@ -65,15 +75,6 @@ struct AboutView: View {
                     }
                     #endif
                     
-                    #if os(tvOS) || os(watchOS)
-                    EmptyView()
-                    #else
-                    Section(header: Text("ThatStella7922's Links")) {
-                        Link("Website", destination: URL(string: "https://thatstel.la")!)
-                        Link("Twitter", destination: URL(string: "https://twitter.com/ThatStella7922")!)
-                        Link("GitHub", destination: URL(string: "https://github.com/ThatStella7922")!)
-                    }
-                    #endif
                 }
                 #if os(macOS)
                 .formStyle(.grouped)
@@ -85,6 +86,9 @@ struct AboutView: View {
             
         }.sheet(isPresented: $isShowingDebugSheet, content: {
             DebugView()
+            #if os(visionOS) || os(macOS)
+                .frame(minWidth: 650, maxWidth: 850, minHeight: 350, maxHeight: 450)
+            #endif
             Button {
                 self.isShowingDebugSheet = false
             } label: {
