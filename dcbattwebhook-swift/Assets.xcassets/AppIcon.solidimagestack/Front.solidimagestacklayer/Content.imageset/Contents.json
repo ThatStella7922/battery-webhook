@@ -2,7 +2,8 @@
   "images" : [
     {
       "filename" : "AppIconvisionOS-FrontLayer.png",
-      "idiom" : "vision"
+      "idiom" : "vision",
+      "scale" : "2x"
     }
   ],
   "info" : {
