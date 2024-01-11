@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "AppIcontvOS-Back400x240.png",
-      "idiom" : "tv"
+      "idiom" : "vision",
+      "scale" : "2x"
     }
   ],
   "info" : {
