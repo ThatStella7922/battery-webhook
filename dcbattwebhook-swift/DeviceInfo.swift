@@ -228,14 +228,10 @@ func getOSVersionAsDbl() -> Double {
 func isiOSPre16() -> Bool {
     
     #if os(iOS)
-    if (getOSVersionAsDbl() < 16.0) {
+    if (ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 16, minorVersion: 0, patchVersion: 0))) {
+        return false
+    } else {
         return true
-    }
-    else if (getOSVersionAsDbl() >= 16.0) {
-        return false
-    }
-    else {
-        return false
     }
     
     #else
