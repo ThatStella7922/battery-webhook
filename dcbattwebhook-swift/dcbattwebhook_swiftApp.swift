@@ -61,6 +61,18 @@ struct dcbattwebhook_swiftApp: App {
     #endif
     
     var body: some Scene {
+        /* Currently unused singlewindow for macOS - makes app quit on window close
+         #if os(macOS)
+         Window("Battery Webhook", id: "mainwindow") {
+            ContentView().frame(minWidth: 600, maxWidth: 1000, minHeight: 400, maxHeight: 600)
+            .onAppear {
+                NSWindow.allowsAutomaticWindowTabbing = false
+                if (!hideMainWindow) {let _ = NSApplication.shared.setActivationPolicy(.regular)}
+                else {let _ = NSApplication.shared.setActivationPolicy(.prohibited)}
+            }
+         }
+         #endif
+         */
         WindowGroup {
             ContentView()
                 #if os(macOS)
