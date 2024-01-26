@@ -14,6 +14,7 @@ struct DebugView: View {
     @State private var osVerField: String = ""
     @State private var savedDateField: String = ""
     @State private var timeSinceSavedDateField: String = ""
+    @State private var timeSinceAutomationSavedDateField: String = ""
     @State private var dataContainerPath: String = ""
     @State private var dummyFilePath: String = ""
     
@@ -26,6 +27,7 @@ struct DebugView: View {
                 Text("OS Version: " + osVerField)
                 Text("Saved Date: " + savedDateField)
                 Text("Time Since Saved Date: " + timeSinceSavedDateField)
+                Text("Time Since Automation Saved Date: " + timeSinceAutomationSavedDateField)
                 ScrollView(.horizontal) {Text("Data container path: " + dataContainerPath).fixedSize(horizontal: true, vertical: false)}
                 ScrollView(.horizontal) {Text("Dummy file path: " + dummyFilePath).fixedSize(horizontal: true, vertical: false)}
                 
@@ -45,17 +47,12 @@ struct DebugView: View {
             osVerField = getOSVersion()
             savedDateField = GetSavedDateFormatted()
             timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
+            timeSinceAutomationSavedDateField = GetTimeSinceAutomationSavedDateAsFmtedStr()
             dataContainerPath = String(describing: GetDataContainerPath())
             dummyFilePath = String(describing: BuildFilePathInDataContainer(fileName: "DummyFile", fileExtension: "txt"))
         }
         #if os(macOS)
         .formStyle(.grouped)
         #endif
-    }
-}
-
-struct DebugView_Previews: PreviewProvider {
-    static var previews: some View {
-        DebugView()
     }
 }
