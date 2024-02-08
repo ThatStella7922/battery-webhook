@@ -20,8 +20,6 @@ struct AutomationsView: View {
         macSendOnAppOpened
     ]}
     
-    let defaults = UserDefaults.standard
-    
     var body: some View {
         VStack {
             #if os(macOS)
@@ -77,7 +75,7 @@ struct AutomationsView: View {
             #elseif os(tvOS)
             AutomationsViewNotEligibleView()
             #elseif os(iOS)
-            if !(isiOSPre16()) {
+            if !(isPreiOSVersion(majorVersion: 14, minorVersion: 0, patchVersion: 0)) {
                 AutomationsViewRequiresShortcutsView()
             } else {
                 AutomationsViewNotEligibleView()

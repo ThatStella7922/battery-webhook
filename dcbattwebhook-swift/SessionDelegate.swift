@@ -6,12 +6,9 @@
 //
 
 #if os(iOS) || os(watchOS)
-
 import Foundation
 import WatchConnectivity
 import SwiftUI
-
-private let defaults = UserDefaults.standard
 
 class SessionDelegator: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {

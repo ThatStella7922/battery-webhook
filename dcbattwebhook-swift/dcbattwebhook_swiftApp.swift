@@ -57,6 +57,8 @@ struct dcbattwebhook_swiftApp: App {
             session.delegate = sessionDelegator
             session.activate()
         }
+        
+        EnsureSharedSettings()
     }
     #endif
     

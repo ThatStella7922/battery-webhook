@@ -7,8 +7,6 @@
 
 import Foundation
 
-private let defaults = UserDefaults.standard
-
 /**
  This function sets SavedDate (in UserDefaults) to the date and time right now ('right now' being the exact time the function was called)
  

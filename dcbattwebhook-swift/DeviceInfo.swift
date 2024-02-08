@@ -223,12 +223,12 @@ func getOSVersionAsDbl() -> Double {
 }
 
 /**
- Returns `true` if the device is running any version of iOS prior to `16.0`
+ Returns `true` if the device is running any version of iOS prior to what is specified when called (eg. `17.0.2`)
  */
-func isiOSPre16() -> Bool {
+func isPreiOSVersion(majorVersion: Int, minorVersion: Int, patchVersion: Int) -> Bool {
     
     #if os(iOS)
-    if (ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 16, minorVersion: 0, patchVersion: 0))) {
+    if (ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: majorVersion, minorVersion: minorVersion, patchVersion: patchVersion))) {
         return false
     } else {
         return true

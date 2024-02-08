@@ -18,9 +18,6 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     var returnErr = false
     var returnErrMsg = ""
     
-    // get our info
-    let defaults = UserDefaults.standard
-    
     if defaults.object(forKey: "SelectedServiceType") != nil {
         selectedServiceType = defaults.string(forKey: "SelectedServiceType")!
     }

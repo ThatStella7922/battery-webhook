@@ -17,8 +17,6 @@ private var sendDeviceModel = true
 private var showPfp = true
 private var showPronoun = true
 
-private let defaults = UserDefaults.standard
-
 /**
  Validates the currently stored settings.
  

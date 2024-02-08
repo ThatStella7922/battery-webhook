@@ -38,10 +38,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     let advertField = DiscordEmbedField(name: "Sent via:", value: "[Battery Webhook](https://github.com/ThatStella7922/dcbattwebhook-swift) " + version, inline: false)
     var fullmessageBlock = DiscordMessageObj()
     var embedColor = 0
-    
-    // get our info from settings
-    let defaults = UserDefaults.standard
-    
+
     // This handles the 'Discord 2' and 'Discord' services
     if defaults.object(forKey: "SelectedServiceType") != nil {
         selectedServiceType = defaults.string(forKey: "SelectedServiceType")!

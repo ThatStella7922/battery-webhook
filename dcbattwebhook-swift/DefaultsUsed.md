@@ -47,6 +47,8 @@ selectedServiceType + "WebhookUserPfpUrl"
   - String, contains the URL of the user's avatar image
 
 ## Internal Use
+- IsUsingSharedSettings
+  - Bool, used to check if we have moved the user's data to the shared container from the lgacy one. See SettingsUtils.swift
 - SavedDate
   - Date, stores a date to be used for other stuff
 - AutomationSavedDate

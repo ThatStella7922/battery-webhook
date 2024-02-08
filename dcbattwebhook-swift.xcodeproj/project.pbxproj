@@ -33,6 +33,33 @@
 		5508C7CF2B0D697F004A8F71 /* MacIOKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5508C7CE2B0D697F004A8F71 /* MacIOKit.swift */; };
 		553CD2B42AF65288006D3402 /* MenuBarExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */; };
 		554DEBEC2B07F561009FF921 /* MacAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */; };
+		5560B47B2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5560B47A2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition */; };
+		5560B47C2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5560B47A2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition */; };
+		5560B4842B74DC1700DD66DB /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5560B4832B74DC1700DD66DB /* Intents.framework */; };
+		5560B4872B74DC1700DD66DB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560B4862B74DC1700DD66DB /* IntentHandler.swift */; };
+		5560B4902B74DDE900DD66DB /* BatteryWebhookIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5560B47A2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
+		5560B4922B74EAED00DD66DB /* SendBatteryInfoIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560B4912B74EAED00DD66DB /* SendBatteryInfoIntentHandler.swift */; };
+		5560B4932B74F30A00DD66DB /* SettingsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ED8937291F628700CB170C /* SettingsValidator.swift */; };
+		5560B4942B74FAD700DD66DB /* SendBatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C59291DAC8400F1CAD8 /* SendBatteryInfo.swift */; };
+		5560B4952B74FAE000DD66DB /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
+		5560B4962B74FB1000DD66DB /* MessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E729316C0600492C77 /* MessageBuilder.swift */; };
+		5560B4972B74FB1700DD66DB /* EmbedStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4E8E92931742300492C77 /* EmbedStructs.swift */; };
+		5560B4982B74FB1D00DD66DB /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D8291D9EB7006551B0 /* DeviceInfo.swift */; };
+		5560B4992B74FB2400DD66DB /* dcbattwebhook_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C7291D7FB9006551B0 /* dcbattwebhook_swiftApp.swift */; };
+		5560B49A2B74FB2C00DD66DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348C9291D7FB9006551B0 /* ContentView.swift */; };
+		5560B49B2B74FB2F00DD66DB /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173E4242A78F1520076663F /* SessionDelegate.swift */; };
+		5560B49C2B74FB3B00DD66DB /* AutomationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23ECF2B0DC32B0045CE26 /* AutomationsView.swift */; };
+		5560B49D2B74FB4000DD66DB /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55950C5B291DDCDF00F1CAD8 /* AboutView.swift */; };
+		5560B49E2B74FB4200DD66DB /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9E5322AF7669F0091D1A6 /* HelpView.swift */; };
+		5560B49F2B74FB4600DD66DB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F26F3F2AF740E600AB8E1C /* WelcomeView.swift */; };
+		5560B4A02B74FB4800DD66DB /* HomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348DC291DA3BC006551B0 /* HomeUIView.swift */; };
+		5560B4A12B74FB4D00DD66DB /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
+		5560B4A22B74FB5900DD66DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550348D6291D84E1006551B0 /* SettingsView.swift */; };
+		5560B4A32B74FB6100DD66DB /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBD12B085A8500FC4442 /* FileHelper.swift */; };
+		5560B4A42B74FB7000DD66DB /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AEAC29257AF1002E6869 /* SettingsUtils.swift */; };
+		5560B4A52B74FB7500DD66DB /* SettingsUtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCE2B08513200FC4442 /* SettingsUtilsView.swift */; };
+		5560B4A62B74FB7A00DD66DB /* iOSPre16NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CCBCB2B0850B800FC4442 /* iOSPre16NoticeView.swift */; };
+		5560B4B02B75293600DD66DB /* IntentsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5560B4822B74DC1700DD66DB /* IntentsExtension.appex */; platformFilters = (ios, xros, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		556FE4A529253A0100C09A63 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FE4A429253A0100C09A63 /* TimeCounter.swift */; };
 		557CB8182B26D0CA0095D790 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
 		557CB8192B26D0CA0095D790 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557CB8172B26D0CA0095D790 /* DebugView.swift */; };
@@ -72,6 +99,13 @@
 			remoteGlobalIDString = 5120A3A92A78EC39000B05B3;
 			remoteInfo = "dcbattwebhook-swift-watch Watch App";
 		};
+		5560B4B12B75293600DD66DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550348BC291D7FB9006551B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5560B4812B74DC1700DD66DB;
+			remoteInfo = IntentsExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +118,17 @@
 				5120A3B72A78EC3A000B05B3 /* Battery Webhook Watch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560B4B32B75293600DD66DB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5560B4B02B75293600DD66DB /* IntentsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -106,6 +151,14 @@
 		5519BFC72B4955AE0075BF07 /* Battery-Webhook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Battery-Webhook-Info.plist"; sourceTree = "<group>"; };
 		553CD2B32AF65288006D3402 /* MenuBarExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraView.swift; sourceTree = "<group>"; };
 		554DEBEB2B07F561009FF921 /* MacAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacAppDelegate.swift; sourceTree = "<group>"; };
+		5560B47A2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = BatteryWebhookIntents.intentdefinition; sourceTree = "<group>"; };
+		5560B47D2B74D92500DD66DB /* Battery-Webhook-Watch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Battery-Webhook-Watch-Info.plist"; sourceTree = "<group>"; };
+		5560B4822B74DC1700DD66DB /* IntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5560B4832B74DC1700DD66DB /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		5560B4862B74DC1700DD66DB /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		5560B4882B74DC1700DD66DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5560B4912B74EAED00DD66DB /* SendBatteryInfoIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBatteryInfoIntentHandler.swift; sourceTree = "<group>"; };
+		5560B4A72B75013800DD66DB /* IntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentsExtension.entitlements; sourceTree = "<group>"; };
 		556FE4A429253A0100C09A63 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
 		557CB8172B26D0CA0095D790 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		558200AF2AF465110004750F /* SendInfoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInfoIntent.swift; sourceTree = "<group>"; };
@@ -146,6 +199,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5560B47F2B74DC1700DD66DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5560B4842B74DC1700DD66DB /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				55F8F2B12AF4699800988B3E /* AppIntents.framework */,
+				5560B4832B74DC1700DD66DB /* Intents.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,9 +222,11 @@
 		550348BB291D7FB9006551B0 = {
 			isa = PBXGroup;
 			children = (
+				5560B47D2B74D92500DD66DB /* Battery-Webhook-Watch-Info.plist */,
 				5519BFC72B4955AE0075BF07 /* Battery-Webhook-Info.plist */,
 				55E29E2C2B4AF38B0019597E /* ci_scripts */,
 				550348C6291D7FB9006551B0 /* dcbattwebhook-swift */,
+				5560B4852B74DC1700DD66DB /* IntentsExtension */,
 				550348C5291D7FB9006551B0 /* Products */,
 				5120A3A32A78EBDC000B05B3 /* Frameworks */,
 			);
@@ -173,6 +237,7 @@
 			children = (
 				550348C4291D7FB9006551B0 /* Battery Webhook.app */,
 				5120A3AA2A78EC39000B05B3 /* Battery Webhook Watch.app */,
+				5560B4822B74DC1700DD66DB /* IntentsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,10 +299,22 @@
 			path = MacSupport;
 			sourceTree = "<group>";
 		};
+		5560B4852B74DC1700DD66DB /* IntentsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5560B4A72B75013800DD66DB /* IntentsExtension.entitlements */,
+				5560B4862B74DC1700DD66DB /* IntentHandler.swift */,
+				5560B4882B74DC1700DD66DB /* Info.plist */,
+				5560B4912B74EAED00DD66DB /* SendBatteryInfoIntentHandler.swift */,
+			);
+			path = IntentsExtension;
+			sourceTree = "<group>";
+		};
 		558200B22AF4651C0004750F /* Intents */ = {
 			isa = PBXGroup;
 			children = (
 				558200AF2AF465110004750F /* SendInfoIntent.swift */,
+				5560B47A2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -278,16 +355,35 @@
 				550348C1291D7FB9006551B0 /* Frameworks */,
 				550348C2291D7FB9006551B0 /* Resources */,
 				5120A3BB2A78EC3A000B05B3 /* Embed Watch Content */,
+				5560B4B32B75293600DD66DB /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5120A3B62A78EC3A000B05B3 /* PBXTargetDependency */,
+				5560B4B22B75293600DD66DB /* PBXTargetDependency */,
 			);
 			name = "Battery Webhook";
 			productName = "dcbattwebhook-swift";
 			productReference = 550348C4291D7FB9006551B0 /* Battery Webhook.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5560B4812B74DC1700DD66DB /* IntentsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5560B48C2B74DC1700DD66DB /* Build configuration list for PBXNativeTarget "IntentsExtension" */;
+			buildPhases = (
+				5560B47E2B74DC1700DD66DB /* Sources */,
+				5560B47F2B74DC1700DD66DB /* Frameworks */,
+				5560B4802B74DC1700DD66DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntentsExtension;
+			productName = IntentsExtension;
+			productReference = 5560B4822B74DC1700DD66DB /* IntentsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -296,7 +392,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					5120A3A92A78EC39000B05B3 = {
@@ -305,6 +401,9 @@
 					550348C3291D7FB9006551B0 = {
 						CreatedOnToolsVersion = 14.1;
 						LastSwiftMigration = 1430;
+					};
+					5560B4812B74DC1700DD66DB = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -323,6 +422,7 @@
 			targets = (
 				550348C3291D7FB9006551B0 /* Battery Webhook */,
 				5120A3A92A78EC39000B05B3 /* Battery Webhook Watch */,
+				5560B4812B74DC1700DD66DB /* IntentsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -343,6 +443,13 @@
 				550348D0291D7FB9006551B0 /* Preview Assets.xcassets in Resources */,
 				550348CC291D7FB9006551B0 /* Assets.xcassets in Resources */,
 				55F26F3C2AF6F56E00AB8E1C /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560B4802B74DC1700DD66DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +480,7 @@
 				55B272012B03114800BD8A36 /* DiscordPreviewView.swift in Sources */,
 				5173E41E2A78EE980076663F /* EmbedStructs.swift in Sources */,
 				5173E41F2A78EE980076663F /* TimeCounter.swift in Sources */,
+				5560B47C2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition in Sources */,
 				5173E4222A78EE980076663F /* SettingsView.swift in Sources */,
 				5173E4232A78EE980076663F /* DeviceInfo.swift in Sources */,
 			);
@@ -408,7 +516,38 @@
 				557CB8182B26D0CA0095D790 /* DebugView.swift in Sources */,
 				550348D9291D9EB7006551B0 /* DeviceInfo.swift in Sources */,
 				558CCBCC2B0850B800FC4442 /* iOSPre16NoticeView.swift in Sources */,
+				5560B47B2B74D86700DD66DB /* BatteryWebhookIntents.intentdefinition in Sources */,
 				5508C7CF2B0D697F004A8F71 /* MacIOKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560B47E2B74DC1700DD66DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5560B4A02B74FB4800DD66DB /* HomeUIView.swift in Sources */,
+				5560B4962B74FB1000DD66DB /* MessageBuilder.swift in Sources */,
+				5560B4A42B74FB7000DD66DB /* SettingsUtils.swift in Sources */,
+				5560B49A2B74FB2C00DD66DB /* ContentView.swift in Sources */,
+				5560B4922B74EAED00DD66DB /* SendBatteryInfoIntentHandler.swift in Sources */,
+				5560B49F2B74FB4600DD66DB /* WelcomeView.swift in Sources */,
+				5560B4A62B74FB7A00DD66DB /* iOSPre16NoticeView.swift in Sources */,
+				5560B49B2B74FB2F00DD66DB /* SessionDelegate.swift in Sources */,
+				5560B4972B74FB1700DD66DB /* EmbedStructs.swift in Sources */,
+				5560B4932B74F30A00DD66DB /* SettingsValidator.swift in Sources */,
+				5560B4902B74DDE900DD66DB /* BatteryWebhookIntents.intentdefinition in Sources */,
+				5560B4952B74FAE000DD66DB /* TimeCounter.swift in Sources */,
+				5560B49D2B74FB4000DD66DB /* AboutView.swift in Sources */,
+				5560B4942B74FAD700DD66DB /* SendBatteryInfo.swift in Sources */,
+				5560B4A12B74FB4D00DD66DB /* DebugView.swift in Sources */,
+				5560B49C2B74FB3B00DD66DB /* AutomationsView.swift in Sources */,
+				5560B4982B74FB1D00DD66DB /* DeviceInfo.swift in Sources */,
+				5560B4872B74DC1700DD66DB /* IntentHandler.swift in Sources */,
+				5560B49E2B74FB4200DD66DB /* HelpView.swift in Sources */,
+				5560B4992B74FB2400DD66DB /* dcbattwebhook_swiftApp.swift in Sources */,
+				5560B4A52B74FB7500DD66DB /* SettingsUtilsView.swift in Sources */,
+				5560B4A22B74FB5900DD66DB /* SettingsView.swift in Sources */,
+				5560B4A32B74FB6100DD66DB /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +559,15 @@
 			platformFilter = ios;
 			target = 5120A3A92A78EC39000B05B3 /* Battery Webhook Watch */;
 			targetProxy = 5120A3B52A78EC3A000B05B3 /* PBXContainerItemProxy */;
+		};
+		5560B4B22B75293600DD66DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+				xros,
+			);
+			target = 5560B4812B74DC1700DD66DB /* IntentsExtension */;
+			targetProxy = 5560B4B12B75293600DD66DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -435,6 +583,7 @@
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Battery-Webhook-Watch-Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "thatstel.la.battery-webhook";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -465,6 +614,7 @@
 				DEVELOPMENT_ASSET_PATHS = "dcbattwebhook-swift/Preview\\ Content";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Battery-Webhook-Watch-Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "thatstel.la.battery-webhook";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -608,6 +758,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dcbattwebhook-swift/Preview Content\"";
+				DEVELOPMENT_TEAM = FBT742498U;
 				ENABLE_HARDENED_RUNTIME = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -691,6 +842,92 @@
 			};
 			name = Release;
 		};
+		5560B48D2B74DC1700DD66DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = IntentsExtension/IntentsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FBT742498U;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntentsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IntentsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.battery-webhook.IntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BatteryWebhook IntentExtension Profile";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Debug;
+		};
+		5560B48E2B74DC1700DD66DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = IntentsExtension/IntentsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FBT742498U;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntentsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IntentsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "thatstel.la.battery-webhook.IntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BatteryWebhook IntentExtension Profile";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -717,6 +954,15 @@
 			buildConfigurations = (
 				550348D4291D7FB9006551B0 /* Debug */,
 				550348D5291D7FB9006551B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5560B48C2B74DC1700DD66DB /* Build configuration list for PBXNativeTarget "IntentsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5560B48D2B74DC1700DD66DB /* Debug */,
+				5560B48E2B74DC1700DD66DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

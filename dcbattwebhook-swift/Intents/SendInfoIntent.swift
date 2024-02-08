@@ -20,8 +20,8 @@ struct SendInfoIntent: AppIntent {
     @Parameter(title: "Report that the device reached full charge")
     var userDidHit100: Bool
     
-    static let title: LocalizedStringResource = "Send Battery Info"
-    static let description: LocalizedStringResource = "Sends battery info using the configuration set in the Battery Webhook app"
+    static let title: LocalizedStringResource = "Send Battery Info (Standard)"
+    static let description: LocalizedStringResource = "Sends battery info using the configuration set in the Battery Webhook app. Prefer this action instead of the Legacy action as it is more efficient."
     static let openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {

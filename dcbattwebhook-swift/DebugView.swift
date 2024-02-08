@@ -49,6 +49,23 @@ struct DebugView: View {
                 } label: {
                     Label("Save Current Date for Automations", systemImage: "square.and.arrow.down")
                 }
+                
+                Button {
+                    ResetSettings()
+                } label: {
+                    Label("Reset Legacy Container Settings", systemImage: "trash")
+                }
+                Button {
+                    ResetSettingsShared()
+                    SaveCurrentDate()
+                } label: {
+                    Label("Reset Shared Container Settings", systemImage: "trash")
+                }
+                Button {
+                    UndoEnsureSharedSettings()
+                } label: {
+                    Label("Queue Legacy->Shared Settings Container Migration", systemImage: "arrow.right.doc.on.clipboard")
+                }
             }
         }.onAppear() {
             powerField = (hasBattery ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)

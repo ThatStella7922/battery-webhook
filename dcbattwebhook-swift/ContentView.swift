@@ -15,9 +15,6 @@ struct ContentView: View {
     @State private var isShowingHelp = false
     @State private var isShowingWelcomeSheet = false
     
-    // grab some user defaults
-    let defaults = UserDefaults.standard
-    
     var body: some View {
         VStack {
             #if os(tvOS)
@@ -56,7 +53,7 @@ struct ContentView: View {
                         Label("Automations", systemImage: "gearshape.2")
                     }
                     NavigationLink(destination: HelpView(), isActive: $isShowingHelp, label: {
-                        Label("Help", systemImage: "questionmark.circle")
+                        Label("Documentation", systemImage: "questionmark.circle")
                     })
                     NavigationLink{AboutView()} label: {
                         Label("About", systemImage: "person.circle")

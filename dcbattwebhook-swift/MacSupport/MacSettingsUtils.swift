@@ -27,9 +27,7 @@ import Foundation
  
  - Warning: Only available on macOS, and returns `false` if an invalid setting is specified
  */
-func GetMacAutomationSetting(automationSetting: String) -> Bool {
-    let defaults = UserDefaults.standard
-    
+func GetMacAutomationSetting(automationSetting: String) -> Bool {    
     var macSendOnPluggedIn = false
     var macSendOnUnplugged = false
     var macSendOnHitFullCharge = false

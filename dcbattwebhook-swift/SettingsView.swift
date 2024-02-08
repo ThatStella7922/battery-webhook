@@ -27,14 +27,11 @@ struct SettingsView: View {
     @State private var showPfp = true
     @State private var showPronoun = true
     
-    // grab some user defaults
-    let defaults = UserDefaults.standard
-    
     var body: some View {
         VStack {
             VStack {
                 Form {
-                    if (isiOSPre16() == true) {
+                    if (isPreiOSVersion(majorVersion: 16, minorVersion: 0, patchVersion: 0) == true) {
                         Section(header: Text("iOS/iPadOS 15 Notice")) {
                             Text("There is a bug in SwiftUI on iOS/iPadOS 15 that causes the text fields below to not show the saved settings. If you tap on a text field, it shows the saved setting just fine. Anything you input into the fields is still saved and this SwiftUI bug is fixed on iOS/iPadOS 16 and newer.")
                         }
@@ -161,7 +158,7 @@ struct SettingsView: View {
                     }
                     
                     #if os(iOS)
-                    if (isiOSPre16() == false) {
+                    if (isPreiOSVersion(majorVersion: 16, minorVersion: 0, patchVersion: 0) == false) {
                         iOSPre16NoticeView()
                     }
                     #endif
