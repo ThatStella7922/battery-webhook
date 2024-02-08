@@ -154,7 +154,7 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
 
     // build our embed here, the fields are set above
     if (isAutomated) {
-        embedBlock = DiscordEmbed(title: embedTitle, color: embedColor, fields: [batteryField, automationTimeField, advertField])
+        embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, automationTimeField, advertField])
     } else {
         embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, timeField, advertField])
     }
