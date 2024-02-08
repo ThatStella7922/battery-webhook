@@ -17,7 +17,7 @@ let versionNum = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? S
 let versionBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "unknown"
 
 #if DEBUG
-public let versionBase = "\(versionNum)(\(versionBuild))"
+public let versionBase = "\(versionNum)(\(versionBuild)) Dev"
 #else
 public let versionBase = "\(versionNum)"
 #endif

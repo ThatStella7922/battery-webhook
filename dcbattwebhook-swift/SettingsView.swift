@@ -53,17 +53,13 @@ struct SettingsView: View {
                     case "Discord":
                         Section(header: Text("Discord URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG/GIF for your avatar image.")) {
                             
-                            TextField(text: $webhookUrl) {
-                                Text("Discord Webhook URL")
-                            }
+                            TextField("Discord Webhook URL", text: $webhookUrl)
                             #if !os(macOS) && !os(watchOS)
                             .keyboardType(.URL)
                             #endif
                                 .disableAutocorrection(true)
                             
-                            TextField(text: $userPfpUrl) {
-                                Text("Avatar Image URL (optional)")
-                            }
+                            TextField("Avatar Image URL (optional)", text: $userPfpUrl)
                             #if !os(macOS) && !os(watchOS)
                             .keyboardType(.URL)
                             #endif
@@ -74,17 +70,13 @@ struct SettingsView: View {
                     case "Discord 2":
                         Section(header: Text("Discord 2 URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG/GIF for your avatar image.")) {
                             
-                            TextField(text: $webhookUrl) {
-                                Text("Discord Webhook URL")
-                            }
+                            TextField("Discord Webhook URL", text: $webhookUrl)
                             #if !os(macOS) && !os(watchOS)
                             .keyboardType(.URL)
                             #endif
                                 .disableAutocorrection(true)
                             
-                            TextField(text: $userPfpUrl) {
-                                Text("Avatar Image URL (optional)")
-                            }
+                            TextField("Avatar Image URL (optional)", text: $userPfpUrl)
                             #if !os(macOS) && !os(watchOS)
                             .keyboardType(.URL)
                             #endif
@@ -106,33 +98,25 @@ struct SettingsView: View {
                         #if os(iOS) || os(visionOS)
                         HStack {
                             Text("Display Name:")
-                            TextField(text: $usrName) {
-                                Text("Display Name")
-                            }.disableAutocorrection(true)
+                            TextField("Display Name", text: $usrName).disableAutocorrection(true)
                                 .multilineTextAlignment(.trailing)
                         }
                         #else
-                        TextField(text: $usrName) {
-                            Text("Display Name")
-                        }.disableAutocorrection(true)
+                        TextField("Display Name", text: $usrName).disableAutocorrection(true)
                         #endif
                         
                         
                         #if os(iOS) || os(visionOS)
                         HStack {
                             Text("Pronoun:")
-                            TextField(text: $usrPronoun) {
-                                Text("Pronoun (her/his/xir/etc)")
-                            }.disableAutocorrection(true)
+                            TextField("Pronoun (her/his/xir/etc)", text: $usrPronoun).disableAutocorrection(true)
                                 .multilineTextAlignment(.trailing)
                                 #if !os(macOS) && !os(watchOS)
                                 .autocapitalization(.none)
                                 #endif
                         }
                         #else
-                        TextField(text: $usrPronoun) {
-                            Text("Pronoun (her/his/xir/etc)")
-                        }.disableAutocorrection(true)
+                        TextField("Pronoun (her/his/xir/etc)", text: $usrPronoun).disableAutocorrection(true)
                             #if !os(macOS) && !os(watchOS)
                             .autocapitalization(.none)
                             #endif
@@ -141,9 +125,7 @@ struct SettingsView: View {
                         #if os(iOS) || os(visionOS)
                         HStack {
                             Text("Device Name:")
-                            TextField(text: $usrDeviceName) {
-                                Text("Device Name")
-                            }.disableAutocorrection(true)
+                            TextField("Device Name", text: $usrDeviceName).disableAutocorrection(true)
                                 .multilineTextAlignment(.trailing)
                         }
                         #else

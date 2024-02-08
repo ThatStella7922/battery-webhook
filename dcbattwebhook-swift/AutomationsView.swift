@@ -93,7 +93,7 @@ struct AutomationsViewNotEligibleView: View {
         VStack {
             Form {
                 VStack{
-                    Image(systemName: "exclamationmark.triangle").foregroundStyle(.red).font(.system(size: 30)).padding()
+                    Image(systemName: "exclamationmark.triangle").font(.system(size: 30)).padding()
                     Text("This device does not support automations.").frame(maxWidth: .infinity, alignment: .center)
                 }
             }
@@ -110,7 +110,7 @@ struct AutomationsViewRequiresShortcutsView: View {
         VStack {
             Form {
                 VStack{
-                    Image(systemName: "info.circle").foregroundStyle(.yellow).font(.system(size: 30)).padding()
+                    Image(systemName: "info.circle").font(.system(size: 30)).padding()
                     Text("This device does not support in-app automations, but it can use the Automations feature built into the Shortcuts app.\n\nPlease see the documentation for details about setting up automations.").frame(maxWidth: .infinity, alignment: .center)
                 }
             }

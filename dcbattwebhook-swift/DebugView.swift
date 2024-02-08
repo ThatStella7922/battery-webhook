@@ -13,6 +13,7 @@ struct DebugView: View {
     @State private var devNameField: String = ""
     @State private var osVerField: String = ""
     @State private var savedDateField: String = ""
+    @State private var automationSavedDateField: String = ""
     @State private var timeSinceSavedDateField: String = ""
     @State private var timeSinceAutomationSavedDateField: String = ""
     @State private var dataContainerPath: String = ""
@@ -26,6 +27,7 @@ struct DebugView: View {
                 Text("Device Name: " + devNameField)
                 Text("OS Version: " + osVerField)
                 Text("Saved Date: " + savedDateField)
+                Text("Saved Date for Automations: " + automationSavedDateField)
                 Text("Time Since Saved Date: " + timeSinceSavedDateField)
                 Text("Time Since Automation Saved Date: " + timeSinceAutomationSavedDateField)
                 ScrollView(.horizontal) {Text("Data container path: " + dataContainerPath).fixedSize(horizontal: true, vertical: false)}
@@ -39,6 +41,14 @@ struct DebugView: View {
                 } label: {
                     Label("Save Current Date", systemImage: "square.and.arrow.down")
                 }
+                
+                Button {
+                    SaveAutomationCurrentDate()
+                    automationSavedDateField = GetAutomationSavedDateFormatted()
+                    timeSinceAutomationSavedDateField = GetTimeSinceAutomationSavedDateAsFmtedStr()
+                } label: {
+                    Label("Save Current Date for Automations", systemImage: "square.and.arrow.down")
+                }
             }
         }.onAppear() {
             powerField = (hasBattery ? "Battery Level: " : "Power Info: ") + getBatteryPercentage(standalone: true)
@@ -46,6 +56,7 @@ struct DebugView: View {
             devNameField = (getDeviceUserDisplayName() != getSystemReportedDeviceUserDisplayName() ? "\(getDeviceUserDisplayName()) (system reported: \"\(getSystemReportedDeviceUserDisplayName())\")" : getDeviceUserDisplayName())
             osVerField = getOSVersion()
             savedDateField = GetSavedDateFormatted()
+            automationSavedDateField = GetAutomationSavedDateFormatted()
             timeSinceSavedDateField = GetTimeSinceSavedDateAsFmtedStr()
             timeSinceAutomationSavedDateField = GetTimeSinceAutomationSavedDateAsFmtedStr()
             dataContainerPath = String(describing: GetDataContainerPath())
