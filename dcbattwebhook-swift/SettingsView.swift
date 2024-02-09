@@ -51,7 +51,7 @@ struct SettingsView: View {
                     
                     switch(selectedServiceType) {
                     case "Discord":
-                        Section(header: Text("Discord URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG/GIF for your avatar image.")) {
+                        Section(header: Text("Discord URLs"), footer: Text("A Discord webhook. Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.")) {
                             
                             TextField("Discord Webhook URL", text: $webhookUrl)
                             #if !os(macOS) && !os(watchOS)
@@ -76,7 +76,7 @@ struct SettingsView: View {
                         }
                     
                     case "Discord 2":
-                        Section(header: Text("Discord 2 URLs"), footer: Text("Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.\nYou can also paste any other URL that leads to a 1024x1024 or smaller PNG/GIF for your avatar image.")) {
+                        Section(header: Text("Discord 2 URLs"), footer: Text("A second instance of a Discord webhook. Paste the URL for your Discord webhook in the first text field, then paste the URL for your Discord avatar image in the second text field.")) {
                             
                             TextField("Discord Webhook URL", text: $webhookUrl)
                             #if !os(macOS) && !os(watchOS)
@@ -90,8 +90,12 @@ struct SettingsView: View {
                             #endif
                                 .disableAutocorrection(true)
                             
+                            Toggle(isOn: $showDisplayNameAndAvatarInEmbedWhenAutomated) {
+                                Text("Show display name & avatar in the battery info when automated")
+                            }
+                            
                             Toggle(isOn: $replaceWebhookAvatarAndName) {
-                                Text("Replace Webhook Avatar and Name")
+                                Text("Override the webhook's preset avatar & name with my own")
                             }
                         }
                         
@@ -295,6 +299,7 @@ struct SettingsView: View {
                 }
                 
                 replaceWebhookAvatarAndName = defaults.bool(forKey: selectedServiceType + "ReplaceWebhookAvatarAndName")
+                showDisplayNameAndAvatarInEmbedWhenAutomated = defaults.bool(forKey: selectedServiceType + "ShowDisplayNameAndAvatarInEmbedWhenAutomated")
             }
     }
 }
