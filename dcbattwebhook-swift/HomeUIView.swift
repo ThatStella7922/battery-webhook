@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Intents
 import Foundation
 
 struct ErrorAlertStruct: Identifiable {
@@ -35,6 +36,7 @@ struct HomeUIView: View {
                             }
                             else {
                                 errAlert = ErrorAlertStruct(msg: "The battery info was sent.", title: "Success")
+                                INInteraction(intent: SendBatteryInfoIntent(), response: nil).donate()
                             }
 
                         }
