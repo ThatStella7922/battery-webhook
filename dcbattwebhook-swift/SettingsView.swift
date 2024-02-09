@@ -19,6 +19,9 @@ struct SettingsView: View {
     
     @State private var webhookUrl: String = ""
     @State private var userPfpUrl: String = ""
+    @State private var replaceWebhookAvatarAndName = false
+    @State private var showDisplayNameAndAvatarInEmbedWhenAutomated = false
+    
     @State private var usrName: String = ""
     @State private var usrPronoun: String = ""
     @State private var usrDeviceName: String = getSystemReportedDeviceUserDisplayName()
@@ -62,6 +65,14 @@ struct SettingsView: View {
                             #endif
                                 .disableAutocorrection(true)
                             
+                            Toggle(isOn: $showDisplayNameAndAvatarInEmbedWhenAutomated) {
+                                Text("Show display name & avatar in the battery info when automated")
+                            }
+                            
+                            Toggle(isOn: $replaceWebhookAvatarAndName) {
+                                Text("Override the webhook's preset avatar & name with my own")
+                            }
+                            
                         }
                     
                     case "Discord 2":
@@ -79,6 +90,9 @@ struct SettingsView: View {
                             #endif
                                 .disableAutocorrection(true)
                             
+                            Toggle(isOn: $replaceWebhookAvatarAndName) {
+                                Text("Replace Webhook Avatar and Name")
+                            }
                         }
                         
                     default:
@@ -214,6 +228,10 @@ struct SettingsView: View {
             if let userpfpurl = defaults.string(forKey: selectedServiceType + "UserPfpUrl") {
                 userPfpUrl = userpfpurl
             }
+            
+            replaceWebhookAvatarAndName = defaults.bool(forKey: selectedServiceType + "ReplaceWebhookAvatarAndName")
+            showDisplayNameAndAvatarInEmbedWhenAutomated = defaults.bool(forKey: selectedServiceType + "ShowDisplayNameAndAvatarInEmbedWhenAutomated")
+            
             // these if statements read the settings from defaults
         }
         
@@ -221,6 +239,8 @@ struct SettingsView: View {
             defaults.set(selectedServiceType, forKey: "SelectedServiceType")
             defaults.set(webhookUrl, forKey: selectedServiceType + "WebhookUrl")
             defaults.set(userPfpUrl, forKey: selectedServiceType + "UserPfpUrl")
+            defaults.set(replaceWebhookAvatarAndName, forKey: selectedServiceType + "ReplaceWebhookAvatarAndName")
+            defaults.set(showDisplayNameAndAvatarInEmbedWhenAutomated, forKey: selectedServiceType + "ShowDisplayNameAndAvatarInEmbedWhenAutomated")
             
             defaults.set(usrName, forKey: "UsrName")
             defaults.set(usrPronoun, forKey: "UsrPronoun")
@@ -259,6 +279,8 @@ struct SettingsView: View {
                 if let selectedservicetype = defaults.string(forKey: "SelectedServiceType") {
                     defaults.set(webhookUrl, forKey: selectedservicetype + "WebhookUrl")
                     defaults.set(userPfpUrl, forKey: selectedservicetype + "UserPfpUrl")
+                    defaults.set(replaceWebhookAvatarAndName, forKey: selectedservicetype + "ReplaceWebhookAvatarAndName")
+                    defaults.set(showDisplayNameAndAvatarInEmbedWhenAutomated, forKey: selectedservicetype + "ShowDisplayNameAndAvatarInEmbedWhenAutomated")
                 }
                 
                 // once done save the new selected service type
@@ -271,6 +293,8 @@ struct SettingsView: View {
                 if let userpfpurl = defaults.string(forKey: selectedServiceType + "UserPfpUrl") {
                     userPfpUrl = userpfpurl
                 }
+                
+                replaceWebhookAvatarAndName = defaults.bool(forKey: selectedServiceType + "ReplaceWebhookAvatarAndName")
             }
     }
 }

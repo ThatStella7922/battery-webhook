@@ -109,7 +109,7 @@ struct AutomationsViewRequiresShortcutsView: View {
             Form {
                 VStack{
                     Image(systemName: "info.circle").font(.system(size: 30)).padding()
-                    Text("This device does not support in-app automations, but it can use the Automations feature built into the Shortcuts app.\n\nPlease see the documentation for details about setting up automations.").frame(maxWidth: .infinity, alignment: .center)
+                    Text("This device does not support in-app automations, but you can automate using the Automations feature built into the Shortcuts app.\n\nPlease see the documentation for details about setting up automations.").frame(maxWidth: .infinity, alignment: .center).lineLimit(10)
                 }
             }
         }

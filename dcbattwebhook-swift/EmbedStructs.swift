@@ -63,9 +63,8 @@ struct DiscordFooter: Codable {
 }
 
 /**
- Footer block to be used in a `DiscordEmbed`
+ Main payload body, mainly takes embeds
  
- Supply `text` and `icon_url` as strings.
  [View on Discord Webhooks Guide](https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html)
  */
 struct DiscordMessageObj: Codable {

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/Generic/AppIconSqaureMasked.png" alt="Battery Webhook Logo" width="200" />
+  <img src="assets/macOS/AppIconMac1024x1024.png" alt="Battery Webhook Logo" width="250" />
   <h1>Battery Webhook</h1>
 </div>
 
@@ -25,7 +25,7 @@ If you'd like access to beta builds of Battery Webhook on TestFlight built from 
 - [x] Automations support on macOS with IOPowerManagement events and IOKit for high power efficiency
 - [x] Siri Shortcuts support on all compatible platforms
 - [x] Menu bar extra on macOS
-- [X] Supports UPS (Uninterruiptible Power Supply) on desktop Macs without a battery
+- [X] Supports UPSes (Uninterruiptible Power Supplies) for desktop Macs
 
 ### Building
 Set the development team and bundle identifier in `dcbattwebhook-swift/Codesigning.xcconfig`, then build with Xcode.

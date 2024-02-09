@@ -20,6 +20,9 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     
     var userWebhookUrl = ""
     var userPfpUrl = ""
+    var replaceWebhookAvatarAndName = false
+    var showDisplayNameAndAvatarInEmbedWhenAutomated = false
+    
     var usrName = ""
     var usrPronoun = "their"
     var sendDeviceName = true
@@ -49,6 +52,8 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     if let userpfpurl = defaults.string(forKey: selectedServiceType + "UserPfpUrl") {
         userPfpUrl = userpfpurl
     }
+    replaceWebhookAvatarAndName = defaults.bool(forKey: selectedServiceType + "ReplaceWebhookAvatarAndName")
+    showDisplayNameAndAvatarInEmbedWhenAutomated = defaults.bool(forKey: selectedServiceType + "ShowDisplayNameAndAvatarInEmbedWhenAutomated")
     
     if let usrname = defaults.string(forKey: "UsrName") {
         usrName = usrname
@@ -150,13 +155,21 @@ func ConstructDiscordEmbed(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, did
     }
 
     // build our embed here, the fields are set above
-    if (isAutomated) {
+    if (isAutomated) && (showDisplayNameAndAvatarInEmbedWhenAutomated) {
         embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, automationTimeField, advertField])
+    } else if (isAutomated) {
+        embedBlock = DiscordEmbed(title: embedTitle, color: embedColor, fields: [batteryField, automationTimeField, advertField])
     } else {
         embedBlock = DiscordEmbed(author: authorBlock, title: embedTitle, color: embedColor, fields: [batteryField, timeField, advertField])
     }
     
     // final full message block to be returned
-    fullmessageBlock = DiscordMessageObj(embeds: [embedBlock])
+    
+    if (replaceWebhookAvatarAndName) {
+        fullmessageBlock = DiscordMessageObj(embeds: [embedBlock], username: usrName, avatar_url: userPfpUrl)
+    } else {
+        fullmessageBlock = DiscordMessageObj(embeds: [embedBlock])
+    }
+    
     return fullmessageBlock
 }
