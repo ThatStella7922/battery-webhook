@@ -189,7 +189,7 @@ func getSystemReportedDeviceUserDisplayName() -> String {
  */
 func getDeviceUserDisplayName() -> String {
     var deviceName = getSystemReportedDeviceUserDisplayName()
-    if let usrDeviceName = UserDefaults.standard.string(forKey: "UsrDeviceName") {
+    if let usrDeviceName = defaults.string(forKey: "UsrDeviceName") {
         if (usrDeviceName.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
             deviceName = usrDeviceName
         }
