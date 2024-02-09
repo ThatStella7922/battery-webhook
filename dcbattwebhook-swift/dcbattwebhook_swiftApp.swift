@@ -50,17 +50,19 @@ struct dcbattwebhook_swiftApp: App {
     private lazy var sessionDelegator: SessionDelegator = {
         return SessionDelegator()
     }()
+    #endif
 
     init() {
+        #if os(iOS) || os(watchOS)
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = sessionDelegator
             session.activate()
         }
+        #endif
         
         EnsureSharedSettings()
     }
-    #endif
     
     var body: some Scene {
         /* Currently unused singlewindow for macOS - makes app quit on window close
