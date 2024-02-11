@@ -2,13 +2,14 @@
 
 * [Welcome](README.md)
 
-## Documentation <a href="#docs" id="docs"></a>
+## Using Battery Webhook
 
-* [Introduction](docs/introduction/README.md)
-  * [Quick Start](docs/introduction/quick-start.md)
-* [Compatibility](docs/compatibility.md)
-* [Supported Services](docs/supported-services/README.md)
-  * [Discord](docs/supported-services/discord/README.md)
-    * [Using your Discord webhook with Battery Webhook](docs/supported-services/discord/using-your-discord-webhook-with-battery-webhook.md)
-    * [Further configuring Battery Webhook](docs/supported-services/discord/further-configuring-battery-webhook.md)
-    * [Setting up automations](docs/supported-services/discord/setting-up-automations.md)
+* [Introduction](using-battery-webhook/introduction/README.md)
+  * [Quick Start](using-battery-webhook/introduction/quick-start.md)
+* [Compatibility](using-battery-webhook/compatibility.md)
+* [Supported Services](using-battery-webhook/supported-services/README.md)
+  * [Discord](using-battery-webhook/supported-services/discord/README.md)
+    * [Using your Discord webhook with Battery Webhook](using-battery-webhook/supported-services/discord/using-your-discord-webhook-with-battery-webhook.md)
+    * [Further configuring your Discord webhook](using-battery-webhook/supported-services/discord/further-configuring-your-discord-webhook.md)
+* [Setting up automations](using-battery-webhook/setting-up-automations.md)
+* [Further configuring Battery Webhook](using-battery-webhook/further-configuring-battery-webhook.md)
