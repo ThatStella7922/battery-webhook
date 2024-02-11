@@ -50,7 +50,7 @@ func sendInfo(isCurrentlyCharging: Bool, didGetPluggedIn: Bool, didGetUnplugged:
     
     
     // Scuffed multi-webhook functionality until I properly implement this in Battery Webhook's rewrite
-    let webhookUrls = userWebhookUrl.split(separator: "@")
+    let webhookUrls = userWebhookUrl.split(separator: ",")
     if (webhookUrls.count == 1) {
         NSLog("Sending to one webhook, because that's normal")
         // our actual post, just once
