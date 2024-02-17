@@ -53,6 +53,6 @@ It also has you provide the following information:
 * Display Name (required, doesn't need to be a real name or username)
 * Pronoun (optional, only used for automations)
 
-You can opt out of sending some of the collected into to webhooks, which is covered in [Further configuring Battery Webhook](../supported-services/discord/further-configuring-battery-webhook.md). For most users, however, this isn't needed.
+You can opt out of sending some of the collected into to webhooks, which is covered later on. For most users, however, this isn't needed.
 
 To get started with using Battery Webhook, head over to the [Compatibility](../compatibility.md) page to learn what devices, features and operating systems are supported by Battery Webhook.
