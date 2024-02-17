@@ -8,9 +8,12 @@ Send your battery info to popular services using webhooks!
 ## Usage and compatibility
 Check out [Battery Webhook's documentation](https://docs.thatstel.la/battery-webhook) to learn more about using the app.
 
-You can download Battery Webhook on the [App Store](https://apps.apple.com/us/app/battery-webhook/id6472404778), or from the [Releases](https://github.com/ThatStella7922/battery-webhook/releases) page here on GitHub.
+You can download Battery Webhook on the [App Store](https://apps.apple.com/us/app/battery-webhook/id6472404778) or on the [GitHub Releases](https://github.com/ThatStella7922/battery-webhook/releases) page!
 
-If you'd like access to beta builds of Battery Webhook on TestFlight built from every new commit, consider [subscribing to my Patreon's](https://www.patreon.com/ThatStella7922) Quad-core tier.
+You can also find Battery Webhook on [SideStore](https://sidestore.io/), just add the **ThatStella7922 source** from the trusted sources, then install the app!
+
+If you'd like access to beta builds of Battery Webhook on TestFlight built from every new commit, consider [subscribing to my Patreon's](https://www.patreon.com/ThatStella7922) Quad-core tier.\
+<sub>This helps cover my living expenses and shows your interest in the app!</sub>
 
 ## Development
 ### Feature Status
@@ -18,6 +21,7 @@ If you'd like access to beta builds of Battery Webhook on TestFlight built from 
 - [x] Device info functions (name, battery info, etc)
 - [x] Date saving, formatting, comparison, etc
 - [x] Full configuration infrastructure with UserDefaults
+- [x] Share data container for use with the SiriKit Intents app extension
 - [x] Full programmatic building of various embeds in JSON format
 - [x] HTTP interaction with webhooks
 - [x] Manual sending of battery info in the app
