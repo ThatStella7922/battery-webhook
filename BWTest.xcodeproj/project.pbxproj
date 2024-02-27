@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55CB73D42B2DC4B20040B88D /* BatteryWebhook in Frameworks */ = {isa = PBXBuildFile; productRef = 55CB73D32B2DC4B20040B88D /* BatteryWebhook */; };
+		55AF1EF92B8DABA90020CDC6 /* BatteryWebhookLib in Frameworks */ = {isa = PBXBuildFile; productRef = 55AF1EF82B8DABA90020CDC6 /* BatteryWebhookLib */; };
 		55DB0CC42B29977C00112AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CC32B29977C00112AAA /* AppDelegate.swift */; };
 		55DB0CC62B29977C00112AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CC52B29977C00112AAA /* SceneDelegate.swift */; };
 		55DB0CC82B29977C00112AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB0CC72B29977C00112AAA /* ViewController.swift */; };
@@ -18,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		55CB73D22B2DC4A30040B88D /* BatteryWebhookPkg */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BatteryWebhookPkg; sourceTree = "<group>"; };
 		55DB0CC02B29977C00112AAA /* BWTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55DB0CC32B29977C00112AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55DB0CC52B29977C00112AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CB73D42B2DC4B20040B88D /* BatteryWebhook in Frameworks */,
+				55AF1EF92B8DABA90020CDC6 /* BatteryWebhookLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +44,6 @@
 		55DB0CB72B29977C00112AAA = {
 			isa = PBXGroup;
 			children = (
-				55CB73D22B2DC4A30040B88D /* BatteryWebhookPkg */,
 				55DB0CC22B29977C00112AAA /* BWTest */,
 				55DB0CC12B29977C00112AAA /* Products */,
 				55DB0CDB2B299D6A00112AAA /* Frameworks */,
@@ -99,7 +97,7 @@
 			);
 			name = BWTest;
 			packageProductDependencies = (
-				55CB73D32B2DC4B20040B88D /* BatteryWebhook */,
+				55AF1EF82B8DABA90020CDC6 /* BatteryWebhookLib */,
 			);
 			productName = BWTest;
 			productReference = 55DB0CC02B29977C00112AAA /* BWTest.app */;
@@ -129,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 55DB0CB72B29977C00112AAA;
+			packageReferences = (
+				55AF1EF72B8DABA90020CDC6 /* XCLocalSwiftPackageReference "../BatteryWebhookPkg" */,
+			);
 			productRefGroup = 55DB0CC12B29977C00112AAA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,10 +386,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		55AF1EF72B8DABA90020CDC6 /* XCLocalSwiftPackageReference "../BatteryWebhookPkg" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../BatteryWebhookPkg;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		55CB73D32B2DC4B20040B88D /* BatteryWebhook */ = {
+		55AF1EF82B8DABA90020CDC6 /* BatteryWebhookLib */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = BatteryWebhook;
+			productName = BatteryWebhookLib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
