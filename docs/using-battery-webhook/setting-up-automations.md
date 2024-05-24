@@ -65,4 +65,4 @@ Once you've set the automations up, they should appear like below:
 
 <figure><img src="../.gitbook/assets/image (19).png" alt="" width="375"><figcaption></figcaption></figure>
 
-At this point, plug in/unplug/let your device hit 100% and Battery Webhook will automatically send the batteyr info according to your configuration. If there's a configuration error, the Shortcuts app will let you know so you that can fix it in Battery Webhook.
+At this point, plug in/unplug/let your device hit 100% and Battery Webhook will automatically send the battery info according to your configuration. If there's a configuration error, the Shortcuts app will let you know so you that can fix it in Battery Webhook.
