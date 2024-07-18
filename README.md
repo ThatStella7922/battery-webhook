@@ -8,12 +8,9 @@ Send your battery info to popular services using webhooks!
 ## Usage and compatibility
 Check out [Battery Webhook's documentation](https://docs.thatstel.la/battery-webhook) to learn more about using the app.
 
-You can download Battery Webhook on the [App Store](https://apps.apple.com/us/app/battery-webhook/id6472404778) or on the [GitHub Releases](https://github.com/ThatStella7922/battery-webhook/releases) page!
+You can download Battery Webhook on the [GitHub Releases](https://github.com/ThatStella7922/battery-webhook/releases) page!
 
 You can also find Battery Webhook on [SideStore](https://sidestore.io/), just add the **ThatStella7922 source** from the trusted sources, then install the app!
-
-If you'd like access to beta builds of Battery Webhook on TestFlight built from every new commit, consider [subscribing to my Patreon's](https://www.patreon.com/ThatStella7922) Quad-core tier.\
-<sub>This helps cover my living expenses and shows your interest in the app!</sub>
 
 ## Development
 ### Feature Status
