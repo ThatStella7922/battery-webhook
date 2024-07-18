@@ -26,8 +26,7 @@ Alternatively, you can look through the sidebar if you want to look for somethin
 
 * Battery Webhook on [ThatStella7922's Software site](https://software.thatstel.la/software/crossplatform-apps/battery-webhook)
 * Battery Webhook's [GitHub repository](https://github.com/ThatStella7922/battery-webhook)
-* Battery Webhook on [the App Store](https://apps.apple.com/us/app/battery-webhook/id6472404778)
-* [ThatStella7922's Patreon](https://www.patreon.com/ThatStella7922) which offers paid access to beta builds of Battery Webhook on TestFlight
+* [Battery Webhook on the app store, or how to install?](https://blog.thatstel.la/software/2024/07/18/update-on-the-availability-of-battery-webhook.html)
 
 ### Need help?
 
